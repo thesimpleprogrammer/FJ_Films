@@ -355,9 +355,9 @@ export default function WhatWeDo({
               <input
                 type="file"
                 id="upload"
-                className={`hidden ${!finished && "cursor-not-allowed"}`}
+                className={`hidden ${finished && "cursor-not-allowed"}`}
                 onChange={upload}
-                disabled={!finished}
+                disabled={finished}
               />
             </form>)}
             <Image
@@ -537,9 +537,9 @@ export default function WhatWeDo({
               <input
                 type="file"
                 id="upload2"
-                className={`hidden ${!finished && "cursor-not-allowed"}`}
+                className={`hidden ${finished && "cursor-not-allowed"}`}
                 onChange={upload2}
-                disabled={!finished}
+                disabled={finished}
               />
             </form>)}
             <Image
