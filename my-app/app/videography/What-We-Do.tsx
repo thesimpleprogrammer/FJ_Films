@@ -546,7 +546,7 @@ export default function WhatWeDo({
             (<form>
               <label
                 htmlFor="upload2"
-                className={`absolute top-1/2 -translate-y-1/2 left-1/2 ${finished ? "hover:bg-transparent hover:text-white": "hover:bg-white hover:text-black"} transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer hover:bg-white hover:text-black`}
+                className={`absolute top-1/2 -translate-y-1/2 left-1/2 ${finished ? "hover:bg-transparent hover:text-white": "hover:bg-white hover:text-black"} transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer`}
                 role="button"
                 tabIndex={0}
               >
