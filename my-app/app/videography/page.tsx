@@ -2,10 +2,11 @@ import Hero from "./Hero";
 import WhatWeDo from "./What-We-Do";
 import { createClient } from "../../utils/supabase/server";
 
+
 export default async function Home() {
   const supabase = await createClient();
 
-  const { data: user_page, error }: any = await supabase.auth.getUser();
+  const { data: user_page } = await supabase.auth.getUser();
 
   let videography_page_main;
   let videography_error_page_main;
@@ -128,12 +129,12 @@ export default async function Home() {
       <Hero
         user_hero={user_page}
         videography={videography_page_main}
-        videographyError={videography_error_page_main}
+        // videographyError={videography_error_page_main}
       />
       <WhatWeDo
         user_hero={user_page}
         videography={videography_page_main}
-        videographyError={videography_error_page_main}
+        // videographyError={videography_error_page_main}
         storageMain = {storageMain}
         url = {url}
         url2 = {url2}

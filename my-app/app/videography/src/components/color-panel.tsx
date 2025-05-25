@@ -1,6 +1,6 @@
 "use client";
 
-import React, { SetStateAction, useState } from "react";
+import React, { useState } from "react";
 import Tabs from "./tabs";
 import PresetView from "./preset-view";
 import CustomView from "./custom-view";

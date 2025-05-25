@@ -29,7 +29,7 @@ export default function Hero() {
             </p>
           </div>
             <a href="" className="px-5 py-3 border border-white hover:bg-white hover:text-black transition-colors">
-              Let's Get In Touch  
+              Let&apos;s Get In Touch  
             </a>
         </div>
       </div>

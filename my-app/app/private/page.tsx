@@ -12,7 +12,7 @@ export default async function PrivatePage() {
 
   return (
     <div className='w-full h-[100vh] flex flex-row justify-center items-center'>
-      <h1 className='text-white text-3xl'>We're still working on the current page...</h1>
+      <h1 className='text-white text-3xl'>We&apos;re still working on the current page...</h1>
     </div>
   )
 }

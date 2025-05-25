@@ -1,12 +1,15 @@
 'use client'
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect } from 'react'
-
 import type { Database } from '../../database.types'
 
-export default function SignUpPage({session}: any) {
+interface sessionType {
+  session: Session | null
+}
+
+export default function SignUpPage({session}: sessionType) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const router = useRouter()

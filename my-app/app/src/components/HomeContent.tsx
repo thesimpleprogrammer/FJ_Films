@@ -5,7 +5,8 @@ export default async function HomeContent() {
   
   const supabase = await createClient()
     
-  const { data, error } = await supabase.auth.getUser()
+  const { data } = await supabase.auth.getUser()
+  // const { data, error } = await supabase.auth.getUser()
 
   const contents = [
     {item: "Photography"},

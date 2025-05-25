@@ -1,4 +1,4 @@
-import { login, signup } from './actions'
+import { login } from './actions'
 import { createClient } from '../../utils/supabase/server'
 import { redirect } from 'next/navigation'
 
@@ -6,7 +6,7 @@ export default async function LoginPage() {
 
     const supabase = await createClient()
     
-    const { data, error } = await supabase.auth.getUser()
+    const { data } = await supabase.auth.getUser()
     
       if (data?.user) {
         console.log(JSON.stringify(data))

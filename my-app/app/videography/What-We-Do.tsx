@@ -1,21 +1,30 @@
 "use client";
 
 import Image from "next/image";
-import image1 from "../../public/17039.jpg";
-import image2 from "../../public/2149891235.jpg";
+// import image1 from "../../public/17039.jpg";
+// import image2 from "../../public/2149891235.jpg";
 import colorwheel from "../../public/color-wheel.png";
-import { useState, useRef, useEffect, SetStateAction } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
 import ColorPicker from "./src/components/color-picker";
+import { User } from "@supabase/auth-helpers-nextjs";
+
+interface supabaseData {
+  user_hero: { user: User; } | { user: null; }
+  videography: any[] | undefined
+  storageMain: { publicUrl: string;} | undefined
+  url: string | undefined
+  url2: string | undefined
+}
 
 export default function WhatWeDo({
   user_hero,
   videography,
-  videographyError,
+  // videographyError,
   storageMain,
   url,
   url2,
-}: any) {
+}: supabaseData) {
   const [element, setElement] = useState("");
   const [changed, setChanged] = useState(false);
   const [first, setFirst] = useState(false);
@@ -23,8 +32,8 @@ export default function WhatWeDo({
   const [finished, setFinished] = useState(false);
   const [data, setData] = useState(videography);
   const [selected, setSelected] = useState(false);
-  const [urlInfo, setUrlInfo]: any = useState(url);
-  const [urlInfo2, setUrlInfo2] = useState(url2);
+  const [urlInfo, setUrlInfo]: string | any = useState(url);
+  const [urlInfo2, setUrlInfo2]: string | any = useState(url2);
   // const [openColorPicker, setOpenColorPicker] = useState(false);
 
   const refs = {
@@ -35,14 +44,16 @@ export default function WhatWeDo({
     videography_section2_2_paragraph: useRef<HTMLSpanElement>(null),
   };
 
-  console.log(
-    "This is the data in videography: " + JSON.stringify(videography[0])
-  );
+  // if(videography) {
+  //   console.log(
+  //     "This is the data in videography: " + JSON.stringify(videography[0])
+  //   );
+  // }
 
   const getContent = (key: string) => {
     return (
       // videography.find((el: any) => el.element.includes(key))?.content || ""
-      data.find((el: any) => el.element.includes(key))?.content || ""
+      data?.find((el: any) => el.element.includes(key))?.content || ""
     );
   };
 
@@ -55,8 +66,8 @@ export default function WhatWeDo({
     const supabase = createClient();
 
     // Optimistically update the UI
-    setData((prev: any[]) =>
-      prev.map((el) =>
+    setData((prev: any[] | undefined) =>
+      prev && prev.map((el) =>
         el.element === "videography_section2_div1_color"
           ? { ...el, content: color }
           : el
@@ -95,8 +106,8 @@ export default function WhatWeDo({
       .select();
 
     if (!error && updated?.[0]) {
-      setData((prev: any[]) =>
-        prev.map((el) =>
+      setData((prev: any[] | undefined) =>
+        prev && prev.map((el) =>
           el.element === element ? { ...el, content: updated[0].content } : el
         )
       );
@@ -187,7 +198,7 @@ export default function WhatWeDo({
       // setSelectedFile(fileName);
       console.log("This is the file name: " + fileName);
 
-      const { data, error } = await supabase.storage
+      const { data } = await supabase.storage
         .from("videography")
         .upload(`section2_1/${file.name}`, file, {
           cacheControl: "3600",
@@ -265,7 +276,7 @@ export default function WhatWeDo({
       const fileName = imageData[0].name;
       console.log("This is the file name: " + fileName);
 
-      const { data, error } = await supabase.storage
+      const { data } = await supabase.storage
         .from("videography")
         .upload(`section2_2/${file.name}`, file, {
           cacheControl: "3600",

@@ -2,12 +2,18 @@
 
 import { useState, useRef, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
+import { User } from "@supabase/auth-helpers-nextjs";
+
+interface supabaseData {
+  user_hero: { user: User; } | { user: null; }
+  videography: any[] | undefined
+}
 
 export default function Hero({
   user_hero,
   videography,
-  videographyError,
-}: any) {
+  // videographyError,
+}: supabaseData) {
   const [element, setElement] = useState("");
   const [changed, setChanged] = useState(false);
   const [finished, setFinished] = useState(false);
@@ -24,7 +30,7 @@ export default function Hero({
   const getContent = (key: string) => {
     return (
       // videography.find((el: any) => el.element.includes(key))?.content || ""
-      data.find((el: any) => el.element.includes(key))?.content || ""
+      data?.find((el: any) => el.element.includes(key))?.content || ""
     );
   };
 
@@ -47,8 +53,8 @@ export default function Hero({
       .select();
 
     if (!error && updated?.[0]) {
-      setData((prev: any[]) =>
-        prev.map((el) =>
+      setData((prev: any[] | undefined) =>
+        prev && prev.map((el) =>
           el.element === element ? { ...el, content: updated[0].content } : el
         )
       );
@@ -185,7 +191,7 @@ export default function Hero({
                 href=""
                 className="px-5 py-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
               >
-                Let's Get In Touch
+                Let&apos;s Get In Touch
               </a>
               <a
                 href=""
