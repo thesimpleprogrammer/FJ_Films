@@ -173,6 +173,7 @@ export default function Hero({
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning={true}
+                  onKeyDown={handleKeyDown}
                 >
                   {getContent("videography_section1_paragraph")}
                 </span>
