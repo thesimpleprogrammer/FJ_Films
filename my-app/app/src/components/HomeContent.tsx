@@ -1,6 +1,12 @@
-export default function HomeContent() {
+import { createClient } from '../../../utils/supabase/server'
+
+export default async function HomeContent() {
   // consectetur adipisicing elit. Temporibus esse suscipit fuga non nobis, sint magni officiis in consectetur iure cum cumque delectus deserunt, nisi tenetur impedit? Et, velit minima.
   
+  const supabase = await createClient()
+    
+  const { data, error } = await supabase.auth.getUser()
+
   const contents = [
     {item: "Photography"},
     {item: "Videography"},
@@ -11,6 +17,7 @@ export default function HomeContent() {
   
   return (
     <div className="w-full pt-28 pb-10">
+        {data?.user && <h1 className='text-white float-right mr-5'>Welcome {data.user.email}</h1>}
       <div className="w-[40%] mx-auto">
         <div className="text-white text-center text-md mb-5">
           <h1 className="text-3xl mb-3">FJ Films</h1>
@@ -43,9 +50,9 @@ export default function HomeContent() {
             }
         </div>
       </div>
-      <div className="text-white border border-white w-[25px] h-[25px] text-sm flex flex-col text-center justify-center mx-auto mt-20">
-        <h3>FJ</h3>
-      </div>
+      <a href="/login" className="text-white border border-white w-[25px] h-[25px] text-sm flex flex-col text-center justify-center mx-auto mt-20">
+        FJ
+      </a>
     </div>
   );
 }
