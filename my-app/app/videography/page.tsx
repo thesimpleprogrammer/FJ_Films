@@ -1,13 +1,11 @@
 import Hero from "./Hero";
 import WhatWeDo from "./What-We-Do";
 import { createClient } from "../../utils/supabase/server";
-import SignOutButton from "../src/components/SignOutButton";
-import { Bounce, toast, ToastContainer } from "react-toastify";
-import signOut from "../src/components/signOut";
-import { useState } from "react";
+// import SignOutButton from "../src/components/SignOutButton";
+// import { Bounce, toast, ToastContainer } from "react-toastify";
+// import signOut from "../src/components/signOut";
 
 export default async function Home() {
-  const [loading, setLoading] = useState(false);
 
   const supabase = await createClient();
 
@@ -131,33 +129,9 @@ export default async function Home() {
     console.log("There was an Error: " + error);
   }
 
-  const handleSubmit = async () => {
-    setLoading(true);
-
-    const result = await signOut();
-
-    if (result.success) {
-      toast.success("Successfully Logged Out", {
-        theme: "dark",
-        transition: Bounce,
-      });
-
-      // Optional: delay for user feedback
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
-    } else {
-      toast.error(`Logout Failed: ${result.message}`, {
-        theme: "dark",
-        transition: Bounce,
-      });
-    }
-    setLoading(false);
-  };
-
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Hero
         user_hero={user_page}
         videography={videography_page_main}
@@ -171,7 +145,6 @@ export default async function Home() {
         url={url}
         url2={url2}
       />
-      <SignOutButton handleSubmit={handleSubmit} loading={loading} />
     </>
   );
 }
