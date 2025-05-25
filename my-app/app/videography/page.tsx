@@ -9,7 +9,7 @@ export default async function Home() {
   const { data: user_page } = await supabase.auth.getUser();
 
   let videography_page_main;
-  let videography_error_page_main;
+  // let videography_error_page_main;
   let storageMain;
   let url;
   let url2;
@@ -40,7 +40,7 @@ export default async function Home() {
 
     if (videography_error_page) {
       console.error("Error fetching videography data:", videography_error_page);
-      videography_error_page_main = videography_error_page;
+      // videography_error_page_main = videography_error_page;
       return;
     }
 
