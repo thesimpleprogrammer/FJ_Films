@@ -2,7 +2,7 @@
 
 import { createClient } from '../../../utils/supabase/server'
 
-export default async function signOut() {
+export default async function logOut() {
     const supabase = await createClient()
 
     const { error } = await supabase.auth.signOut()
