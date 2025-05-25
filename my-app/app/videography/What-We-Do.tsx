@@ -318,6 +318,13 @@ export default function WhatWeDo({
 
   console.log("This is the user dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: " + user_hero)
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
+  if (e.key === "Enter") {
+    e.preventDefault(); // prevents newline from being added
+    onDone();
+  }
+};
+
   return (
     <span
       ref={refs.videography_section2_div1_color}
@@ -375,6 +382,7 @@ export default function WhatWeDo({
           <div className="w-1/2 p-10 h-full relative">
             <div
               onClick={onBg}
+              onKeyDown={handleKeyDown}
               className={`w-full h-[400px] transition-opacity ${
                 element !== "" && first
                   ? `opacity-50 z-40 pointer-events-auto`
@@ -390,6 +398,7 @@ export default function WhatWeDo({
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
+                  onKeyDown={handleKeyDown}
                 >
                   {getContent("videography_section2_h1")}
                 </span>
@@ -415,6 +424,7 @@ export default function WhatWeDo({
                 } w-fit px-3 flex flex-row relative border border-white mb-12 rounded-md py-3`}
               >
                 <span
+                  onKeyDown={handleKeyDown}
                   ref={refs.videography_section2_paragraph}
                   className="input outline-none"
                   role="textbox"
@@ -449,6 +459,7 @@ export default function WhatWeDo({
           <div className="w-1/2 p-10 h-full relative">
             <div
               onClick={onBg}
+              onKeyDown={handleKeyDown}
               className={`w-full h-[400px] transition-opacity ${
                 element !== "" && second
                   ? `opacity-50 z-40 pointer-events-auto`
@@ -464,6 +475,7 @@ export default function WhatWeDo({
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
+                  onKeyDown={handleKeyDown}
                 >
                   {getContent("videography_section2_2_h1")}
                 </span>
@@ -496,6 +508,7 @@ export default function WhatWeDo({
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning={true}
+                  onKeyDown={handleKeyDown}
                 >
                   {getContent("videography_section2_2_paragraph")}
                 </span>
