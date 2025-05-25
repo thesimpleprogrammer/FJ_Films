@@ -367,6 +367,7 @@ export default function WhatWeDo({
               className="h-full w-full z-30"
               width={1024}
               height={1024}
+              placeholder="empty"
               unoptimized
             />
           </div>)}
@@ -549,6 +550,7 @@ export default function WhatWeDo({
               className="h-full w-full z-30"
               width={1024}
               height={1024}
+              placeholder="empty"
               unoptimized
             />
           </div>)}
