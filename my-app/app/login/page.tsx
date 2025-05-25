@@ -47,10 +47,10 @@ export default function LoginForm() {
       <h1 className='text-white text-3xl w-[40%]'>Login</h1>
       <form onSubmit={handleSubmit} className='text-white flex flex-col gap-3 w-[40%]'>
         <label htmlFor="email">Email:</label>
-        <input id="email" name="email" type="email" className='border border-white p-3' required />
+        <input id="email" name="email" type="email" className='border border-white p-3 focus:outline-none' required />
         <label htmlFor="password">Password:</label>
-        <input id="password" name="password" type="password" className='border border-white p-3' required />
-        <button type="submit" disabled={loading} className='bg-white text-black mt-7 py-3'>
+        <input id="password" name="password" type="password" className='border focus:outline-none border-white p-3' required />
+        <button type="submit" disabled={loading} className='py-3 bg-white text-black hover:cursor-pointer w-full transition-colors border border-transparent duration-300 hover:text-white hover:bg-transparent hover:border hover:border-white text-center mt-7'>
           {loading ? 'Logging in...' : 'Log in'}
         </button>
       </form>
