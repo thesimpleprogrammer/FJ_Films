@@ -1,3 +1,5 @@
+'use client'
+
 import Hero from "./src/components/Hero"
 import HomeContent from "./src/components/HomeContent"
 import { ToastContainer, toast, Bounce } from "react-toastify";
