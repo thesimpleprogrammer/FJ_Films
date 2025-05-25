@@ -1,9 +1,14 @@
 import Hero from "./Hero";
 import WhatWeDo from "./What-We-Do";
 import { createClient } from "../../utils/supabase/server";
-
+import SignOutButton from "../src/components/SignOutButton";
+import { Bounce, toast, ToastContainer } from "react-toastify";
+import signOut from "../src/components/SignOut";
+import { useState } from "react";
 
 export default async function Home() {
+  const [loading, setLoading] = useState(false);
+
   const supabase = await createClient();
 
   const { data: user_page } = await supabase.auth.getUser();
@@ -15,9 +20,9 @@ export default async function Home() {
   let url2;
 
   try {
-    const { data: storageData} =
-    await supabase.storage.from('videography')
-    .getPublicUrl("section2/17039.jpg")
+    const { data: storageData } = await supabase.storage
+      .from("videography")
+      .getPublicUrl("section2/17039.jpg");
 
     if (!storageData) {
       console.error("Error fetching videography data");
@@ -28,13 +33,11 @@ export default async function Home() {
     // Handle the fetched data (e.g., update state)
     console.log(storageData);
     storageMain = storageData;
-
   } catch (error) {
     console.error("Error:", error);
   }
 
   try {
-
     const { data: videography_page, error: videography_error_page } =
       await supabase.from("videography").select("*");
 
@@ -54,78 +57,107 @@ export default async function Home() {
 
   try {
     // const getData = async () => {
-        const supabase = await createClient();
-    
-        const { data, error } = await supabase.storage
-          .from("videography")
-          .list("section2_1", {
-            limit: 100,
-            offset: 0,
-            sortBy: { column: "name", order: "asc" },
-          });
-    
-        if (data) {
-          console.log("This is the data that has the problem" + JSON.stringify(data))
-          const fileName = data[0].name;
-          // setSelectedFile(fileName);
-          console.log("This is the file name: " + fileName)
-    
-          const { data: urlData } = supabase.storage
-            .from("videography")
-            .getPublicUrl(`section2_1/${fileName}`);
-    
-          if(urlData){
-            // setUrl(urlData.publicUrl)
-            url = urlData.publicUrl
-            console.log("This is the url: "+ JSON.stringify(urlData.publicUrl))
-          }
-        } else {
-          console.log("There was an error: " + error);
-          return;
-        }
-      // };
+    const supabase = await createClient();
+
+    const { data, error } = await supabase.storage
+      .from("videography")
+      .list("section2_1", {
+        limit: 100,
+        offset: 0,
+        sortBy: { column: "name", order: "asc" },
+      });
+
+    if (data) {
+      console.log(
+        "This is the data that has the problem" + JSON.stringify(data)
+      );
+      const fileName = data[0].name;
+      // setSelectedFile(fileName);
+      console.log("This is the file name: " + fileName);
+
+      const { data: urlData } = supabase.storage
+        .from("videography")
+        .getPublicUrl(`section2_1/${fileName}`);
+
+      if (urlData) {
+        // setUrl(urlData.publicUrl)
+        url = urlData.publicUrl;
+        console.log("This is the url: " + JSON.stringify(urlData.publicUrl));
+      }
+    } else {
+      console.log("There was an error: " + error);
+      return;
+    }
+    // };
   } catch (error) {
-    console.log("There was an Error: "+ error)
+    console.log("There was an Error: " + error);
   }
 
   try {
     // const getData = async () => {
-        const supabase = await createClient();
-    
-        const { data, error } = await supabase.storage
-          .from("videography")
-          .list("section2_2", {
-            limit: 100,
-            offset: 0,
-            sortBy: { column: "name", order: "asc" },
-          });
-    
-        if (data) {
-          console.log("This is the data Ive been looking for: " + JSON.stringify(data))
-          const fileName = data[0].name;
-          // setSelectedFile(fileName);
-          console.log("This is the file name: " + fileName)
-    
-          const { data: urlData } = supabase.storage
-            .from("videography")
-            .getPublicUrl(`section2_2/${fileName}`);
-    
-          if(urlData){
-            // setUrl(urlData.publicUrl)
-            url2 = urlData.publicUrl
-            console.log("This is the url: "+ JSON.stringify(urlData.publicUrl))
-          }
-        } else {
-          console.log("There was an error: " + error);
-          return;
-        }
-      // };
+    const supabase = await createClient();
+
+    const { data, error } = await supabase.storage
+      .from("videography")
+      .list("section2_2", {
+        limit: 100,
+        offset: 0,
+        sortBy: { column: "name", order: "asc" },
+      });
+
+    if (data) {
+      console.log(
+        "This is the data Ive been looking for: " + JSON.stringify(data)
+      );
+      const fileName = data[0].name;
+      // setSelectedFile(fileName);
+      console.log("This is the file name: " + fileName);
+
+      const { data: urlData } = supabase.storage
+        .from("videography")
+        .getPublicUrl(`section2_2/${fileName}`);
+
+      if (urlData) {
+        // setUrl(urlData.publicUrl)
+        url2 = urlData.publicUrl;
+        console.log("This is the url: " + JSON.stringify(urlData.publicUrl));
+      }
+    } else {
+      console.log("There was an error: " + error);
+      return;
+    }
+    // };
   } catch (error) {
-    console.log("There was an Error: "+ error)
+    console.log("There was an Error: " + error);
   }
+
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    const result = await signOut();
+
+    if (result.success) {
+      toast.success("Successfully Logged Out", {
+        theme: "dark",
+        transition: Bounce,
+      });
+
+      // Optional: delay for user feedback
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    } else {
+      toast.error(`Logout Failed: ${result.message}`, {
+        theme: "dark",
+        transition: Bounce,
+      });
+    }
+    setLoading(false);
+  };
 
   return (
     <>
+      <ToastContainer />
       <Hero
         user_hero={user_page}
         videography={videography_page_main}
@@ -135,10 +167,11 @@ export default async function Home() {
         user_hero={user_page}
         videography={videography_page_main}
         // videographyError={videography_error_page_main}
-        storageMain = {storageMain}
-        url = {url}
-        url2 = {url2}
+        storageMain={storageMain}
+        url={url}
+        url2={url2}
       />
+      <SignOutButton handleSubmit={handleSubmit} loading={loading} />
     </>
   );
 }
