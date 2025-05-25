@@ -346,7 +346,7 @@ export default function WhatWeDo({
             {user_hero.user && (<form>
               <label
                 htmlFor="upload"
-                className="absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer hover:bg-white hover:text-black"
+                className={`absolute top-1/2 -translate-y-1/2 left-1/2 transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer hover:bg-white hover:text-black`}
                 role="button"
                 tabIndex={0}
               >
@@ -355,8 +355,9 @@ export default function WhatWeDo({
               <input
                 type="file"
                 id="upload"
-                className="hidden"
+                className={`hidden ${!finished && "cursor-not-allowed"}`}
                 onChange={upload}
+                disabled={!finished}
               />
             </form>)}
             <Image
@@ -536,8 +537,9 @@ export default function WhatWeDo({
               <input
                 type="file"
                 id="upload2"
-                className="hidden"
+                className={`hidden ${!finished && "cursor-not-allowed"}`}
                 onChange={upload2}
+                disabled={!finished}
               />
             </form>)}
             <Image
