@@ -105,6 +105,7 @@ export default function Hero({
           <div className="w-full px-[15%] flex flex-col justify-center h-full">
             <div
               onClick={onBg}
+              onKeyDown={handleKeyDown}
               className={`w-full h-[100vh] transition-opacity ${
                 element !== ""
                   ? `opacity-50 z-40 pointer-events-auto`
@@ -120,6 +121,7 @@ export default function Hero({
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
+                  onKeyDown={handleKeyDown}
                 >
                   {getContent("videography_section1_h1")}
                 </span>
