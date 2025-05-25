@@ -318,10 +318,14 @@ export default function WhatWeDo({
 
   console.log("This is the user dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: " + user_hero)
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLSpanElement>) => {
   if (e.key === "Enter") {
     e.preventDefault(); // prevents newline from being added
-    onDone();
+    // onDone();
+    await setChanged(!changed);
+    setFirst(false);
+    setSecond(false);
+    setElement("");
   }
 };
 
