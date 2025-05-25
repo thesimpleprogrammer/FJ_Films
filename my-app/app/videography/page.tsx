@@ -1,6 +1,7 @@
 import Hero from "./Hero";
 import WhatWeDo from "./What-We-Do";
 import { createClient } from "../../utils/supabase/server";
+import SignOutButton from "../src/components/SignOutButton";
 // import SignOutButton from "../src/components/SignOutButton";
 // import { Bounce, toast, ToastContainer } from "react-toastify";
 // import signOut from "../src/components/signOut";
@@ -145,6 +146,7 @@ export default async function Home() {
         url={url}
         url2={url2}
       />
+      <SignOutButton user={user_page} />
     </>
   );
 }
