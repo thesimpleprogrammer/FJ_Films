@@ -3,7 +3,7 @@ import WhatWeDo from "./What-We-Do";
 import { createClient } from "../../utils/supabase/server";
 import SignOutButton from "../src/components/SignOutButton";
 import { Bounce, toast, ToastContainer } from "react-toastify";
-import signOut from "../src/components/SignOut";
+import signOut from "../src/components/signOut";
 import { useState } from "react";
 
 export default async function Home() {
