@@ -83,6 +83,13 @@ export default function Hero({
     setElement("");
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLSpanElement>) => {
+  if (e.key === "Enter") {
+    e.preventDefault(); // prevents newline from being added
+    onDone();
+  }
+};
+
   return (
     <div className="w-full h-[100vh] overflow-clip relative">
       <div className="w-full relative flex flex-row h-full">
@@ -136,6 +143,7 @@ export default function Hero({
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
+                  onKeyDown={handleKeyDown}
                 >
                   {getContent("videography_section1_h3")}
                 </span>
