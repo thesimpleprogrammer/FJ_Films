@@ -1,0 +1,575 @@
+//What-we-do.jsx raw Upload logic
+
+// const onBg2 = async () => {
+  //   // setFinished(false);
+  //   await setChanged2(!changed2);
+  //   setElement("");
+  // };
+
+  // const getData = async () => {
+  //   const supabase = await createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_1", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data) {
+  //     const fileName = data[0].name;
+
+  //     const { data: urlData } = await supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_1/${fileName}`);
+
+  //     if (urlData) {
+  //       await setUrlInfo(urlData.publicUrl);
+  //       setFinished(false);
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     return;
+  //   }
+  // };
+
+  // const upload = async (event: any) => {
+  //   event.preventDefault();
+  //   const file = event.target.files[0];
+
+  //   setFinished(true);
+
+  //   const supabase = await createClient();
+
+  //   const { data: imageData, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_1", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (imageData) {
+  //     const fileName = imageData[0].name;
+
+  //     const { data } = await supabase.storage
+  //       .from("videography")
+  //       .upload(`section2_1/${file.name}`, file, {
+  //         cacheControl: "3600",
+  //         upsert: false,
+  //       });
+
+  //     if (!data) {
+  //       setFinished(false);
+  //       return;
+  //     }
+
+  //     const { data: dataDelete, error: errorDelete } = await supabase.storage
+  //       .from("videography")
+  //       .remove([`section2_1/${fileName}`]);
+
+  //     if (errorDelete) {
+  //       setFinished(false);
+  //       console.log("Couldn't delete: " + errorDelete);
+  //     } else {
+  //       console.log("Success: " + dataDelete);
+  //       getData();
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     setFinished(false);
+  //     return;
+  //   }
+  // };
+
+  // const getData2 = async () => {
+  //   const supabase = createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_2", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data && data.length > 0) {
+  //     const fileName = data[0].name;
+  //     const { data: urlData } = await supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_2/${fileName}`);
+
+  //     if (urlData) {
+  //       await setUrlInfo2(urlData.publicUrl);
+  //       setFinished(false);
+  //     }
+  //   } else {
+  //     console.error("Error loading second image:", error);
+  //   }
+  // };
+
+  // const upload2 = async (event: any) => {
+  //   event.preventDefault();
+  //   const file = event.target.files[0];
+
+  //   setFinished(true);
+
+  //   const supabase = await createClient();
+
+  //   const { data: imageData, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_2", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (imageData) {
+  //     const fileName = imageData[0].name;
+
+  //     const { data } = await supabase.storage
+  //       .from("videography")
+  //       .upload(`section2_2/${file.name}`, file, {
+  //         cacheControl: "3600",
+  //         upsert: false,
+  //       });
+
+  //     if (!data) {
+  //       setFinished(false);
+  //       return;
+  //     }
+
+  //     const { data: dataDelete, error: errorDelete } = await supabase.storage
+  //       .from("videography")
+  //       .remove([`section2_2/${fileName}`]);
+
+  //     if (errorDelete) {
+  //       setFinished(false);
+  //       console.log("Couldn't delete: " + errorDelete);
+  //     } else {
+  //       console.log("Success: " + dataDelete);
+  //       getData2();
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     setFinished(false);
+  //     return;
+  //   }
+  // };
+
+  // const getData3 = async () => {
+  //   const supabase = createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_3", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data && data.length > 0) {
+  //     const fileName = data[0].name;
+  //     const { data: urlData } = await supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_3/${fileName}`);
+
+  //     if (urlData) {
+  //       await setUrlInfo3(urlData.publicUrl);
+  //       setFinished(false);
+  //     }
+  //   } else {
+  //     console.error("Error loading second image:", error);
+  //   }
+  // };
+
+  // const upload3 = async (event: any) => {
+  //   event.preventDefault();
+  //   const file = event.target.files[0];
+
+  //   setFinished(true);
+
+  //   const supabase = await createClient();
+
+  //   const { data: imageData, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_3", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (imageData) {
+  //     const fileName = imageData[0].name;
+
+  //     const { data } = await supabase.storage
+  //       .from("videography")
+  //       .upload(`section2_3/${file.name}`, file, {
+  //         cacheControl: "3600",
+  //         upsert: false,
+  //       });
+
+  //     if (!data) {
+  //       setFinished(false);
+  //       return;
+  //     }
+
+  //     const { data: dataDelete, error: errorDelete } = await supabase.storage
+  //       .from("videography")
+  //       .remove([`section2_3/${fileName}`]);
+
+  //     if (errorDelete) {
+  //       setFinished(false);
+  //       console.log("Couldn't delete: " + errorDelete);
+  //     } else {
+  //       console.log("Success: " + dataDelete);
+  //       getData3();
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     setFinished(false);
+  //     return;
+  //   }
+  // };
+
+  // const getData4 = async () => {
+  //   const supabase = createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_4", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data && data.length > 0) {
+  //     const fileName = data[0].name;
+  //     const { data: urlData } = await supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_4/${fileName}`);
+
+  //     if (urlData) {
+  //       await setUrlInfo4(urlData.publicUrl);
+  //       setFinished(false);
+  //     }
+  //   } else {
+  //     console.error("Error loading second image:", error);
+  //   }
+  // };
+
+  // const upload4 = async (event: any) => {
+  //   event.preventDefault();
+  //   const file = event.target.files[0];
+
+  //   setFinished(true);
+
+  //   const supabase = await createClient();
+
+  //   const { data: imageData, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_4", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (imageData) {
+  //     const fileName = imageData[0].name;
+
+  //     const { data } = await supabase.storage
+  //       .from("videography")
+  //       .upload(`section2_4/${file.name}`, file, {
+  //         cacheControl: "3600",
+  //         upsert: false,
+  //       });
+
+  //     if (!data) {
+  //       setFinished(false);
+  //       return;
+  //     }
+
+  //     const { data: dataDelete, error: errorDelete } = await supabase.storage
+  //       .from("videography")
+  //       .remove([`section2_4/${fileName}`]);
+
+  //     if (errorDelete) {
+  //       setFinished(false);
+  //       console.log("Couldn't delete: " + errorDelete);
+  //     } else {
+  //       console.log("Success: " + dataDelete);
+  //       getData4();
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     setFinished(false);
+  //     return;
+  //   }
+  // };
+
+
+   {/* {(<div className={`relative w-1/2 h-full ${user_hero.user && `group`}`}>
+            <div className="absolute top-0 left-0 w-full h-full transition-opacity duration-300 bg-black opacity-0 group-hover:opacity-50 flex flex-row justify-center items-center" />
+            {user_hero.user && (<form>
+              <label
+                htmlFor="upload"
+                className={`absolute top-1/2 -translate-y-1/2 left-1/2 ${finished ? "hover:bg-transparent hover:text-white": "hover:bg-white hover:text-black"} transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer`}
+                role="button"
+                tabIndex={0}
+              >
+                Upload
+              </label>
+              <input
+                type="file"
+                id="upload"
+                className={`hidden ${finished && "hover:pointer-events-none"}`}
+                // onChange={upload}
+                onChange={(e) => uploadSectionFile(e, "section2_1", setFinished, setUrlInfo)}
+                disabled={finished}
+              />
+            </form>)}
+            <Image
+              priority
+              src={urlInfo}
+              alt=""
+              className="h-full w-full z-30"
+              width={1024}
+              height={1024}
+              placeholder="empty"
+              unoptimized
+            />
+          </div>)} */}
+
+          {/* {
+            <div
+              className={`relative w-1/2 h-full ${user_hero.user && `group`}`}
+            >
+              <div className="absolute top-0 left-0 w-full h-full transition-opacity duration-300 bg-black opacity-0 group-hover:opacity-50 flex flex-row justify-center items-center" />
+              {user_hero.user && (
+                <form>
+                  <label
+                    htmlFor="upload2"
+                    className={`absolute top-1/2 -translate-y-1/2 left-1/2 ${
+                      finished
+                        ? "hover:bg-transparent hover:text-white"
+                        : "hover:bg-white hover:text-black"
+                    } transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer`}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    Upload
+                  </label>
+                  <input
+                    type="file"
+                    id="upload2"
+                    className={`hidden ${
+                      finished && "hover:pointer-events-none"
+                    }`}
+                    onChange={(e) =>
+                      uploadSectionFile(
+                        e,
+                        "section2_2",
+                        setFinished,
+                        setUrlInfo2
+                      )
+                    }
+                    // onChange={upload2}
+                    disabled={finished}
+                  />
+                </form>
+              )}
+              <Image
+                priority
+                src={urlInfo2}
+                alt=""
+                className="h-full w-full z-30"
+                width={1024}
+                height={1024}
+                placeholder="empty"
+                unoptimized
+              />
+            </div>
+          } */}
+
+          {/* {
+            <div
+              className={`relative w-1/2 h-full ${user_hero.user && `group`}`}
+            >
+              <div className="absolute top-0 left-0 w-full h-full transition-opacity duration-300 bg-black opacity-0 group-hover:opacity-50 flex flex-row justify-center items-center" />
+              {user_hero.user && (
+                <form>
+                  <label
+                    htmlFor="upload3"
+                    className={`absolute top-1/2 -translate-y-1/2 left-1/2 ${
+                      finished
+                        ? "hover:bg-transparent hover:text-white"
+                        : "hover:bg-white hover:text-black"
+                    } transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 hover:cursor-pointer`}
+                    role="button"
+                    tabIndex={0}
+                  >
+                    Upload
+                  </label>
+                  <input
+                    type="file"
+                    id="upload3"
+                    className={`hidden ${
+                      finished && "hover:pointer-events-none"
+                    }`}
+                    // onChange={upload3}
+                    onChange={(e) =>
+                      uploadSectionFile(
+                        e,
+                        "section2_3",
+                        setFinished,
+                        setUrlInfo3
+                      )
+                    }
+                    disabled={finished}
+                  />
+                </form>
+              )}
+              <Image
+                priority
+                src={urlInfo3}
+                alt=""
+                className="h-full w-full z-30"
+                width={1024}
+                height={1024}
+                placeholder="empty"
+                unoptimized
+              />
+            </div>
+          } */}
+
+          //page.tsx
+          // try {
+  //   // const getData = async () => {
+  //   const supabase = await createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_1", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data) {
+  //     const fileName = data[0].name;
+  //     // setSelectedFile(fileName);
+  //     const { data: urlData } = supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_1/${fileName}`);
+
+  //     if (urlData) {
+  //       // setUrl(urlData.publicUrl)
+  //       url = urlData.publicUrl;
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     return;
+  //   }
+  //   // };
+  // } catch (error) {
+  //   console.log("There was an Error: " + error);
+  // }
+
+  // try {
+  //   // const getData = async () => {
+  //   const supabase = await createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_2", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data) {
+  //     const fileName = data[0].name;
+  //     // setSelectedFile(fileName);
+  //     const { data: urlData } = supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_2/${fileName}`);
+
+  //     if (urlData) {
+  //       // setUrl(urlData.publicUrl)
+  //       url2 = urlData.publicUrl;
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     return;
+  //   }
+  //   // };
+  // } catch (error) {
+  //   console.log("There was an Error: " + error);
+  // }
+
+  // try {
+  //   // const getData = async () => {
+  //   const supabase = await createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_3", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data) {
+  //     const fileName = data[0].name;
+  //     // setSelectedFile(fileName);
+  //     console.log("This is the file name: " + fileName);
+
+  //     const { data: urlData } = supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_3/${fileName}`);
+
+  //     if (urlData) {
+  //       // setUrl(urlData.publicUrl)
+  //       url3 = urlData.publicUrl;
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     return;
+  //   }
+  //   // };
+  // } catch (error) {
+  //   console.log("There was an Error: " + error);
+  // }
+
+  // try {
+  //   // const getData = async () => {
+  //   const supabase = await createClient();
+
+  //   const { data, error } = await supabase.storage
+  //     .from("videography")
+  //     .list("section2_4", {
+  //       limit: 100,
+  //       offset: 0,
+  //       sortBy: { column: "name", order: "asc" },
+  //     });
+
+  //   if (data) {
+  //     const fileName = data[0].name;
+  //     // setSelectedFile(fileName);
+  //     const { data: urlData } = supabase.storage
+  //       .from("videography")
+  //       .getPublicUrl(`section2_4/${fileName}`);
+
+  //     if (urlData) {
+  //       // setUrl(urlData.publicUrl)
+  //       url4 = urlData.publicUrl;
+  //     }
+  //   } else {
+  //     console.log("There was an error: " + error);
+  //     return;
+  //   }
+  //   // };
+  // } catch (error) {
+  //   console.log("There was an Error: " + error);
+  // }

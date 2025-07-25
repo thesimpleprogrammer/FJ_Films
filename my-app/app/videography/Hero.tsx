@@ -25,7 +25,7 @@ export default function Hero({
     videography_section1_h3: useRef<HTMLSpanElement>(null),
   };
 
-  console.log("This is the user_hero: " + JSON.stringify(user_hero))
+  // console.log("This is the user_hero: " + JSON.stringify(user_hero))
 
   const getContent = (key: string) => {
     return (

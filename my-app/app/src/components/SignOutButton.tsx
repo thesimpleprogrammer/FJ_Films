@@ -8,7 +8,8 @@ import logOut from "./logOut"
 interface signOutProps {
     // handleSubmit: () => Promise<void>
     // loading: boolean
-    user: { user: User;} | { user: null; }
+    // user: { user: User;} | { user: null; }
+    user: User | null
 }
 
 export default function SignOutButton ({user}: signOutProps) {
@@ -48,7 +49,7 @@ export default function SignOutButton ({user}: signOutProps) {
     return (
     <>
     <ToastContainer />
-        {user.user && <div onClick={handleSubmit} className="bg-rose-600 z-100 px-3 py-1 absolute top-5 right-5 text-white border border-transparent hover:cursor-pointer hover:bg-transparent hover:border hover:border-rose-600">
+        {user && <div onClick={handleSubmit} className="bg-rose-600 z-100 px-3 py-1 absolute top-5 right-5 text-white border border-transparent hover:cursor-pointer hover:bg-transparent hover:border hover:border-rose-600">
       {loading ? "Signing Out" : "Sign Out"}
     </div>}
     </>
