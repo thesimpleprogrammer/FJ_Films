@@ -99,7 +99,7 @@ export default function Hero({
             Your browser does not support the video tag.
           </video>
         </div>
-        <div className="absolute bg-blue-950 opacity-50 top-0 left-0 w-full h-full" />
+        <div className="absolute bg-blue-950 z-60 opacity-50 top-0 left-0 w-full h-full" />
 
         <div className="absolute top-1/2 transform -translate-y-1/2 left-0 h-full w-full text-center flex justify-center items-center text-white z-60">
           <div className="w-full px-[15%] flex flex-col justify-center h-full">
