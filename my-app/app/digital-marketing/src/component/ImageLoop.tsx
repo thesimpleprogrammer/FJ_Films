@@ -1,0 +1,44 @@
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import loop1 from "../../../../public/2073.jpg";
+import loop2 from "../../../../public/2074.jpg";
+import loop3 from "../../../../public/2077.jpg";
+
+export default function ImageLoop() {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const imagesLoop = [
+  {image: loop1},
+  {image: loop2},
+  {image: loop3},
+];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesLoop.length);
+    }, 3000); // Change image every 10 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+    return (
+        <div className="w-1/2 h-full overflow-hidden relative">
+        {imagesLoop.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute top-0 left-0 w-full h-full transition-all duration-[1500ms] ${
+            index === currentImageIndex ? 'transform scale-[1] opacity-100' : 'transform scale-[0.92] opacity-0'
+          }`}
+          style={{ zIndex: index === currentImageIndex ? 2 : 1 }}
+        >
+          <Image
+            className="object-cover"
+            src={image.image}
+            fill
+            alt={`Image ${index}`}
+            priority
+          />
+        </div>
+      ))}
+      </div>
+    )
+}
