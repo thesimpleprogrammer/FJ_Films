@@ -1,6 +1,6 @@
 "use client";
 
-import { uploadVideoToSupabase } from "../../../../utils/supabase/uploadVideoToSupabase";
+import { uploadVideoToSupabase } from "../../../../../utils/supabase/uploadVideoToSupabase";
 
 // Video Card Component
 export default function ShowroomVideoCard({

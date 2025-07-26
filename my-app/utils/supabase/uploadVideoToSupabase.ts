@@ -1,5 +1,5 @@
 import { createClient } from "@/utils/supabase/client";
-import { fetchShowroomVideoUrls } from "../../app/videography/src/components/showroomLogic";
+import { fetchShowroomVideoUrls } from "../../app/videography/src/components/Showroom/showroomLogic";
  // make sure this is correctly initialized
 
 //  export const uploadSectionFile = async (

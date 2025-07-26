@@ -1,4 +1,11 @@
-//What-we-do.jsx raw Upload logic
+//Background.tsx
+export default function Background () {
+    return (
+        <div className="w-full h-[100vh] opacity-50 bg-black absolute top-0 left-0" />
+    )
+}
+
+//What-we-do.tsx raw Upload logic
 
 // const onBg2 = async () => {
   //   // setFinished(false);

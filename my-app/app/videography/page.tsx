@@ -4,6 +4,7 @@ import { createClient } from "../../utils/supabase/server";
 import SignOutButton from "../src/components/SignOutButton";
 import { loadSectionUrl } from "../../utils/supabase/loadSectionUrl";
 import Showroom from "./Showroom";
+import ContactUs from "../src/components/Contact";
 
 export default async function Home() {
 
@@ -78,6 +79,7 @@ url4 = await loadSectionUrl("section2_4");
         url4={url4}
       />
       <Showroom />
+      <ContactUs />
       <SignOutButton user={user_page?.user} />
     </div>
   );

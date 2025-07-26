@@ -4,13 +4,13 @@ import Image from "next/image";
 import colorwheel from "../../public/color-wheel.png";
 import { useState, useRef, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client";
-import ColorPicker from "./src/components/color-picker";
+import ColorPicker from "./src/components/colorPicker/color-picker";
 import { User } from "@supabase/auth-helpers-nextjs";
 import {
   fetchSectionUrl,
   uploadSectionFile,
 } from "../../utils/supabase/helpers";
-import UploadImageBlock from "./src/components/uploadImageBlock";
+import UploadImageBlock from "./src/components/whatWeDo/uploadImageBlock";
 
 interface supabaseData {
   user_hero: { user: User } | { user: null };
