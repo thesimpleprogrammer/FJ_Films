@@ -21,11 +21,11 @@ export default function ImageLoop() {
   }, []);
 
     return (
-        <div className="w-1/2 h-full overflow-hidden relative">
+        <div className="w-1/2 min-h-[80vh] overflow-hidden relative">
         {imagesLoop.map((image, index) => (
         <div
           key={index}
-          className={`absolute top-0 left-0 w-full h-full transition-all duration-[1500ms] ${
+          className={`absolute inset-0 top-0 left-0 transition-all duration-[1500ms] ${
             index === currentImageIndex ? 'transform scale-[1] opacity-100' : 'transform scale-[0.92] opacity-0'
           }`}
           style={{ zIndex: index === currentImageIndex ? 2 : 1 }}

@@ -1,9 +1,10 @@
-import Hero from "./hero";
+import HeroContainer from "./HeroContainer";
 
 export default function Page() {
   return (
     <div>
-      <Hero />
+      <HeroContainer />
+      {/* Other components can be added here */}
     </div>
   );
 }

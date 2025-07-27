@@ -3,11 +3,141 @@
 import Image from "next/image";
 import jeanImage from "../../public/preview.jpg";
 import ImageLoop from "./src/component/ImageLoop";
+import { useState, useRef, useEffect } from "react";
+import { createClient } from "@/utils/supabase/client";
+import ReusableEditableText from "./src/component/ReuseableEditableText";
 
-export default function Hero() {
+export default function Hero({ heroData, userData }: any) {
+  //           {element === "videography_section1_h3" && user_hero.user ? (
+  //             <div className="w-fit mx-auto z-50 flex flex-row relative border border-white rounded-md p-3">
+  //               <span
+  //                 ref={refs.videography_section1_h3}
+  //                 className="text-2xl outline-none"
+  //                 role="textbox"
+  //                 contentEditable
+  //                 suppressContentEditableWarning
+  //                 onKeyDown={handleKeyDown}
+  //               >
+  //                 {getContent("videography_section1_h3")}
+  //               </span>
+  //             </div>
+  //           ) : (
+  //             <h3
+  //               onClick={() => onClick("videography_section1_h3")}
+  //               className={`w-fit mx-auto text-2xl p-3 ${user_hero.user && `hover:border hover:border-white hover:rounded-md hover:cursor-pointer`} ${
+  //                 element === "videography_section1_h3" && user_hero.user ? "z-50" : "z-30"
+  //               }`}
+  //             >
+  //               {getContent("videography_section1_h3")}
+  //             </h3>
+  //           )}
+
+  // const [element, setElement] = useState("");
+  // const [changed, setChanged] = useState(false);
+  // const [finished, setFinished] = useState(false);
+  // const [first, setFirst] = useState(false);
+  // const [second, setSecond] = useState(false);
+  const [data, setData] = useState(heroData || []);
+  const [finished, setFinished] = useState(false);
+
+  // const refs = {
+  //   digitalMarketing_hero_paragraph: useRef<HTMLSpanElement>(null),
+  //   digitalMarketing_hero_h1_1: useRef<HTMLSpanElement>(null),
+  // };
+
+  const updateContent = async (element: string, newContent: string) => {
+    const supabase = createClient();
+    const { error, data: updated } = await supabase
+      .from("digital-marketing")
+      .update({ content: newContent })
+      .eq("element", element)
+      .select();
+
+    if (!error && updated?.[0]) {
+      setData(
+        (prev: any[] | undefined) =>
+          prev &&
+          prev.map((el) =>
+            el.element === element ? { ...el, content: updated[0].content } : el
+          )
+      );
+      setFinished(false)
+    } else {
+      console.error("Error updating content:", error);
+      setFinished(false);
+      return null;
+    }
+  };
+
+  const getContent = (key: string) => {
+    return data?.find((el: any) => el.element.includes(key))?.content || "";
+  };
+
+  // const onDone = async () => {
+  //   const supabase = await createClient();
+  //   const currentRef = refs[element as keyof typeof refs];
+  //   const newContent = currentRef?.current?.innerText;
+
+  //   setFinished(true);
+
+  //   if (!newContent || !element) {
+  //     setFinished(false);
+  //     return;
+  //   }
+
+  //   const { error, data: updated } = await supabase
+  //     .from("digital-marketing")
+  //     .update({ content: newContent })
+  //     .eq("element", element)
+  //     .select();
+
+  //   if (!error && updated?.[0]) {
+  //     setData(
+  //       (prev: any[] | undefined) =>
+  //         prev &&
+  //         prev.map((el) =>
+  //           el.element === element ? { ...el, content: updated[0].content } : el
+  //         )
+  //     );
+  //     // setFinished(true)
+  //   } else {
+  //     console.error("Error updating content:", error);
+  //     return;
+  //   }
+
+  //   setFinished(false);
+  //   setElement("");
+  // };
+
+  // useEffect(() => {
+  //   onDone();
+  // }, [changed]);
+
+  // const onBg = async () => {
+  //   // setFinished(false);
+  //   await setChanged(!changed);
+  //   setFirst(false);
+  //   setSecond(false);
+  //   setElement("");
+  // };
+
+  // const handleKeyDown = async (e: React.KeyboardEvent<HTMLSpanElement>) => {
+  //   if (e.key === "Enter") {
+  //     e.preventDefault(); // prevents newline from being added
+  //     await setChanged(!changed);
+  //     setFirst(false);
+  //     setSecond(false);
+  //     setElement("");
+  //   }
+  // };
+
+  // const onClick = (item: any) => {
+  //   setElement(item);
+  // };
+
   return (
-    <div className="flex flex-row items-center justify-center w-full h-[80vh] bg-gray-100">
-      <div className="w-1/2 h-full relative flex flex-col items-center justify-center">
+    <div className="flex flex-row items-center justify-center w-full min-h-[80vh] bg-gray-100 relative">
+      <div className="min-w-1/2 min-h-[80vh] relative flex flex-col items-center justify-center">
         <Image
           priority
           src={jeanImage}
@@ -19,18 +149,41 @@ export default function Hero() {
           unoptimized
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10" />
-        <div className="w-[70%] z-20 pt-10">
+        <div className="w-[70%] z-20 pt-10 mb-10">
           <div className="bg-opacity-50 text-white z-20 mb-7">
-            <h1 className="text-[7.5rem] leading-28 font-bold">Digital</h1>
-            <h1 className="text-[7.5rem] leading-28 font-bold mb-10">agency</h1>
-            <p className="text-2xl">
-              Empowering your brand with innovative strategies
-            </p>
+            <ReusableEditableText
+              value={getContent("digitalMarketing_hero_h1_1")}
+              onSave={async (newValue) => {
+                // Save to Supabase or your backend
+                await updateContent("digitalMarketing_hero_h1_1", newValue);
+              }}
+              user={userData.user}
+              as="h1"
+              className="leading-24 text-[7.5rem] font-bold p-3 pb-8 mb-3 mx-auto bor"
+              style={{ width: "fit-content" }}
+              setFinished={setFinished}
+            >
+              {getContent("digitalMarketing_hero_h1_1")}
+            </ReusableEditableText>
+            <ReusableEditableText
+              value={getContent("digitalMarketing_hero_paragraph")}
+              onSave={async (newValue) => {
+                // Save to Supabase or your backend
+                await updateContent("digitalMarketing_hero_paragraph", newValue);
+              }}
+              user={userData.user}
+              as="p"
+              className="text-2xl p-3"
+              style={{ width: "fit-content" }}
+              setFinished={setFinished}
+              >
+              {getContent("digitalMarketing_hero_paragraph")}
+              </ReusableEditableText>
           </div>
-          <div className="flex flex-row justify-center items-center w-fit gap-5 z-20 ">
-            <div className="rounded-full bg-white p-4 w-16 h-16 flex items-center justify-center">
+          <div className="flex flex-row justify-center items-center w-fit gap-5 z-20 group hover:cursor-pointer">
+            <div className="rounded-full bg-white p-4 w-16 h-16 flex items-center justify-center transition-colors group-hover:border group-hover:border-white group-hover:bg-transparent">
               <svg
-                className="w-10 fill-slate-900"
+                className="w-10 fill-slate-900 group-hover:fill-white transition-colors duration-300"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 640 640"
               >
@@ -44,6 +197,11 @@ export default function Hero() {
         </div>
       </div>
       <ImageLoop />
+      {finished && (
+        <div className="fixed top-20 right-0 w-fit px-5 py-3 bg-orange-500 text-white flex justify-center z-[9999] p-20">
+          <div className="text-lg animate-pulse">Updating...</div>
+        </div>
+      )}
     </div>
   );
 }
