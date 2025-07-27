@@ -3,88 +3,18 @@
 import Image from "next/image";
 import jeanImage from "../../public/preview.jpg";
 import ImageLoop from "./src/component/ImageLoop";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import ReusableEditableText from "./src/component/ReuseableEditableText";
+import {useUpdateContent} from "./src/component/updateContent";
 
 export default function Hero({ heroData, userData }: any) {
-  //           {element === "videography_section1_h3" && user_hero.user ? (
-  //             <div className="w-fit mx-auto z-50 flex flex-row relative border border-white rounded-md p-3">
-  //               <span
-  //                 ref={refs.videography_section1_h3}
-  //                 className="text-2xl outline-none"
-  //                 role="textbox"
-  //                 contentEditable
-  //                 suppressContentEditableWarning
-  //                 onKeyDown={handleKeyDown}
-  //               >
-  //                 {getContent("videography_section1_h3")}
-  //               </span>
-  //             </div>
-  //           ) : (
-  //             <h3
-  //               onClick={() => onClick("videography_section1_h3")}
-  //               className={`w-fit mx-auto text-2xl p-3 ${user_hero.user && `hover:border hover:border-white hover:rounded-md hover:cursor-pointer`} ${
-  //                 element === "videography_section1_h3" && user_hero.user ? "z-50" : "z-30"
-  //               }`}
-  //             >
-  //               {getContent("videography_section1_h3")}
-  //             </h3>
-  //           )}
-
-  // const [element, setElement] = useState("");
-  // const [changed, setChanged] = useState(false);
-  // const [finished, setFinished] = useState(false);
-  // const [first, setFirst] = useState(false);
-  // const [second, setSecond] = useState(false);
   const [data, setData] = useState(heroData || []);
-  const [finished, setFinished] = useState(false);
+  // const [finished, setFinished] = useState(false);
+  const { updateContent, finished, setFinished } = useUpdateContent(setData);
 
-  // const refs = {
-  //   digitalMarketing_hero_paragraph: useRef<HTMLSpanElement>(null),
-  //   digitalMarketing_hero_h1_1: useRef<HTMLSpanElement>(null),
-  // };
-
-  const updateContent = async (element: string, newContent: string) => {
-    const supabase = createClient();
-    const { error, data: updated } = await supabase
-      .from("digital-marketing")
-      .update({ content: newContent })
-      .eq("element", element)
-      .select();
-
-    if (!error && updated?.[0]) {
-      setData(
-        (prev: any[] | undefined) =>
-          prev &&
-          prev.map((el) =>
-            el.element === element ? { ...el, content: updated[0].content } : el
-          )
-      );
-      setFinished(false)
-    } else {
-      console.error("Error updating content:", error);
-      setFinished(false);
-      return null;
-    }
-  };
-
-  const getContent = (key: string) => {
-    return data?.find((el: any) => el.element.includes(key))?.content || "";
-  };
-
-  // const onDone = async () => {
-  //   const supabase = await createClient();
-  //   const currentRef = refs[element as keyof typeof refs];
-  //   const newContent = currentRef?.current?.innerText;
-
-  //   setFinished(true);
-
-  //   if (!newContent || !element) {
-  //     setFinished(false);
-  //     return;
-  //   }
-
+  // const updateContent = async (element: string, newContent: string) => {
+  //   const supabase = createClient();
   //   const { error, data: updated } = await supabase
   //     .from("digital-marketing")
   //     .update({ content: newContent })
@@ -99,41 +29,17 @@ export default function Hero({ heroData, userData }: any) {
   //           el.element === element ? { ...el, content: updated[0].content } : el
   //         )
   //     );
-  //     // setFinished(true)
+  //     setFinished(false)
   //   } else {
   //     console.error("Error updating content:", error);
-  //     return;
-  //   }
-
-  //   setFinished(false);
-  //   setElement("");
-  // };
-
-  // useEffect(() => {
-  //   onDone();
-  // }, [changed]);
-
-  // const onBg = async () => {
-  //   // setFinished(false);
-  //   await setChanged(!changed);
-  //   setFirst(false);
-  //   setSecond(false);
-  //   setElement("");
-  // };
-
-  // const handleKeyDown = async (e: React.KeyboardEvent<HTMLSpanElement>) => {
-  //   if (e.key === "Enter") {
-  //     e.preventDefault(); // prevents newline from being added
-  //     await setChanged(!changed);
-  //     setFirst(false);
-  //     setSecond(false);
-  //     setElement("");
+  //     setFinished(false);
+  //     return null;
   //   }
   // };
 
-  // const onClick = (item: any) => {
-  //   setElement(item);
-  // };
+  const getContent = (key: string) => {
+    return data?.find((el: any) => el.element.includes(key))?.content || "";
+  };
 
   return (
     <div className="flex flex-row items-center justify-center w-full min-h-[80vh] bg-gray-100 relative">
@@ -159,7 +65,7 @@ export default function Hero({ heroData, userData }: any) {
               }}
               user={userData.user}
               as="h1"
-              className="leading-24 text-[7.5rem] font-bold p-3 pb-8 mb-3 mx-auto bor"
+              className="leading-24 text-[7.5rem] font-bold p-3 pb-8 mb-3 mx-auto"
               style={{ width: "fit-content" }}
               setFinished={setFinished}
             >

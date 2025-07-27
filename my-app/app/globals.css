@@ -17,3 +17,21 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes loop-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Now create a utility class for your animation */
+.loop-scroll-animation {
+  animation: loop-scroll 30s linear infinite;
+}
+
+.group:hover .loop-scroll-animation {
+  animation-play-state: paused !important;
+}
