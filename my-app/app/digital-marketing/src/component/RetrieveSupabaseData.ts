@@ -1,8 +1,8 @@
 import { createClient } from "@/utils/supabase/client";
 
-export const useRetrieveDmData = async () => {
+export const retrieveDmData = async () => {
     const supabase = await createClient();
-    const { data: user_page } = await supabase.auth.getUser();
+    // const { data: user_page } = await supabase.auth.getUser();
 
     let digitalMarketingData;    
     try {
@@ -22,5 +22,5 @@ export const useRetrieveDmData = async () => {
         return;
     }
     
-    return { digitalMarketingData};
+    return { digitalMarketingData };
 }
