@@ -7,11 +7,11 @@ import ShowroomVideoCard from "./showRoomVideoCard";
 import {VideoModal } from "./VideoModal";
 
 // Define User type if not imported from elsewhere
-type User = {
-  id: string;
-  name: string;
-  // add other properties as needed
-};
+// type User = {
+//   id: string;
+//   name: string;
+//   // add other properties as needed
+// };
 
 export function ShowRoomLayout(user: any) {
   const [dataUrls, setDataUrls] = useState<string[] | any>([]);

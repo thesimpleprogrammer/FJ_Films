@@ -7,18 +7,17 @@ import Showroom from "./Showroom";
 import ContactUs from "../src/components/Contact";
 
 export default async function Home() {
-
   const supabase = await createClient();
 
   const { data: user_page } = await supabase.auth.getUser();
 
+  const url = await loadSectionUrl("section2_1");
+  const url2 = await loadSectionUrl("section2_2");
+  const url3 = await loadSectionUrl("section2_3");
+  const url4 = await loadSectionUrl("section2_4");
+
   let videography_page_main;
-  // let videography_error_page_main;
   let storageMain;
-  let url;
-  let url2;
-  let url3;
-  let url4;
 
   try {
     const { data: storageData } = await supabase.storage
@@ -53,12 +52,6 @@ export default async function Home() {
   } catch (error) {
     console.error("Error:", error);
   }
-
-url = await loadSectionUrl("section2_1");
-url2 = await loadSectionUrl("section2_2");
-url3 = await loadSectionUrl("section2_3");
-url4 = await loadSectionUrl("section2_4");
-
 
   return (
     <div className="w-full">
