@@ -4,7 +4,7 @@ import Image from "next/image";
 import jeanImage from "../../public/preview.jpg";
 import ImageLoop from "./src/component/ImageLoop";
 import { useState } from "react";
-import { createClient } from "@/utils/supabase/client";
+// import { createClient } from "@/utils/supabase/client";
 import ReusableEditableText from "./src/component/ReuseableEditableText";
 import {useUpdateContent} from "./src/component/updateContent";
 
