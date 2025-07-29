@@ -2,7 +2,7 @@ import HeroContainer from "./HeroContainer";
 import Clients from "./clients";
 import AboutContainer from "./AboutContainer";
 import AboutExtrasContainer from "./AboutExtrasContainer";
-import ServicesContainer from "./servicesContainer";
+import ServicesContainer from "./Temp";
 
 export default function Page() {
   return (
