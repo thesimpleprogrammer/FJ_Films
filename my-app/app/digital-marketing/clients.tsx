@@ -64,7 +64,7 @@ export default function Clients() {
         Trusted by 500+ global companies
       </h1>
       <div className="relative w-[364.1%] group h-[75px]">
-        <div className="flex w-[100%] h-full loop-scroll-animation group-hover:paused">
+        <div className="flex w-[100%] h-full loop-scroll-animation">
           <div className="flex flex-row h-full gap-16 mr-16">
           {imagesA.map((image, index) => (
             <Image

@@ -268,6 +268,8 @@
 // };
 
 // export default ReusableEditableText;
+"use client";
+
 
 import React, { useRef, useState, useEffect } from "react";
 
@@ -347,8 +349,8 @@ const ReusableEditableText = ({
         ref={ref}
         className={
           editing && user
-            ? `outline-none border border-white rounded-md z-[1000] relative ${className}`
-            : `outline-none ${className} ${user ? "hover:border hover:border-white hover:rounded-md hover:cursor-pointer" : ""}`
+            ? `outline-none border border-white ifClicked rounded-md p-3 z-[1000] relative ${className}`
+            : `outline-none p-3 ${className} ${user ? "hover:border hover:border-white hover:rounded-md hover:cursor-pointer" : ""}`
         }
         role="textbox"
         contentEditable={editing && user ? true : undefined}
