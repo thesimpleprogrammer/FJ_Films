@@ -2,7 +2,7 @@ export default function ReachOut() {
   return (
     <div className="flex items-center justify-center gap-5 h-fit text-white py-20 px-32 bg-blue-800">
       <h1 className="text-4xl font-bold mb-4 w-[50%]">
-        Let's talk about how we can transform your business!
+        Let&&apos;s talk about how we can transform your business!
       </h1>
       <div className="flex flex-row items-center w-[50%] justify-end">
         <div className="w-20 h-20 flex flex-row justify-center items-center bg-gray-900 opacity-50 rounded-full">

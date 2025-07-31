@@ -17,7 +17,7 @@ export default function Services({ section3Data, userData }: any) {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="#8A2BE2"
+          stroke="#2f3b22"
           className="size-16"
         >
           <path
@@ -44,7 +44,7 @@ export default function Services({ section3Data, userData }: any) {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="#8A2BE2"
+          stroke="#2f3b22"
           className="size-16"
         >
           <path
@@ -66,7 +66,7 @@ export default function Services({ section3Data, userData }: any) {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="#8A2BE2"
+          stroke="#2f3b22"
           className="size-16"
         >
           <path
