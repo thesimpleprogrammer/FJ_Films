@@ -3,6 +3,7 @@ import Clients from "./clients";
 import AboutContainer from "./AboutContainer";
 import AboutExtrasContainer from "./AboutExtrasContainer";
 import ServicesContainer from "./ServicesContainer";
+import CompletedContainer from "./CompletedContainer";
 
 export default function Page() {
   return (
@@ -12,6 +13,7 @@ export default function Page() {
       <AboutContainer />
       <AboutExtrasContainer />
       <ServicesContainer />
+      <CompletedContainer />
     </div>
   );
 }
