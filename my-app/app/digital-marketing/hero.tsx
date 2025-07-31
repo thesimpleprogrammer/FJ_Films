@@ -4,7 +4,6 @@ import Image from "next/image";
 import jeanImage from "../../public/preview.jpg";
 import ImageLoop from "./src/component/ImageLoop";
 import { useState } from "react";
-// import { createClient } from "@/utils/supabase/client";
 import ReusableEditableText from "./src/component/ReuseableEditableText";
 import {useUpdateContent} from "./src/component/updateContent";
 
@@ -12,30 +11,6 @@ export default function Hero({ heroData, userData }: any) {
   const [data, setData] = useState(heroData || []);
   // const [finished, setFinished] = useState(false);
   const { updateContent, finished, setFinished } = useUpdateContent(setData);
-
-  // const updateContent = async (element: string, newContent: string) => {
-  //   const supabase = createClient();
-  //   const { error, data: updated } = await supabase
-  //     .from("digital-marketing")
-  //     .update({ content: newContent })
-  //     .eq("element", element)
-  //     .select();
-
-  //   if (!error && updated?.[0]) {
-  //     setData(
-  //       (prev: any[] | undefined) =>
-  //         prev &&
-  //         prev.map((el) =>
-  //           el.element === element ? { ...el, content: updated[0].content } : el
-  //         )
-  //     );
-  //     setFinished(false)
-  //   } else {
-  //     console.error("Error updating content:", error);
-  //     setFinished(false);
-  //     return null;
-  //   }
-  // };
 
   const getContent = (key: string) => {
     return data?.find((el: any) => el.element.includes(key))?.content || "";
