@@ -17,7 +17,7 @@ export default async function HomeContent() {
   ]
   
   return (
-    <div className="w-full pt-28 pb-10">
+    <div className="w-full pt-28 pb-10 text-white">
         {data?.user && <h1 className='text-white float-right mr-5'>Welcome {data.user.email}</h1>}
       <div className="w-[40%] mx-auto">
         <div className="text-white text-center text-md mb-5">
