@@ -4,7 +4,7 @@
 import { fetchShowroomVideoUrls } from "./showroomLogic";
 import { useEffect, useRef, useState } from "react";
 import ShowroomVideoCard from "./showRoomVideoCard";
-import {VideoModal } from "./VideoModal";
+import { VideoModal } from "./VideoModal";
 
 // Define User type if not imported from elsewhere
 // type User = {

@@ -1,6 +1,6 @@
 "use client"
 
-import ReusableEditableText from "./src/component/ReuseableEditableText";
+import ReusableEditableText from "../src/components/ReuseableEditableText";
 import { useState } from "react";
 import { useUpdateContent } from "./src/component/updateContent";
 

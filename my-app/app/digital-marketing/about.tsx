@@ -6,13 +6,12 @@ import arrow from "../../public/arrow.png";
 import line from "../../public/line.png";
 import { useUpdateContent } from "./src/component/updateContent";
 import { useState } from "react";
-import ReusableEditableText from "./src/component/ReuseableEditableText";
+import ReusableEditableText from "../src/components/ReuseableEditableText";
 
 export default function About({ section2Data, userData }: any) {
     const [data, setData] = useState(section2Data || [])
     const { updateContent, finished, setFinished } = useUpdateContent(setData);
 
-    console.log("About data:", section2Data);    
     const getContent = (key: string) => {
         return data?.find((el: any) => el.element.includes(key))?.content || "";
     };

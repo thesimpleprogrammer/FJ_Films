@@ -4,7 +4,7 @@ import Image from "next/image";
 import jeanImage from "../../public/preview.jpg";
 import ImageLoop from "./src/component/ImageLoop";
 import { useState } from "react";
-import ReusableEditableText from "./src/component/ReuseableEditableText";
+import ReusableEditableText from "../src/components/ReuseableEditableText";
 import {useUpdateContent} from "./src/component/updateContent";
 
 export default function Hero({ heroData, userData }: any) {

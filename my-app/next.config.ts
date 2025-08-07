@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         hostname: 'xnpkkelfdsosehvkgfjr.supabase.co',
         port: '', // leave blank unless you're using a non-standard port
         pathname: '/storage/v1/object/public/videography/**',
+    }, 
+    {protocol: 'https',
+        hostname: 'images.unsplash.com',
+        // port: '', // leave blank unless you're using a non-standard port
+        pathname: '/**',
     }],
   },
 };
