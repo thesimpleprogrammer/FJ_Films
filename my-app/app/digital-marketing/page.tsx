@@ -6,6 +6,7 @@ import ServicesContainer from "./ServicesContainer";
 import CompletedContainer from "./CompletedContainer";
 import ReachOut from "./reachOut";
 import ContactUs from "../src/components/Contact";
+import PricingPlans from "../src/components/Pricing";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <AboutExtrasContainer />
       <ServicesContainer />
       <CompletedContainer />
+      <PricingPlans />
       <ReachOut />
       <ContactUs />
     </div>

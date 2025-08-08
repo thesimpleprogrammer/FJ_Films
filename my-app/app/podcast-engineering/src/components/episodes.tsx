@@ -113,7 +113,7 @@ export default function Episodes({
   };
 
   return (
-    <div className="text-white p-20">
+    <div className="text-white pt-20 pb-32 px-20">
       <h1 className="text-6xl pb-20">Podcast Episodes</h1>
       <ul>
         {episodes?.map((episode, index) => (

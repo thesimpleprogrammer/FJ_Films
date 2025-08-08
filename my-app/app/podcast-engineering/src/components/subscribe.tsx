@@ -14,7 +14,7 @@ export default function Subscribe({podcastData, userData}: any) {
     };
 
   return (
-    <div className="px-20 py-32 border-y border-white text-white mt-20">
+    <div className="px-20 py-32 border-b border-white text-white mt-20">
       <div className="w-[80%] flex flex-col gap-10">
       <ReusableEditableText
           value={getContent("subscribe_h1")}
