@@ -21,7 +21,7 @@ To deploy: host on Vercel / Netlify / Cloudflare Pages. Use a headless CMS (Sani
 */
 import React, { useState } from "react";
 import NavBar from "./src/components/navbar"; 
-import Hero from "./src/components/hero";
+import HeroContainer from "./src/components/heroContainer";
 import Projects from "./src/components/projects";
 import EventsSchedule from "./src/components/eventsSchedule";
 import PressDownloads from "./src/components/pressDownloads";
@@ -35,7 +35,7 @@ export default function MultimediaInstallationsSite() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 antialiased"> 
       <NavBar />
-      <Hero />
+      <HeroContainer />
       <Projects />
       <EventsSchedule />
       <PressDownloads />
