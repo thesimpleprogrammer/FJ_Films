@@ -62,7 +62,7 @@ export async function uploadMultimediaVideoToSupabase(event: any, fileName: stri
   
   const supabase = await createClient()
 
-  const { data: existingFiles, error } = await supabase.storage
+  const { data: existingFiles } = await supabase.storage
        .from("multimedia")
        .list("hero", {
          limit: 100,

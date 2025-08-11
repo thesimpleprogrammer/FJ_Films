@@ -1,7 +1,7 @@
 "use client";
 
 import { Modal } from "./modal";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { createClient } from "@/utils/supabase/client";
 import { uploadImage, deleteImage, uploadData } from "../../utils/uploadLogic";
@@ -104,7 +104,7 @@ export default function Episodes({
       setEpisodes(refreshedData);
       setFinished(false);
     } catch (error) {
-      console.error("Error");
+      console.error("Error: " + error);
       setFinished(false);
     }
 

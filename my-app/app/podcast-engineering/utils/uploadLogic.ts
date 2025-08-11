@@ -32,7 +32,7 @@ export const uploadImage = async (image: File) => {
 
   const path = `${PATH_PREFIX}${image.name}`;
 
-  const { data, error } = await supabase.storage
+  const { error } = await supabase.storage
     .from(BUCKET)
     .upload(path, image, {
       cacheControl: "3600",

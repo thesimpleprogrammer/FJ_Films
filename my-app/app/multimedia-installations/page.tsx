@@ -19,7 +19,7 @@ Sections included:
 
 To deploy: host on Vercel / Netlify / Cloudflare Pages. Use a headless CMS (Sanity/Contentful/Strapi/NetlifyCMS) for dynamic content.
 */
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import NavBar from "./src/components/navbar"; 
 import HeroContainer from "./src/components/heroContainer";
 import Projects from "./src/components/projects";
