@@ -277,7 +277,7 @@ type Props = {
   value?: string;
   onSave: (newValue: string) => Promise<any>
   user?: any;
-  as?: "h1" | "h2" | "h3" | "p" | "span" | "div";
+  as?: "h1" | "h2" | "h3" | "p" | "span" | "div" | "strong";
   className?: string;
   children?: React.ReactNode;
   [key: string]: any; // for extra props

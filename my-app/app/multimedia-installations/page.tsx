@@ -23,11 +23,11 @@ import React, { useState } from "react";
 import NavBar from "./src/components/navbar"; 
 import HeroContainer from "./src/components/heroContainer";
 import Projects from "./src/components/projects";
-import EventsSchedule from "./src/components/eventsSchedule";
+import EventsScheduleContainer from "./src/components/eventsScheduleContainer";
 import PressDownloads from "./src/components/pressDownloads";
-import About from "./src/components/about"
 import Contact from "./src/components/contact";
 import Footer from "./src/components/footer";
+import AboutContainer from "./src/components/aboutContainer";
 // Sample data - swap with API calls to CMS
 
 export default function MultimediaInstallationsSite() {
@@ -37,9 +37,9 @@ export default function MultimediaInstallationsSite() {
       <NavBar />
       <HeroContainer />
       <Projects />
-      <EventsSchedule />
+      <EventsScheduleContainer />
       <PressDownloads />
-      <About />
+      <AboutContainer />
       <Contact />
       <Footer />
     </div>

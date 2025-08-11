@@ -3,9 +3,11 @@
 import MultimediaVideoCard from "./multimediaVideoCard";
 import { useState, useRef, useEffect } from "react";
 import { fetchMultimediaVideoUrls } from "../../utils/fetchMultimediaVideoUrls";
+import ReusableEditableText from "@/app/src/components/ReuseableEditableText";
+import { useUpdateContent } from "../../utils/updateContent";
 
 type User = {
-  user: {
+  // user: {
     id: string;
     app_metadata: any;
     user_metadata: any;
@@ -31,14 +33,16 @@ type User = {
     is_sso_user?: boolean;
     factors?: any[];
     deleted_at?: string;
-  } | null;
+  // }
 };
 
-export default function Hero({ user }: User) {
+export default function Hero({ user, multimediaHeroData }: {user: User | null, multimediaHeroData: any[]}) {
   //showRoom Layout, showRoomVideoCard// showRoomLogic \maybee
   const [dataUrls, setDataUrls] = useState<string[] | any>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const [finished, setFinished] = useState(false);
+  // const [finished, setFinished] = useState(false);
+  const [data, setData] = useState(multimediaHeroData || [])
+  const { updateContent, finished, setFinished } = useUpdateContent(setData);
   // const [modalVideo, setModalVideo] = useState<string | null>(null);
 
   useEffect(() => {
@@ -49,20 +53,48 @@ export default function Hero({ user }: User) {
     loadVideos();
   }, []);
 
-  console.log("This is the dataUrl: " + JSON.stringify(dataUrls));
+  const getContent = (key: string) => {
+        return data?.find((el: any) => el.element.includes(key))?.content || "";
+    };
 
   return (
     <section id="home" className="relative">
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+          {/* <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
             Multimedia Installations that move the body & memory
-          </h1>
-          <p className="mt-4 text-lg text-gray-700">
+          </h1> */}
+          <ReusableEditableText
+        value={getContent("multimedia_hero_text1")}
+        onSave={async (newValue) => {
+          await updateContent("multimedia_hero_text1", newValue);
+        }}
+        user={user}
+        as="h1"
+        className={`text-4xl md:text-5xl font-extrabold leading-tight ${user && `whiteBg`}`}
+        style={{ width: "fit-content" }}
+        setFinished={setFinished}
+        >
+        {getContent("multimedia_hero_text1")}
+        </ReusableEditableText>
+          {/* <p className="mt-4 text-lg text-gray-700">
             I create immersive experiences blending sound, projection and
             interactive sculpture. Based in Maryland USA — available for
             exhibitions and site-specific commissions.
-          </p>
+          </p> */}
+          <ReusableEditableText
+        value={getContent("multimedia_hero_text2")}
+        onSave={async (newValue) => {
+          await updateContent("multimedia_hero_text2", newValue);
+        }}
+        user={user}
+        as="p"
+        className={`mt-4 text-lg text-gray-700 ${user && `whiteBg`}`}
+        style={{ width: "fit-content" }}
+        setFinished={setFinished}
+        >
+        {getContent("multimedia_hero_text2")}
+        </ReusableEditableText>
           <div className="mt-6 flex gap-3">
             <a
               href="#projects"
@@ -103,6 +135,11 @@ export default function Hero({ user }: User) {
           )}
         </div>
       </div>
+      {finished && (
+        <div className="fixed top-20 right-0 w-fit px-5 py-3 bg-orange-500 text-white flex justify-center z-[9999] p-20">
+          <div className="text-lg animate-pulse">Updating...</div>
+        </div>
+      )}
     </section>
   );
 }

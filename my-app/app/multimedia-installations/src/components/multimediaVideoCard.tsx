@@ -18,7 +18,7 @@ export default function MultimediaVideoCard({
         <div className="absolute top-0 left-0 bg-black w-full h-full transition-opacity duration-300 opacity-0 group-hover:opacity-50 z-30"></div>
         {user && <label
           htmlFor={video?.name}
-          className={`absolute top-3 left-3 z-50 text-white ${
+          className={`absolute top-3 left-3 z-50 rounded-md text-white ${
             finished
               ? "hover:bg-transparent hover:text-white"
               : "hover:bg-white hover:text-black"
