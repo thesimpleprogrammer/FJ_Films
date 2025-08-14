@@ -3,8 +3,8 @@ import photoBg from "../../public/bgPhoto.png";
 
 export default function Hero() {
   return (
-    <div className="w-full">
-      <div className="w-full h-screen flex flex-row items-center pl-16">
+    <div className="w-full" id="Home">
+      <div className="w-full flex flex-row px-20 py-50">
         <Image
           src={photoBg}
           alt="Man taking a Photograph"
@@ -14,10 +14,10 @@ export default function Hero() {
         />
 
         <div className="w-[50%] text-white z-20">
-          <div className="flex flex-col">
+          {/* <div className="flex flex-col">
             <h1 className="text-7xl">FJ Films</h1>
             <h3 className="text-2xl">Photography</h3>
-          </div>
+          </div> */}
           <div className="py-3 text-2xl text-slate-900 font-bold">
             <h2 className="">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda odit amet dolor quos.

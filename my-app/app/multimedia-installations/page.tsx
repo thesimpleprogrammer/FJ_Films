@@ -28,6 +28,7 @@ import PressDownloads from "./src/components/pressDownloads";
 import Contact from "./src/components/contact";
 import Footer from "./src/components/footer";
 import AboutContainer from "./src/components/aboutContainer";
+import PricingPlans from "../src/components/Pricing";
 // Sample data - swap with API calls to CMS
 
 export default function MultimediaInstallationsSite() {
@@ -40,6 +41,7 @@ export default function MultimediaInstallationsSite() {
       <EventsScheduleContainer />
       <PressDownloads />
       <AboutContainer />
+      <PricingPlans />
       <Contact />
       <Footer />
     </div>

@@ -91,7 +91,7 @@ export default function Hero({
 };
 
   return (
-    <div className="w-full h-[100vh] overflow-clip relative">
+    <div className="w-full h-[100vh] overflow-clip relative" id="Home">
       <div className="w-full relative flex flex-row h-full">
         <div className="w-full">
           <video className="w-full rounded-lg" autoPlay muted loop>

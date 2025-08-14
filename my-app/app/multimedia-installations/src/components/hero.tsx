@@ -95,7 +95,7 @@ export default function Hero({ user, multimediaHeroData }: {user: User | null, m
         >
         {getContent("multimedia_hero_text2")}
         </ReusableEditableText>
-          <div className="mt-6 flex gap-3">
+          <div className="mt-6 flex gap-3 pl-3">
             <a
               href="#projects"
               className="px-4 py-2 bg-black text-white rounded-md"

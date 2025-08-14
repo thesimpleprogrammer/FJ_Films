@@ -38,10 +38,10 @@ export default function WhatWeDo({
   const [finished, setFinished] = useState(false);
   const [data, setData] = useState(videography);
   const [selected, setSelected] = useState(false);
-  const [urlInfo, setUrlInfo]: string | any = useState(url);
-  const [urlInfo2, setUrlInfo2]: string | any = useState(url2);
-  const [urlInfo3, setUrlInfo3]: string | any = useState(url3);
-  const [urlInfo4, setUrlInfo4]: string | any = useState(url4);
+  const [urlInfo, setUrlInfo]: string | any = useState(null);
+  const [urlInfo2, setUrlInfo2]: string | any = useState(null);
+  const [urlInfo3, setUrlInfo3]: string | any = useState(null);
+  const [urlInfo4, setUrlInfo4]: string | any = useState(null);
   // const [openColorPicker, setOpenColorPicker] = useState(false);
 
   const refs = {
@@ -60,24 +60,26 @@ export default function WhatWeDo({
     return data?.find((el: any) => el.element.includes(key))?.content || "";
   };
 
+  const storageName = "videography"
+
   // For section2_1
   useEffect(() => {
-    fetchSectionUrl("section2_1", setUrlInfo, setFinished);
+    fetchSectionUrl("section2_1", setUrlInfo, setFinished, storageName);
   }, []);
 
   // For section2_2
   useEffect(() => {
-    fetchSectionUrl("section2_2", setUrlInfo2, setFinished);
+    fetchSectionUrl("section2_2", setUrlInfo2, setFinished, storageName);
   }, []);
 
   // For section2_3
   useEffect(() => {
-    fetchSectionUrl("section2_3", setUrlInfo3, setFinished);
+    fetchSectionUrl("section2_3", setUrlInfo3, setFinished, storageName);
   }, []);
 
   // For section2_4
   useEffect(() => {
-    fetchSectionUrl("section2_4", setUrlInfo4, setFinished);
+    fetchSectionUrl("section2_4", setUrlInfo4, setFinished, storageName);
   }, []);
 
   // Inside your WhatWeDo component
@@ -186,6 +188,7 @@ export default function WhatWeDo({
       className={`w-full group/outer relative block`}
       onMouseOver={hover}
       onMouseLeave={stopHover}
+      id="Services"
     >
       {/* <ColorBox {<} /> */}
       {selected && user_hero.user && (
@@ -211,7 +214,7 @@ export default function WhatWeDo({
             url={urlInfo}
             finished={finished}
             onUpload={(e) =>
-              uploadSectionFile(e, "section2_1", setFinished, setUrlInfo)
+              uploadSectionFile(e, "section2_1", setFinished, setUrlInfo, storageName)
             }
             user={user_hero.user}
           />
@@ -404,7 +407,7 @@ export default function WhatWeDo({
             url={urlInfo2}
             finished={finished}
             onUpload={(e) =>
-              uploadSectionFile(e, "section2_2", setFinished, setUrlInfo2)
+              uploadSectionFile(e, "section2_2", setFinished, setUrlInfo2, storageName)
             }
             user={user_hero.user}
           />
@@ -417,7 +420,7 @@ export default function WhatWeDo({
             url={urlInfo3}
             finished={finished}
             onUpload={(e) =>
-              uploadSectionFile(e, "section2_3", setFinished, setUrlInfo3)
+              uploadSectionFile(e, "section2_3", setFinished, setUrlInfo3, storageName)
             }
             user={user_hero.user}
           />
@@ -613,7 +616,7 @@ export default function WhatWeDo({
             url={urlInfo4}
             finished={finished}
             onUpload={(e) =>
-              uploadSectionFile(e, "section2_4", setFinished, setUrlInfo4)
+              uploadSectionFile(e, "section2_4", setFinished, setUrlInfo4, storageName)
             }
             user={user_hero.user}
           />

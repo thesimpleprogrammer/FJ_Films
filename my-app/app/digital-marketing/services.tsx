@@ -87,7 +87,7 @@ export default function Services({ section3Data, userData }: any) {
   };
 
   return (
-    <div className="bg-slate-100 p-20">
+    <div id="Services" className="bg-slate-100 p-20">
       <h1 className="mb-20 text-4xl font-bold text-gray-900">OUR SERVICES</h1>
       {services.map((service) => (
         <div

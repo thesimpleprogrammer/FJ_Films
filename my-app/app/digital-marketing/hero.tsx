@@ -17,8 +17,8 @@ export default function Hero({ heroData, userData }: any) {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full min-h-[80vh] bg-gray-100 relative">
-      <div className="min-w-1/2 min-h-[80vh] relative flex flex-col items-center justify-center">
+    <div className="flex flex-row items-center justify-center w-full bg-gray-100 relative">
+      <div className="min-w-1/2 relative h-[80dvh] flex flex-col items-center justify-center">
         <Image
           priority
           src={jeanImage}
@@ -30,7 +30,7 @@ export default function Hero({ heroData, userData }: any) {
           unoptimized
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10" />
-        <div className="w-[70%] z-20 pt-10 mb-10">
+        <div className="w-[70%] z-20 pt-20">
           <div className="bg-opacity-50 text-white z-20 mb-7">
             <ReusableEditableText
               value={getContent("digitalMarketing_hero_h1_1")}

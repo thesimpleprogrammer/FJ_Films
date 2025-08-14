@@ -1,10 +1,12 @@
 import Hero from "./Hero";
 import WhatWeDo from "./What-We-Do";
 import { createClient } from "../../utils/supabase/server";
-import SignOutButton from "../src/components/SignOutButton";
+// import SignOutButton from "../src/components/SignOutButton";
 import { loadSectionUrl } from "../../utils/supabase/loadSectionUrl";
 import Showroom from "./Showroom";
 import ContactUs from "../src/components/Contact";
+import PricingPlans from "../src/components/Pricing";
+import Navbar from "./Navbar";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -56,6 +58,7 @@ export default async function Home() {
   return (
     <div className="w-full">
       {/* <ToastContainer /> */}
+      <Navbar />
       <Hero
         user_hero={user_page}
         videography={videography_page_main}
@@ -72,8 +75,9 @@ export default async function Home() {
         url4={url4}
       />
       <Showroom />
+      <PricingPlans />
       <ContactUs />
-      <SignOutButton user={user_page?.user} />
+      {/* <SignOutButton user={user_page?.user} /> */}
     </div>
   );
 }

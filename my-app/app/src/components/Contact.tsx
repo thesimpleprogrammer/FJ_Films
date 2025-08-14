@@ -139,7 +139,7 @@ export default function ContactUs() {
 //   }, []);
 
   return (
-    <div className="w-full min-h-[50vh] text-white px-8 lg:px-32 py-10 text-center">
+    <div className="w-full min-h-[50vh] text-white px-8 lg:px-32 py-10 text-center" id="Contact-Us">
       <div className="flex justify-center lg:justify-between w-full gap-5 text-left flex-wrap lg:flex-nowrap">
         <div className="flex flex-col gap-5 w-full md:w-[40%] lg:w-1/4 py-5 lg:pr-5">
           <h1 className="flex text-4xl items-end">

@@ -34,7 +34,7 @@ const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
         />
       </form>
     )}
-    <Image
+    {url && <Image
       priority
       src={url}
       alt=""
@@ -43,7 +43,7 @@ const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
       height={768}
       placeholder="empty"
       unoptimized
-    />
+    />}
   </div>
 );
 

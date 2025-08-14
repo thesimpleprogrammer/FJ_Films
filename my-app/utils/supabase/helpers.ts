@@ -4,12 +4,13 @@ import { createClient } from "@/utils/supabase/client";
 export const fetchSectionUrl = async (
     section: string,
     setUrlFn: (url: string) => void,
-    setFinished: (val: boolean) => void
+    setFinished: (val: boolean) => void,
+    storageName: string
   ) => {
     const supabase = await createClient();
   
     const { data, error } = await supabase.storage
-      .from("videography")
+      .from(storageName)
       .list(section, {
         limit: 100,
         offset: 0,
@@ -19,7 +20,7 @@ export const fetchSectionUrl = async (
     if (data && data.length > 0) {
       const fileName = data[0].name;
       const { data: urlData } = await supabase.storage
-        .from("videography")
+        .from(storageName)
         .getPublicUrl(`${section}/${fileName}`);
   
       if (urlData?.publicUrl) {
@@ -35,7 +36,8 @@ export const fetchSectionUrl = async (
     event: any,
     section: string,
     setFinished: (val: boolean) => void,
-    setUrlFn: (url: string) => void
+    setUrlFn: (url: string) => void,
+    storageName: string
   ) => {
     event.preventDefault();
     const file = event.target.files[0];
@@ -44,7 +46,7 @@ export const fetchSectionUrl = async (
     const supabase = await createClient();
   
     const { data: existingFiles, error } = await supabase.storage
-      .from("videography")
+      .from(storageName)
       .list(section, {
         limit: 100,
         offset: 0,
@@ -54,7 +56,7 @@ export const fetchSectionUrl = async (
     const oldFileName = existingFiles?.[0]?.name;
   
     const { data: uploadData } = await supabase.storage
-      .from("videography")
+      .from(storageName)
       .upload(`${section}/${file.name}`, file, {
         cacheControl: "3600",
         upsert: false,
@@ -67,7 +69,7 @@ export const fetchSectionUrl = async (
   
     if (oldFileName) {
       const { error: deleteError } = await supabase.storage
-        .from("videography")
+        .from(storageName)
         .remove([`${section}/${oldFileName}`]);
   
       if (deleteError) {
@@ -78,6 +80,6 @@ export const fetchSectionUrl = async (
     }
   
     // Fetch new URL
-    await fetchSectionUrl(section, setUrlFn, setFinished);
+    await fetchSectionUrl(section, setUrlFn, setFinished, storageName);
   };
   

@@ -9,5 +9,5 @@ export default async function AboutContainer() {
   const data = await retrieveDmData();
   const digitalMarketingData = data?.digitalMarketingData ?? [];
 
-  return <About section2Data={digitalMarketingData} userData={user_page} />;
+  return <About section2Data={digitalMarketingData} userData={user_page}/>;
 }

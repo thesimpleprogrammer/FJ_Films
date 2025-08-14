@@ -17,7 +17,7 @@ export default function About({ section2Data, userData }: any) {
     };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full py-36 text-white px-20">
+    <div id="About" className="flex flex-row items-center justify-center w-full py-36 text-white px-20">
       <div className="relative w-1/2 pr-20">
         <Image
           src={line}

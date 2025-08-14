@@ -10,6 +10,6 @@ export default async function ServicesContainer() {
   const digitalMarketingData = data?.digitalMarketingData ?? [];
 
   return (
-      <Services section3Data={digitalMarketingData} userData={user_page} />
+      <Services section3Data={digitalMarketingData} userData={user_page}/>
   );
 }

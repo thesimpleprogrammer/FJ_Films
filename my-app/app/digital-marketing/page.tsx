@@ -7,10 +7,12 @@ import CompletedContainer from "./CompletedContainer";
 import ReachOut from "./reachOut";
 import ContactUs from "../src/components/Contact";
 import PricingPlans from "../src/components/Pricing";
+import Navbar from "./Navbar";
 
 export default function Page() {
   return (
     <div>
+      <Navbar />
       <HeroContainer />
       <Clients />
       <AboutContainer />

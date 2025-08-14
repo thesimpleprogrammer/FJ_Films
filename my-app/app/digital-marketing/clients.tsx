@@ -55,7 +55,7 @@ export default function Clients() {
 //   ];
 
   return (
-    <div className="relative flex-col items-center text-center w-full mt-36 mb-20 overflow-x-hidden">
+    <div id="Clients" className="relative flex-col items-center text-center w-full mt-36 mb-20 overflow-x-hidden">
       {/* <div className="w-[200px] mx-auto">
         <Image src={logo} alt={"Panaco logo"} className="w-full" />
       </div> */}

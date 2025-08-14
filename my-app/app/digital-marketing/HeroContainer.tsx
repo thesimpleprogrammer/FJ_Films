@@ -9,5 +9,5 @@ export default async function HeroContainer() {
     const data = await retrieveDmData();
     const digitalMarketingData = data?.digitalMarketingData ?? [];
     
-    return <Hero heroData={digitalMarketingData} userData={user_page} />;
+    return <Hero heroData={digitalMarketingData} userData={user_page} id="Home" />;
 }

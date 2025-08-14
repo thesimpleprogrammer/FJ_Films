@@ -14,7 +14,7 @@ export default function Completed({ section4Data, userData }: any) {
   };
 
   return (
-    <div className="p-20 w-full text-white">
+    <div id="Projects" className="p-20 w-full text-white">
       {/* <h1 className="text-5xl w-[70%] mb-10">
         Every completed project reflects our commitment to quality, timeliness,
         and your satisfaction. Let our results speak for themselves.

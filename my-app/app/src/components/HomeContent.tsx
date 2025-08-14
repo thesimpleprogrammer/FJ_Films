@@ -14,6 +14,7 @@ export default async function HomeContent() {
     {item: "Digital Marketing"},
     {item: "Podcast Engineering"},
     {item: "Multimedia Installations"},
+    {item: "Let's connect 😊"},
   ]
   
   return (
@@ -44,7 +45,7 @@ export default async function HomeContent() {
         <div className="w-[50%] mx-auto flex flex-col">
             {
                 contents.map((content, index) => (
-                    <a key={index} href={`/` + content.item.toLowerCase().split(" ").join("-")} className="w-full hover:text-black hover:bg-white transition-colors duration-300 border-[1px] border-white px-4 py-2 my-4 text-white text-center">
+                    <a key={index} target='_blank' href={`/` + content.item.toLowerCase().split(" ").join("-")} className="w-full hover:text-black hover:bg-white transition-colors duration-300 border-[1px] border-white px-4 py-2 my-4 text-white text-center">
                         {content.item}
                     </a>
                 ))

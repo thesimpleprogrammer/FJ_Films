@@ -4,7 +4,7 @@ import bgImage from "../../../../public/42297.jpg"
 
 export default function Hero() {
     return (
-        <div className="w-full relative h-fit px-20 pt-7 overflow-y-hidden">
+        <div className="w-full relative h-fit px-20 py-15 overflow-y-hidden">
             <Navbar />
             <Image
             src={bgImage}

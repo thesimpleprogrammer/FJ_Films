@@ -9,7 +9,6 @@ export default async function Home () {
     <div className="relative">
       <Hero />
       <HomeContent />
-      <SignOutUser />
     </div>
   )
 }
