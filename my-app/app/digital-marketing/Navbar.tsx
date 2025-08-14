@@ -39,7 +39,7 @@ export default async function Navbar() {
           Talk to Us
         </button>
       </a>
-      {user_page && <SignOutButton user={user_page} />}
+      {user_page.user && <SignOutButton user={user_page} />}
       </div>
     </div>
   );

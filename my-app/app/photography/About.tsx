@@ -38,7 +38,7 @@ export default function About({ photographyAboutData, userData }: any) {
                   }}
                   user={userData}
                   as="p"
-                  className="whiteBg relative -left-3 -top-3"
+                  className={`${userData && `whiteBg`} relative -left-3 -top-3`}
                   style={{ width: "fit-content" }}
                   setFinished={setFinished}
                 >
@@ -62,7 +62,7 @@ export default function About({ photographyAboutData, userData }: any) {
                   }}
                   user={userData}
                   as="p"
-                  className="whiteBg relative -left-3 -top-3"
+                  className={`${userData && `whiteBg`} relative -left-3 -top-3`}
                   style={{ width: "fit-content" }}
                   setFinished={setFinished}
                 >

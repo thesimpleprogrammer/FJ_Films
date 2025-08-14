@@ -38,7 +38,7 @@ export default async function Navbar() {
           Talk to Us
         </button>
       </a>
-      {user_page && <SignOutButton user={user_page} />} {/*What I was doing was to make the sign out button only show when the user is logged in cuz on production (vercel) it wasn't like that*/}
+      {user_page.user && <SignOutButton user={user_page} />} {/*What I was doing was to make the sign out button only show when the user is logged in cuz on production (vercel) it wasn't like that*/}
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ export default function Completed({ section4Data, userData }: any) {
                 }}
                 user={userData.user}
                 as="h3"
-                className="mb-7"
+                className="relative -left-3 mb-7"
                 // style={{ width: "fit-content" }}
                 setFinished={setFinished}
             >

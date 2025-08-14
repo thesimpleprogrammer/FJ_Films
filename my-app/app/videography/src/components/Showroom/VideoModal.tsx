@@ -13,7 +13,7 @@ export function VideoModal({ src, onClose }: { src: string; onClose: () => void 
           controls
         />
         <button
-          className="absolute top-2 right-2 text-white text-2xl cursor-pointer"
+          className="absolute top-2 right-4 text-white text-2xl cursor-pointer"
           onClick={onClose}
         >
           ×

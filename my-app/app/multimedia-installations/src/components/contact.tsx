@@ -11,7 +11,7 @@ export default function Contact () {
       const [contactSent, setContactSent] = useState(false);
 
     return (
-        <section id="contact" className="max-w-4xl mx-auto px-6 py-12">
+        <section id="contact" className="max-w-full px-60 py-12 border-t">
         <h2 className="text-2xl font-bold">Contact & Booking</h2>
         {!contactSent ? (
           <form

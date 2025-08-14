@@ -9,7 +9,5 @@ export default async function WorkflowContainer() {
   const data = await retrieveDmData();
   const photographyData = data?.photographyData ?? [];
 
-  console.log("In the container: " + JSON.stringify(photographyData))
-
   return <Workflow photographyWorkflowData={photographyData} userData={user_page.user}/>;
 }

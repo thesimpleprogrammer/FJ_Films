@@ -43,7 +43,7 @@ export default function About ({user, multimediaData}: {user: User | null, multi
     };
 
     return (
-        <section id="about" className="bg-gray-50 border-t">
+        <section id="about" className="bg-gray-50 border-y">
         <div className="max-w-4xl mx-auto px-6 py-12">
           <h2 className="text-2xl font-bold">About the Artist</h2>
           {/* <p className="mt-4 text-gray-700">
