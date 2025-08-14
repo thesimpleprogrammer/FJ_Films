@@ -18,7 +18,7 @@ export default function UploadProjects({
           htmlFor="text"
           className="block text-lg font-medium text-gray-700"
         >
-          Thoughts you'd like to share conerning the image
+          Thoughts you&apos;d like to share conerning the image
         </label>
         <input
           type="text"

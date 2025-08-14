@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import chineseGate from "../../public/12049.jpg";
-import wedding from "../../public/2150639515.jpg";
-import family from "../../public/2151295378.jpg";
+// import chineseGate from "../../public/12049.jpg";
+// import wedding from "../../public/2150639515.jpg";
+// import family from "../../public/2151295378.jpg";
 import path1 from "../../public/Vector 2.png";
 import path2 from "../../public/Vector 3.png";
 import { useState, useEffect } from "react";

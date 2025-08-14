@@ -26,10 +26,10 @@ export default function WhatWeDo({
   user_hero,
   videography,
   // storageMain,
-  url,
-  url2,
-  url3,
-  url4,
+  // url,
+  // url2,
+  // url3,
+  // url4,
 }: supabaseData) {
   const [element, setElement] = useState("");
   const [changed, setChanged] = useState(false);
