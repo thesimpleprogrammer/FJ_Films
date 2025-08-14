@@ -1,16 +1,29 @@
+"use client"
+
 import Image from "next/image";
 import photoBg from "../../public/bgPhoto.png";
+import { useUpdateContent } from "./utils/updateContent";
+import { useState } from "react";
+import ReusableEditableText from "../src/components/ReuseableEditableText";
 
-export default function Hero() {
+
+export default function Hero({ photographyHeroData, userData }: any) {
+   const [data, setData] = useState(photographyHeroData || []);
+  const { updateContent, finished, setFinished } = useUpdateContent(setData);
+
+  const getContent = (key: string) => {
+    return data?.find((el: any) => el.element.includes(key))?.content || "";
+  };
+
   return (
-    <div className="w-full" id="Home">
-      <div className="w-full flex flex-row px-20 py-50">
+    <div className="w-full bg-white" id="Home">
+      <div className="relative w-full flex flex-row px-20 py-50">
         <Image
           src={photoBg}
           alt="Man taking a Photograph"
-          className="w-full -z-10"
+          className="w-full z-10"
           objectFit="cover"
-          layout="fill"
+          fill
         />
 
         <div className="w-[50%] text-white z-20">
@@ -19,20 +32,57 @@ export default function Hero() {
             <h3 className="text-2xl">Photography</h3>
           </div> */}
           <div className="py-3 text-2xl text-slate-900 font-bold">
-            <h2 className="">
+            {/* <h2 className="">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda odit amet dolor quos.
-            </h2>
+            </h2> */}
+            <ReusableEditableText
+                  value={getContent("photography_hero_text1")}
+                  onSave={async (newValue) => {
+                    await updateContent(
+                      "photography_hero_text1",
+                      newValue
+                    );
+                  }}
+                  user={userData}
+                  as="h2"
+                  className="relative -left-3 -top-3"
+                  style={{ width: "fit-content" }}
+                  setFinished={setFinished}
+                >
+                  {getContent("photography_hero_text1")}
+                </ReusableEditableText>
           </div>
           <div className="mb-8">
-            <p>
+            {/* <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eius, corrupti illo vitae aut necessitatibus consectetur, nemo minima quod facilis ducimus error. Pariatur, facere explicabo iure ducimus aliquid tempore totam!
-            </p>
+            </p> */}
+            <ReusableEditableText
+                  value={getContent("photography_about_text2")}
+                  onSave={async (newValue) => {
+                    await updateContent(
+                      "photography_about_text2",
+                      newValue
+                    );
+                  }}
+                  user={userData}
+                  as="p"
+                  className="relative -left-3 -top-3"
+                  style={{ width: "fit-content" }}
+                  setFinished={setFinished}
+                >
+                  {getContent("photography_about_text2")}
+                </ReusableEditableText>
           </div>
             <a href="" className="px-5 py-3 border border-white hover:bg-white hover:text-black transition-colors">
               Let&apos;s Get In Touch  
             </a>
         </div>
       </div>
+      {finished && (
+        <div className="fixed top-20 right-0 w-fit px-5 py-3 bg-orange-500 text-white flex justify-center z-[9999] p-20">
+          <div className="text-lg animate-pulse">Updating...</div>
+        </div>
+      )}
     </div>
   );
 }

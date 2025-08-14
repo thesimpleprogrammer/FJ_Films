@@ -57,7 +57,7 @@ export default function ShowroomVideoCard({
           }}
         />
         <video
-          className="w-full object-cover"
+          className="w-full object-cover rounded-md"
           autoPlay
           muted
           loop

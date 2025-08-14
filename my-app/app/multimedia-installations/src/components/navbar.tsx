@@ -25,7 +25,7 @@ export default async function NavBar () {
               Contact
             </a>
           </nav>
-          <SignOutButton user={user} />
+          {user.user && <SignOutButton user={user} />}
         </div>
       </header>
     )
