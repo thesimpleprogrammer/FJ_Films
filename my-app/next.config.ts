@@ -27,9 +27,6 @@ const nextConfig: NextConfig = {
         pathname: '/**',
     }],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
 };
 
 export default nextConfig;
