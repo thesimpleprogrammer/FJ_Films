@@ -58,3 +58,27 @@ body {
   border: white 1px solid !important;
   color: white;
 }
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+/* .slick-list {
+  overflow-x: clip !important;
+  overflow: visible;
+} */
+
+.slick-list {
+  overflow-x: clip !important;
+  
+   overflow-y: visible !important;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: white !important;
+}
+
+.slick-dots li button:before {
+  color: white !important;
+}

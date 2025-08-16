@@ -127,7 +127,7 @@ export default function TalkToUsSection({ contacts = DEFAULT_CONTACTS }: { conta
             href={contacts.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-2xl border border-emerald-200/60 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-100 dark:border-emerald-900/60 dark:bg-emerald-950 dark:text-emerald-100"
+            className="flex items-center justify-center gap-2 rounded-2xl border border-emerald-200/60 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-600 dark:border-emerald-900/60 dark:bg-emerald-950 dark:text-emerald-100"
           >
             <MessageCircle className="h-4 w-4" /> WhatsApp
           </a>
@@ -137,7 +137,7 @@ export default function TalkToUsSection({ contacts = DEFAULT_CONTACTS }: { conta
             href={contacts.calendly}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-2xl border border-indigo-200/60 bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-900 transition hover:bg-indigo-100 dark:border-indigo-900/60 dark:bg-indigo-950 dark:text-indigo-100"
+            className="flex items-center justify-center gap-2 rounded-2xl border border-indigo-200/60 bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-900 transition hover:bg-indigo-600 dark:border-indigo-900/60 dark:bg-indigo-950 dark:text-indigo-100"
           >
             <Calendar className="h-4 w-4" /> Book a call
           </a>
@@ -145,7 +145,7 @@ export default function TalkToUsSection({ contacts = DEFAULT_CONTACTS }: { conta
         {contacts.liveChat && (
           <a
             href={contacts.liveChat}
-            className="flex items-center justify-center gap-2 rounded-2xl border border-cyan-200/60 bg-cyan-50 px-4 py-3 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-100 dark:border-cyan-900/60 dark:bg-cyan-950 dark:text-cyan-100"
+            className="flex items-center justify-center gap-2 rounded-2xl border border-cyan-200/60 bg-cyan-50 px-4 py-3 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-600 dark:border-cyan-900/60 dark:bg-cyan-950 dark:text-cyan-100"
           >
             <MessageSquare className="h-4 w-4" /> Live chat
           </a>

@@ -91,11 +91,13 @@ export default function Projects({
     setFinished(true);
 
     try {
-      const existingProject = projects?.find((ep: any) => ep.id === id);
+      const existingProject = projects?.find((ep: any) => ep.id == id);
       let imageUrl = null;
 
-      if (existingProject?.content?.image)
+      if (existingProject?.content?.image) {
+        console.log("We got here: " + existingProject?.content?.image)
         await deleteImage(existingProject.content.image);
+      }
       if (newProject.image) imageUrl = await uploadImage(newProject.image);
 
       await uploadData(id, imageUrl, newProject);
@@ -103,7 +105,7 @@ export default function Projects({
       const { data: refreshedData } = await supabase
         .from("photographyProjects")
         .select("*");
-
+ 
       setProjects(refreshedData);
       setFinished(false);
     } catch (error) {
@@ -133,21 +135,6 @@ export default function Projects({
     setOpen(false);
   };
 
-  //   const images = [
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/12049.jpg", "alt": "", "text": "Beauty in the unplanned." },
-  //   {
-  //     "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/2150639515.jpg",
-  //     "alt": "",
-  //     "text": "Through my lens, the ordinary becomes magic.",
-  //   },
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/2151295378.jpg", "alt": "", "text": "Life’s poetry, written in pixels." },
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/24400.jpg", "alt": "", "text": "Chasing sunsets and good vibes." },
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/30540.jpg", "alt": "", "text": "Catching moments before they disappear." },
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/30587840_7545052.jpg", "alt": "", "text": "Every frame tells a story." },
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/410.jpg", "alt": "", "text": "The art of freezing time." },
-  //   { "item": "https://xnpkkelfdsosehvkgfjr.supabase.co/storage/v1/object/public/photography/projects/4714.jpg", "alt": "", "text": "Light, shadow, and everything in between." },
-  // ];
-
   return (
     <>
       <div className="bg-white w-full" id="Projects">
@@ -173,7 +160,7 @@ export default function Projects({
                 >
                   {project.content.image && (
                     <Image
-                      key={project.content.image}
+                      key={index}
                       src={project.content.image}
                       alt={project.content.alt}
                       width={1024}
@@ -205,7 +192,7 @@ export default function Projects({
                       stroke="currentColor"
                       className="size-6 stroke-white hover:stroke-amber-300 hover:cursor-pointer"
                       onClick={() => {
-                        setId(`${index + 1}`);
+                        setId(project.id);
                         setModal(true);
                       }}
                     >

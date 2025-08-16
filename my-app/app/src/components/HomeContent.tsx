@@ -13,7 +13,7 @@ export default async function HomeContent() {
     {item: "Videography"},
     {item: "Digital Marketing"},
     {item: "Podcast Engineering"},
-    {item: "Multimedia Installations"},
+    {item: "Broadcast Integration"},
     {item: "Let's connect 😊"},
   ]
   

@@ -9,6 +9,7 @@ import AboutContainer from "./AboutContainer";
 import WorkflowContainer from "./WorkflowContainer";
 import TalkToUsSection from "../src/components/letsTalk";
 import HeroContainer from "./HeroContainer";
+import Testimonials from "./Testimonials";
 
 export default function Photography() {
   return (
@@ -18,6 +19,7 @@ export default function Photography() {
       <AboutContainer />
       <WorkflowContainer />
       <ProjectsContainer />
+      <Testimonials />
       <PricingPlans />
       <TalkToUsSection
         contacts={{

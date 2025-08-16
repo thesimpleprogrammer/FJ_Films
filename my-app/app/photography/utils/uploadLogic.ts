@@ -15,7 +15,7 @@ export const deleteImage = async (imageUrl: string) => {
   const supabase = createClient();
   const encodedFilename = imageUrl.split("/").pop()!;
   const decodedFilename = decodeURIComponent(encodedFilename);
-  const imagePath = `${PATH_PREFIX}${decodedFilename}`;
+  const imagePath = `${PATH_PREFIX}/${decodedFilename}`;
 
   const { error } = await supabase.storage
     .from(BUCKET)
