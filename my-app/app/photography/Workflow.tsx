@@ -40,9 +40,9 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
   return (
     <div className="w-full text-white" id="Workflow">
       <div className="px-16 py-20 text-center lg:text-left">
-        <div className="mb-10">
+        <div className="mb-10 w-full lg:w-[70%]">
           <h1 className="text-4xl mb-5">How we Create Lasting Memories</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>At FJ FILMS, lasting moments are created through vision, creativity, and connection. Every shot is carefully crafted to capture both beauty and emotion, transforming simple scenes into timeless stories to be treasured for years.</p>
         </div>
         <div>
           <div className="flex flex-col lg:flex-row w-full gap-10 items-center">

@@ -139,10 +139,10 @@ export default function Projects({
     <>
       <div className="bg-white w-full" id="Projects">
         <div className="px-16 py-20 text-center lg:text-left">
-          <div className="mb-12">
-            <h1 className="text-3xl ">Presenting, Our Gallery</h1>
+          <div className="mb-12 w-full lg:w-[70%]">
+            <h1 className="text-3xl">Presenting, Our Gallery</h1>
             <h3 className="text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Discover a collection of moments captured with creativity and precision. Our gallery reflects the stories we’ve told and the memories we’ve preserved with passion and originality.
             </h3>
           </div>
           <div className="w-full flex flex-row flex-wrap h-fit relative mb-5">

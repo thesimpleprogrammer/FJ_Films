@@ -31,7 +31,7 @@ export default function Hero({ photographyHeroData, userData }: any) {
             <h1 className="text-7xl">FJ Films</h1>
             <h3 className="text-2xl">Photography</h3>
           </div> */}
-          <div className="py-3 text-2xl text-slate-400 font-bold">
+          <div className="py-3 text-2xl text-slate-300 font-bold">
             {/* <h2 className="">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda odit amet dolor quos.
             </h2> */}

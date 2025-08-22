@@ -42,6 +42,8 @@ export default function WhatWeDo({
   const [urlInfo2, setUrlInfo2]: string | any = useState(null);
   const [urlInfo3, setUrlInfo3]: string | any = useState(null);
   const [urlInfo4, setUrlInfo4]: string | any = useState(null);
+  const [urlInfo5, setUrlInfo5]: string | any = useState(null);
+  const [urlInfo6, setUrlInfo6]: string | any = useState(null);
   // const [openColorPicker, setOpenColorPicker] = useState(false);
 
   const refs = {
@@ -54,6 +56,10 @@ export default function WhatWeDo({
     videography_section2_3_paragraph: useRef<HTMLSpanElement>(null),
     videography_section2_4_h1: useRef<HTMLSpanElement>(null),
     videography_section2_4_paragraph: useRef<HTMLSpanElement>(null),
+    videography_section2_5_h1: useRef<HTMLSpanElement>(null),
+    videography_section2_5_paragraph: useRef<HTMLSpanElement>(null),
+    videography_section2_6_h1: useRef<HTMLSpanElement>(null),
+    videography_section2_6_paragraph: useRef<HTMLSpanElement>(null),
   };
 
   const getContent = (key: string) => {
@@ -80,6 +86,16 @@ export default function WhatWeDo({
   // For section2_4
   useEffect(() => {
     fetchSectionUrl("section2_4", setUrlInfo4, setFinished, storageName);
+  }, []);
+
+   // For section2_5
+  useEffect(() => {
+    fetchSectionUrl("section2_5", setUrlInfo5, setFinished, storageName);
+  }, []);
+
+   // For section2_6
+  useEffect(() => {
+    fetchSectionUrl("section2_6", setUrlInfo6, setFinished, storageName);
   }, []);
 
   // Inside your WhatWeDo component
@@ -253,7 +269,7 @@ export default function WhatWeDo({
                     onClick("videography_section2_h1");
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[8px] mb-20 text-4xl p-3 ${
                   user_hero.user &&
                   `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${
@@ -619,6 +635,212 @@ export default function WhatWeDo({
             finished={finished}
             onUpload={(e) =>
               uploadSectionFile(e, "section2_4", setFinished, setUrlInfo4, storageName)
+            }
+            user={user_hero.user}
+          />
+        </div>
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
+          {/* <div className="lg:w-1/2"> */}
+            <UploadImageBlock
+            id="upload5"
+            url={urlInfo5}
+            finished={finished}
+            onUpload={(e) =>
+              uploadSectionFile(e, "section2_5", setFinished, setUrlInfo5, storageName)
+            }
+            user={user_hero.user}
+          />
+          {/* </div> */}
+
+          <div className="w-full lg:w-1/2 p-10 h-fit relative pb-0 lg:pb-10">
+            <div
+              onClick={onBg}
+              onKeyDown={handleKeyDown}
+              className={`w-full h-full transition-opacity ${
+                element !== "" && first
+                  ? `opacity-50 z-40 pointer-events-auto`
+                  : `opacity-0 z-20 pointer-events-none`
+              } bg-black absolute top-0 left-0`}
+            />
+
+            {element === "videography_section2_5_h1" && user_hero.user ? (
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+                <span
+                  ref={refs.videography_section2_5_h1}
+                  className="text-4xl outline-none"
+                  role="textbox"
+                  contentEditable
+                  suppressContentEditableWarning
+                  onKeyDown={handleKeyDown}
+                >
+                  {getContent("videography_section2_5_h1")}
+                </span>
+              </div>
+            ) : (
+              <h1
+                onClick={() => {
+                  if (user_hero.user) {
+                    setFirst(!first);
+                    onClick("videography_section2_5_h1");
+                  }
+                }}
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[8px] mb-20 text-4xl p-3 ${
+                  user_hero.user &&
+                  `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
+                } ${
+                  element === "videography_section1_h1" && user_hero.user
+                    ? "z-50"
+                    : "z-30"
+                }`}
+              >
+                {getContent("videography_section2_5_h1")}
+              </h1>
+            )}
+
+            {element === "videography_section2_5_paragraph" && user_hero.user ? (
+              <div
+                className={`${
+                  element === "videography_section2_5_paragraph" && user_hero.user
+                    ? `z-50`
+                    : `z-30`
+                } w-fit px-3 flex flex-row relative border border-white mb-12 rounded-md py-3`}
+              >
+                <span
+                  onKeyDown={handleKeyDown}
+                  ref={refs.videography_section2_5_paragraph}
+                  className="input outline-none"
+                  role="textbox"
+                  contentEditable
+                  suppressContentEditableWarning={true}
+                >
+                  {getContent("videography_section2_5_paragraph")}
+                </span>
+              </div>
+            ) : (
+              <p
+                onClick={() => {
+                  if (user_hero.user) {
+                    setFirst(!first);
+                    onClick("videography_section2_5_paragraph");
+                  }
+                }}
+                className={`w-fit p-3 mb-12 ${
+                  user_hero.user &&
+                  `hover:rounded-md hover:cursor-pointer hover:border hover:border-white`
+                } ${
+                  element === "videography_section2_5_paragraph" && user_hero.user
+                    ? "z-50"
+                    : "z-30"
+                }`}
+              >
+                {getContent("videography_section2_5_paragraph")}
+              </p>
+            )}
+            <button
+              // href=""
+              className="px-5 py-3 lg:ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
+            >
+              Contact Us
+            </button>
+          </div>
+        </div>
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
+          <div className="w-full lg:w-1/2 p-10 pt-0 lg:pt-10 h-full relative">
+            <div
+              onClick={onBg}
+              onKeyDown={handleKeyDown}
+              className={`w-full h-full transition-opacity ${
+                element !== "" && second
+                  ? `opacity-50 z-40 pointer-events-auto`
+                  : `opacity-0 z-20 pointer-events-none`
+              } bg-black absolute top-0 left-0`}
+            />
+
+            {element === "videography_section2_6_h1" && user_hero.user ? (
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+                <span
+                  ref={refs.videography_section2_6_h1}
+                  className="text-4xl outline-none"
+                  role="textbox"
+                  contentEditable
+                  suppressContentEditableWarning
+                  onKeyDown={handleKeyDown}
+                >
+                  {getContent("videography_section2_6_h1")}
+                </span>
+              </div>
+            ) : (
+              <h1
+                onClick={() => {
+                  if (user_hero.user) {
+                    setSecond(!second);
+                    onClick("videography_section2_6_h1");
+                  }
+                }}
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                  user_hero.user &&
+                  `hover:border hover:no-underline hover:border-white hover:rounded-md hover:cursor-pointer`
+                } ${element === "videography_section1_h1" ? "z-50" : "z-30"}`}
+              >
+                {getContent("videography_section2_6_h1")}
+              </h1>
+            )}
+
+            {element === "videography_section2_6_paragraph" &&
+            user_hero.user ? (
+              <div
+                className={`${
+                  element === "videography_section2_6_paragraph" &&
+                  user_hero.user
+                    ? `z-50`
+                    : `z-30`
+                } w-fit px-3 flex flex-row relative border border-white mb-12 rounded-md py-3`}
+              >
+                <span
+                  ref={refs.videography_section2_6_paragraph}
+                  className="input outline-none"
+                  role="textbox"
+                  contentEditable
+                  suppressContentEditableWarning={true}
+                  onKeyDown={handleKeyDown}
+                >
+                  {getContent("videography_section2_6_paragraph")}
+                </span>
+              </div>
+            ) : (
+              <p
+                onClick={() => {
+                  if (user_hero.user) {
+                    setSecond(!second);
+                    onClick("videography_section2_6_paragraph");
+                  }
+                }}
+                className={`w-fit p-3 mb-12 ${
+                  user_hero.user &&
+                  `hover:rounded-md hover:cursor-pointer hover:border hover:border-white`
+                } ${
+                  element === "videography_section2_6_paragraph" &&
+                  user_hero.user
+                    ? "z-50"
+                    : "z-30"
+                }`}
+              >
+                {getContent("videography_section2_6_paragraph")}
+              </p>
+            )}
+            <a
+              href=""
+              className="px-5 py-3 lg:ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
+            >
+              Contact Us
+            </a>
+          </div>
+          <UploadImageBlock
+            id="upload6"
+            url={urlInfo6}
+            finished={finished}
+            onUpload={(e) =>
+              uploadSectionFile(e, "section2_6", setFinished, setUrlInfo6, storageName)
             }
             user={user_hero.user}
           />

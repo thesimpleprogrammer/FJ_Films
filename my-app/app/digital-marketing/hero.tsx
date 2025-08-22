@@ -38,7 +38,7 @@ export default function Hero({ heroData, userData }: any) {
               }}
               user={userData.user}
               as="h1"
-              className="leading-15 md:leading-20 lg:leading-24 text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[7.5rem] font-bold p-3 pb-8 mb-3 mx-auto"
+              className="leading-15 md:leading-20 lg:leading-24 text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] lg:tracking-wide font-bold p-3 pb-8 mb-3 mx-auto"
               style={{ width: "fit-content" }}
               setFinished={setFinished}
             >

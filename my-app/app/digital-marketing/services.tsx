@@ -33,8 +33,7 @@ export default function Services({ section3Data, userData }: any) {
         </svg>
       ),
       name: "digitalMarketing_section3_name1",
-      description:
-        "digitalMarketing_section3_description1",
+      description: "digitalMarketing_section3_description1",
     },
     {
       id: 2,
@@ -55,8 +54,7 @@ export default function Services({ section3Data, userData }: any) {
         </svg>
       ),
       name: "digitalMarketing_section3_name2",
-      description:
-        "digitalMarketing_section3_description2",
+      description: "digitalMarketing_section3_description2",
     },
     {
       id: 3,
@@ -77,12 +75,79 @@ export default function Services({ section3Data, userData }: any) {
         </svg>
       ),
       name: "digitalMarketing_section3_name3",
-      description:
-        "digitalMarketing_section3_description3",
+      description: "digitalMarketing_section3_description3",
+    },
+    {
+      id: 4,
+      svg: (
+        <svg
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label="Synergistic Approach"
+          fill="none"
+          stroke="#2f3b22"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          className="size-16"
+        >
+          <path d="M4 7c4 0 6 2 8 6" />
+          <path d="M20 7c-4 0-6 2-8 6" />
+          <path d="M12 13v5" />
+          <path d="M9 18h6" />
+          <path d="M12 6v-2m0 0l2 2m-2-2l-2 2" />
+        </svg>
+      ),
+      name: "digitalMarketing_section3_name4",
+      description: "digitalMarketing_section3_description4",
+    },
+    {
+      id: 5,
+      svg: (
+        <svg
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label="Client Connection and Goal Achievement"
+          fill="none"
+          stroke="#2f3b22"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          className="size-16"
+        >
+          <circle cx="12" cy="12" r="7" />
+          <circle cx="12" cy="12" r="3.5" />
+          <path d="M12 12l7-7" />
+          <path d="M17 5h3v3" />
+        </svg>
+      ),
+      name: "digitalMarketing_section3_name5",
+      description: "digitalMarketing_section3_description5",
+    },
+    {
+      id: 6,
+      svg: (
+        <svg
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label="Excellence in Execution"
+          fill="none"
+          stroke="#2f3b22"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          className="size-16"
+        >
+          <path d="M12 3l2.3 1.3 2.6-.2 1.5 2.1 2.3.9-.3 2.6 1.3 2.3-1.3 2.3.3 2.6-2.3.9-1.5 2.1-2.6-.2L12 21l-2.3-1.3-2.6.2-1.5-2.1-2.3-.9.3-2.6L2 12l1.3-2.3-.3-2.6 2.3-.9 1.5-2.1 2.6.2L12 3Z" />
+          <path d="M9.5 12.2l1.8 1.8 3.4-3.7" />
+        </svg>
+      ),
+      name: "digitalMarketing_section3_name6",
+      description: "digitalMarketing_section3_description6",
     },
   ];
 
-    const getContent = (key: string) => {
+  const getContent = (key: string) => {
     return data?.find((el: any) => el.element.includes(key))?.content || "";
   };
 
@@ -96,7 +161,9 @@ export default function Services({ section3Data, userData }: any) {
             service.id == services.length && "border-b"
           } border-gray-300 gap-12 flex-wrap lg:flex-nowrap`}
         >
-          <div className="basis-[100%] md:basis[50%] lg:basis-[10%] text-gray-700 text-xl">{"0" + service.id}</div>
+          <div className="basis-[100%] md:basis[50%] lg:basis-[10%] text-gray-700 text-xl">
+            {"0" + service.id}
+          </div>
           <div className="basis-[100%] md:basis[50%] lg:basis-[40%] flex flex-row items-center gap-5">
             <div className="">{service.svg}</div>
             {/* <h2 className="font-bold text-2xl text-gray-900">{service.name}</h2> */}
@@ -108,7 +175,9 @@ export default function Services({ section3Data, userData }: any) {
               }}
               user={userData.user}
               as="h2"
-              className={`font-bold text-2xl text-gray-900 ${userData.user && `whiteBg`}`}
+              className={`font-bold text-2xl text-gray-900 ${
+                userData.user && `whiteBg`
+              }`}
               style={{ width: "" }}
               setFinished={setFinished}
             >
@@ -116,20 +185,22 @@ export default function Services({ section3Data, userData }: any) {
             </ReusableEditableText>
           </div>
           {/* <p className="w-[50%] text-gray-500">{service.description}</p> */}
-            <ReusableEditableText
-                value={getContent(service.description)}
-                onSave={async (newValue) => {
-                // Save to Supabase or your backend
-                await updateContent(service.description, newValue);
-                }}
-                user={userData.user}
-                as="p"
-                className={`basis-[100%] lg:basis-[50%] text-gray-500 ${userData.user && `whiteBg`}`}
-                style={{ width: "" }}
-                setFinished={setFinished}
-            >
-              {getContent(service.description)}
-            </ReusableEditableText>
+          <ReusableEditableText
+            value={getContent(service.description)}
+            onSave={async (newValue) => {
+              // Save to Supabase or your backend
+              await updateContent(service.description, newValue);
+            }}
+            user={userData.user}
+            as="p"
+            className={`basis-[100%] lg:basis-[50%] text-gray-500 ${
+              userData.user && `whiteBg`
+            }`}
+            style={{ width: "" }}
+            setFinished={setFinished}
+          >
+            {getContent(service.description)}
+          </ReusableEditableText>
         </div>
       ))}
       {finished && (
