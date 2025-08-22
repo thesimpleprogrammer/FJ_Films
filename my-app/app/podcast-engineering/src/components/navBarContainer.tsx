@@ -1,4 +1,4 @@
-import SignOutButton from "../../../src/components/SignOutButton";
+// import SignOutButton from "../../../src/components/SignOutButton";
 import { createClient } from "@/utils/supabase/server";
 import Navbar from "@/app/src/components/Navbar";
 
