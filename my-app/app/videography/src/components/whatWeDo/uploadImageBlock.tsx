@@ -10,7 +10,7 @@ type Props = {
 };
 
 const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
-  <div className={`relative w-[50%] h-full ${user && "group"}`}>
+  <div className={`relative w-full lg:w-1/2 ${user && "group"} bg-yellow-600`}>
     <div className="absolute top-0 left-0 w-full h-full transition-opacity duration-300 bg-black opacity-0 group-hover:opacity-50 flex flex-row justify-center items-center" />
     {user && (
       <form>
@@ -35,14 +35,16 @@ const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
       </form>
     )}
     {url && <Image
-      priority
+      // priority
       src={url}
       alt=""
       className="w-full h-full z-30"
       width={1024}
       height={768}
-      placeholder="empty"
-      unoptimized
+      // fill
+      objectFit="cover"
+      // placeholder="empty"
+      // unoptimized
     />}
   </div>
 );

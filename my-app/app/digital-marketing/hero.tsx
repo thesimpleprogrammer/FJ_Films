@@ -17,20 +17,18 @@ export default function Hero({ heroData, userData }: any) {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center w-full bg-gray-100 relative">
-      <div className="min-w-1/2 relative h-[80dvh] flex flex-col items-center justify-center">
+    <div className="flex flex-col md:flex-row items-stretch justify-center w-full min-h-[80vh] bg-gray-100 relative">
+      <div className="relative h-full w-full md:w-1/2 flex flex-col items-center justify-center bg-rose-600">
         <Image
-          priority
           src={jeanImage}
           alt="Jean texture"
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          width={1024}
-          height={768}
-          placeholder="empty"
-          unoptimized
+          className="object-cover"
+          // width={1024}
+          // height={768}
+          fill
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10" />
-        <div className="w-[70%] z-20 pt-20">
+        <div className="flex flex-col items-center md:items-start w-[70%] z-20 pt-30 pb-20 text-center md:text-left">
           <div className="bg-opacity-50 text-white z-20 mb-7">
             <ReusableEditableText
               value={getContent("digitalMarketing_hero_h1_1")}
@@ -40,7 +38,7 @@ export default function Hero({ heroData, userData }: any) {
               }}
               user={userData.user}
               as="h1"
-              className="leading-24 text-[7.5rem] font-bold p-3 pb-8 mb-3 mx-auto"
+              className="leading-15 md:leading-20 lg:leading-24 text-[3rem] sm:text-[4rem] md:text-[5rem] lg:text-[7.5rem] font-bold p-3 pb-8 mb-3 mx-auto"
               style={{ width: "fit-content" }}
               setFinished={setFinished}
             >
@@ -77,7 +75,9 @@ export default function Hero({ heroData, userData }: any) {
           </div>
         </div>
       </div>
-      <ImageLoop />
+      {/* <div className="w-1/2 h-full bg-amber-600"> */}
+        <ImageLoop />
+      {/* </div> */}
       {finished && (
         <div className="fixed top-20 right-0 w-fit px-5 py-3 bg-orange-500 text-white flex justify-center z-[9999] p-20">
           <div className="text-lg animate-pulse">Updating...</div>

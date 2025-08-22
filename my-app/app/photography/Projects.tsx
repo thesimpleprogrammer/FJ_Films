@@ -138,16 +138,16 @@ export default function Projects({
   return (
     <>
       <div className="bg-white w-full" id="Projects">
-        <div className="px-16 py-20">
+        <div className="px-16 py-20 text-center lg:text-left">
           <div className="mb-12">
             <h1 className="text-3xl ">Presenting, Our Gallery</h1>
             <h3 className="text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </h3>
           </div>
-          <div className="w-full flex flex-row flex-wrap h-[380px] relative mb-5">
+          <div className="w-full flex flex-row flex-wrap h-fit relative mb-5">
             {projects?.map((project, index) => (
-              <div className="relative w-1/4 h-1/2 group" key={index}>
+              <div className="relative w-full sm:w-1/2 lg:w-1/4 group" key={index}>
                 <button
                   className="w-full h-full hover:cursor-pointer relative"
                   onClick={() =>

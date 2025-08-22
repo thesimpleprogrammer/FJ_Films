@@ -185,7 +185,7 @@ export default function WhatWeDo({
     <span
       ref={refs.videography_section2_div1_color}
       style={{ backgroundColor: getContent("videography_section2_div1_color") }}
-      className={`w-full group/outer relative block`}
+      className={`w-full group/outer relative block text-center lg:text-left`}
       onMouseOver={hover}
       onMouseLeave={stopHover}
       id="Services"
@@ -207,9 +207,10 @@ export default function WhatWeDo({
       <h1 className="text-5xl text-white px-16 py-20 underline underline-offset-[20px]">
         Services
       </h1>
-      <div className="px-16">
-        <div className="w-full flex flex-row text-white items-end h-[400px] relative mb-20">
-          <UploadImageBlock
+      <div className="flex flex-col px-16">
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
+          {/* <div className="lg:w-1/2"> */}
+            <UploadImageBlock
             id="upload1"
             url={urlInfo}
             finished={finished}
@@ -218,12 +219,13 @@ export default function WhatWeDo({
             }
             user={user_hero.user}
           />
+          {/* </div> */}
 
-          <div className="w-1/2 p-10 h-full relative">
+          <div className="w-full lg:w-1/2 p-10 h-fit relative pb-0 lg:pb-10">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
-              className={`w-full h-[400px] transition-opacity ${
+              className={`w-full h-full transition-opacity ${
                 element !== "" && first
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
@@ -231,7 +233,7 @@ export default function WhatWeDo({
             />
 
             {element === "videography_section2_h1" && user_hero.user ? (
-              <div className="w-fit z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_h1}
                   className="text-4xl outline-none"
@@ -251,7 +253,7 @@ export default function WhatWeDo({
                     onClick("videography_section2_h1");
                   }
                 }}
-                className={`w-fit underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
                   user_hero.user &&
                   `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${
@@ -303,20 +305,20 @@ export default function WhatWeDo({
                 {getContent("videography_section2_paragraph")}
               </p>
             )}
-            <a
-              href=""
-              className="px-5 py-3 ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
+            <button
+              // href=""
+              className="px-5 py-3 lg:ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
             >
               Contact Us
-            </a>
+            </button>
           </div>
         </div>
-        <div className="w-full flex flex-row text-white items-end h-[400px] relative">
-          <div className="w-1/2 p-10 h-full relative">
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
+          <div className="w-full lg:w-1/2 p-10 pt-0 lg:pt-10 h-full relative">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
-              className={`w-full h-[400px] transition-opacity ${
+              className={`w-full h-full transition-opacity ${
                 element !== "" && second
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
@@ -324,7 +326,7 @@ export default function WhatWeDo({
             />
 
             {element === "videography_section2_2_h1" && user_hero.user ? (
-              <div className="w-fit z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_2_h1}
                   className="text-4xl outline-none"
@@ -344,7 +346,7 @@ export default function WhatWeDo({
                     onClick("videography_section2_2_h1");
                   }
                 }}
-                className={`w-fit underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
                   user_hero.user &&
                   `hover:border hover:no-underline hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${element === "videography_section1_h1" ? "z-50" : "z-30"}`}
@@ -397,7 +399,7 @@ export default function WhatWeDo({
             )}
             <a
               href=""
-              className="px-5 py-3 ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
+              className="px-5 py-3 lg:ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
             >
               Contact Us
             </a>
@@ -412,9 +414,9 @@ export default function WhatWeDo({
             user={user_hero.user}
           />
         </div>
-      </div>
-      <div className="px-16 py-20">
-        <div className="w-full flex flex-row text-white items-end h-[400px] relative mb-20">
+      {/* </div>
+      <div className="px-16 py-20"> */}
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row text-white items-center h-fit relative">
           <UploadImageBlock
             id="upload3"
             url={urlInfo3}
@@ -425,11 +427,11 @@ export default function WhatWeDo({
             user={user_hero.user}
           />
 
-          <div className="w-1/2 p-10 h-full relative">
+          <div className="w-full lg:w-1/2 p-10 pb-0 lg:pb-10 h-full relative">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
-              className={`w-full h-[400px] transition-opacity ${
+              className={`w-full h-full transition-opacity ${
                 element !== "" && first
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
@@ -437,7 +439,7 @@ export default function WhatWeDo({
             />
 
             {element === "videography_section2_3_h1" && user_hero.user ? (
-              <div className="w-fit z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_3_h1}
                   className="text-4xl outline-none"
@@ -457,7 +459,7 @@ export default function WhatWeDo({
                     onClick("videography_section2_3_h1");
                   }
                 }}
-                className={`w-fit underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
                   user_hero.user &&
                   `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${
@@ -514,18 +516,18 @@ export default function WhatWeDo({
             )}
             <a
               href=""
-              className="px-5 py-3 ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
+              className="px-5 py-3 lg:ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
             >
               Contact Us
             </a>
           </div>
         </div>
-        <div className="w-full flex flex-row text-white items-end h-[400px] relative">
-          <div className="w-1/2 p-10 h-full relative">
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row text-white items-center h-fit relative">
+          <div className="w-full lg:w-1/2 p-10 pt-0 lg:pt-10 h-full relative">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
-              className={`w-full h-[400px] transition-opacity ${
+              className={`w-full h-full transition-opacity ${
                 element !== "" && second
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
@@ -533,7 +535,7 @@ export default function WhatWeDo({
             />
 
             {element === "videography_section2_4_h1" && user_hero.user ? (
-              <div className="w-fit z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_4_h1}
                   className="text-4xl outline-none"
@@ -553,7 +555,7 @@ export default function WhatWeDo({
                     onClick("videography_section2_4_h1");
                   }
                 }}
-                className={`w-fit underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
                   user_hero.user &&
                   `hover:border hover:no-underline hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${element === "videography_section1_h1" ? "z-50" : "z-30"}`}
@@ -606,7 +608,7 @@ export default function WhatWeDo({
             )}
             <a
               href=""
-              className="px-5 py-3 ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
+              className="px-5 py-3 lg:ml-3 border border-white hover:bg-white hover:text-blue-950 transition-colors"
             >
               Contact Us
             </a>

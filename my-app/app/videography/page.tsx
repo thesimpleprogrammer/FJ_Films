@@ -6,15 +6,17 @@ import { loadSectionUrl } from "../../utils/supabase/loadSectionUrl";
 import Showroom from "./Showroom";
 import ContactUs from "../src/components/Contact";
 import PricingPlans from "../src/components/Pricing";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import TalkToUsSection from "../src/components/letsTalk";
+import Testimonials from "../src/components/Testimonials";
+import NavbarContainer from "./NavbarContainer";
 
 export default async function Home() {
   const supabase = await createClient();
 
   const { data: user_page } = await supabase.auth.getUser();
 
-  const url = await loadSectionUrl("section2_1");
+  const url = await loadSectionUrl("section2_1");  
   const url2 = await loadSectionUrl("section2_2");
   const url3 = await loadSectionUrl("section2_3");
   const url4 = await loadSectionUrl("section2_4");
@@ -59,7 +61,8 @@ export default async function Home() {
   return (
     <div className="w-full">
       {/* <ToastContainer /> */}
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavbarContainer />
       <Hero
         user_hero={user_page}
         videography={videography_page_main}
@@ -76,6 +79,7 @@ export default async function Home() {
         url4={url4}
       />
       <Showroom />
+      <Testimonials />
       <PricingPlans />
       <TalkToUsSection
               contacts={{

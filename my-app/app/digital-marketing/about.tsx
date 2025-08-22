@@ -17,8 +17,8 @@ export default function About({ section2Data, userData }: any) {
     };
 
   return (
-    <div id="About" className="flex flex-row items-center justify-center w-full py-36 text-white px-20">
-      <div className="relative w-1/2 pr-20">
+    <div id="About" className="flex flex-col lg:flex-row items-center justify-center gap-20 w-full py-36 text-white px-20">
+      <div className="relative w-full lg:w-1/2">
         <Image
           src={line}
           alt="Line"
@@ -44,8 +44,8 @@ export default function About({ section2Data, userData }: any) {
             {getContent("digitalMarketing_section2_text1")}
           </ReusableEditableText>
       </div>
-      <div className="flex flex-row items-center w-1/2">
-        <div className="relative rounded-full w-[250px] h-[250px] overflow-hidden">
+      <div className="flex flex-col lg:flex-row items-center w-full gap-20 lg:gap-0 lg:w-1/2">
+        <div className="relative rounded-full w-[14rem] h-[14rem] overflow-hidden">
           <Image
             // width={300}
             // height={300}
@@ -63,7 +63,7 @@ export default function About({ section2Data, userData }: any) {
             className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 w-[170px] h-[150px] z-20"
           />
         </div>
-        <div className="flex flex-col items-start justify-center w-[58%] pl-5 ">
+        <div className="flex flex-col items-start justify-center w-full lg:w-[58%] lg:pl-5 ">
           {/* <h3 className="text-2xl pl-5 text-slate-300">What we do</h3> */}
             <ReusableEditableText
                 value={getContent("digitalMarketing_section2_h3")}

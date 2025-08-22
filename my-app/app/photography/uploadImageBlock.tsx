@@ -43,6 +43,7 @@ const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
         width={1024}
         height={768}
         placeholder="empty"
+        quality={100}
         // unoptimized
       />
     )}

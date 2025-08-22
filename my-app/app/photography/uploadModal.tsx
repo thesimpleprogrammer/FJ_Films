@@ -1,4 +1,4 @@
-import UploadEpisodes from "./uploadProjects";
+import UploadProjects from "./uploadProjects";
 
 export function UploadModal({ onClose, handleInputChange, handleImageChange, handleSubmit, finished }: { onClose: () => void, handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void, handleImageChange: (e: React.ChangeEvent<HTMLInputElement>) => void, handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void, finished: boolean}) {
 
@@ -12,7 +12,7 @@ export function UploadModal({ onClose, handleInputChange, handleImageChange, han
       
         <div className="bg-white p-6 rounded-lg shadow-lg  w-full max-w-3xl relative z-10 text-black">
           <h1 className="text-3xl pb-1 p-5">Replace Image</h1>
-          <UploadEpisodes handleSubmit={handleSubmit} handleInputChange={handleInputChange} handleImageChange={handleImageChange} finished={finished}/>
+          <UploadProjects handleSubmit={handleSubmit} handleInputChange={handleInputChange} handleImageChange={handleImageChange} finished={finished}/>
           </div>
 
         <button

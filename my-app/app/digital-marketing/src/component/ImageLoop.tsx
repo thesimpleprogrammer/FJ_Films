@@ -21,7 +21,7 @@ export default function ImageLoop() {
   }, []);
 
     return (
-        <div className="w-1/2 min-h-[80vh] overflow-hidden relative">
+        <div className="w-full lg:w-1/2 h-[80vh] md:h-auto bg-amber-600 relative">
         {imagesLoop.map((image, index) => (
         <div
           key={index}

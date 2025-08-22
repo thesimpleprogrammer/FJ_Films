@@ -91,22 +91,22 @@ export default function Hero({
 };
 
   return (
-    <div className="w-full h-[100vh] overflow-clip relative" id="Home">
+    <div className="w-full h-fit overflow-clip relative" id="Home">
       <div className="w-full relative flex flex-row h-full">
-        <div className="w-full">
-          <video className="w-full rounded-lg" autoPlay muted loop>
+        <div className="absolute top-0 left-0 w-full h-full bg-rose-600">
+          <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
             <source src="video1.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
         <div className="absolute bg-blue-950 z-60 opacity-50 top-0 left-0 w-full h-full" />
 
-        <div className="absolute top-1/2 transform -translate-y-1/2 left-0 h-full w-full text-center flex justify-center items-center text-white z-60">
+        <div className="h-full w-full text-center flex justify-center items-center text-white z-60 py-40"> {/*  absolute top-1/2 transform -translate-y-1/2 left-0  */}
           <div className="w-full px-[15%] flex flex-col justify-center h-full">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
-              className={`w-full h-[100vh] transition-opacity ${
+              className={`w-full h-full transition-opacity ${
                 element !== ""
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
@@ -196,7 +196,7 @@ export default function Hero({
               </p>
             )}
             <div
-              className={`flex flex-row w-[40%] gap-4 mx-auto justify-center mt-8 z-30`}
+              className={`flex flex-col lg:flex-row w-full lg:w-[50%] gap-4 mx-auto justify-center mt-8 z-30`}
             >
               <a
                 href=""

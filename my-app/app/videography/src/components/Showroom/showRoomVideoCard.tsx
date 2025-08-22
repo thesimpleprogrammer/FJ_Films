@@ -12,7 +12,7 @@ export default function ShowroomVideoCard({
   onFullscreen,
   user
 }: any) {
-    console.log("This is the user: " + JSON.stringify(user))
+    // console.log("This is the user: " + JSON.stringify(user))
   return (
     <div className="break-inside-avoid relative group">
       <form action="">

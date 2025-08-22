@@ -4,17 +4,19 @@
 import ProjectsContainer from "./ProjectsContainer";
 import ContactUs from "../src/components/Contact";
 import PricingPlans from "../src/components/Pricing";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import AboutContainer from "./AboutContainer";
 import WorkflowContainer from "./WorkflowContainer";
 import TalkToUsSection from "../src/components/letsTalk";
 import HeroContainer from "./HeroContainer";
-import Testimonials from "./Testimonials";
+import Testimonials from "../src/components/Testimonials";
+import NavbarContainer from "./NavbarContainer";
 
 export default function Photography() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavbarContainer />
       <HeroContainer />
       <AboutContainer />
       <WorkflowContainer />

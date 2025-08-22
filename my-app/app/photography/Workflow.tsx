@@ -39,14 +39,14 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
 
   return (
     <div className="w-full text-white" id="Workflow">
-      <div className="px-16 py-20">
+      <div className="px-16 py-20 text-center lg:text-left">
         <div className="mb-10">
           <h1 className="text-4xl mb-5">How we Create Lasting Memories</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
         <div>
-          <div className="flex flex-row w-full gap-10 items-center">
-            <div className="relative w-1/2 aspect-auto">
+          <div className="flex flex-col lg:flex-row w-full gap-10 items-center">
+            <div className="relative w-full lg:w-1/2 aspect-auto">
               {/* <Image
                 src={chineseGate}
                 alt="A chinese Gate"
@@ -70,7 +70,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 user={userData}
               />
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               {/* <h3 className="text-3xl mb-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit
               </h3> */}
@@ -81,7 +81,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 }}
                 user={userData}
                 as="h3"
-                className="relative -left-3 -top-3 text-3xl mb-5"
+                className="lg:relative -left-3 -top-3 mx-auto lg:mx-0 text-3xl mb-5"
                 style={{ width: "fit-content" }}
                 setFinished={setFinished}
               >
@@ -100,7 +100,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 }}
                 user={userData}
                 as="p"
-                className="relative -left-3 -top-3"
+                className="lg:relative -left-3 -top-3"
                 style={{ width: "fit-content" }}
                 setFinished={setFinished}
               >
@@ -114,11 +114,11 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
               alt="A chinese Gate"
               objectFit="cover"
               // fill
-              className="w-[60%] mx-auto h-full"
+              className="w-[60%] mx-auto h-full hidden lg:block"
             />
           </div>
-          <div className="flex flex-row w-full gap-10 items-center">
-            <div className="w-1/2">
+          <div className="flex flex-col lg:flex-row w-full gap-10 items-center">
+            <div className="w-full lg:w-1/2">
               {/* <h3 className="text-3xl mb-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit
               </h3>
@@ -135,7 +135,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 }}
                 user={userData}
                 as="h3"
-                className="relative -left-3 -top-3 text-3xl mb-5"
+                className="lg:relative mx-auto lg:mx-0 -left-3 -top-3 text-3xl mb-5"
                 style={{ width: "fit-content" }}
                 setFinished={setFinished}
               >
@@ -148,14 +148,14 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 }}
                 user={userData}
                 as="p"
-                className="relative -left-3 -top-3"
+                className="mx-auto lg:mx-0 lg:relative -left-3 -top-3"
                 style={{ width: "fit-content" }}
                 setFinished={setFinished}
               >
                 {getContent("photography_workflow_text_2")}
               </ReusableEditableText>
             </div>
-            <div className="relative w-1/2 aspect-auto">
+            <div className="relative w-full lg:w-1/2 aspect-auto">
               {/* <Image
                 src={wedding}
                 alt="A chinese Gate"
@@ -187,12 +187,12 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
               alt="A chinese Gate"
               objectFit="cover"
               // fill
-              className="w-[60%] mx-auto h-full"
+              className="w-[60%] mx-auto h-full hidden lg:block"
             />
             {/* </div> */}
           </div>
-          <div className="flex flex-row w-full gap-10 items-center">
-            <div className="relative w-1/2 aspect-auto">
+          <div className="flex flex-col lg:flex-row w-full gap-10 items-center">
+            <div className="relative w-full lg:w-1/2 aspect-auto">
               {/* <Image
                 src={family}
                 alt="A chinese Gate"
@@ -216,7 +216,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 user={userData}
               />
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               {/* <h3 className="text-3xl mb-5">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit
               </h3>
@@ -233,7 +233,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 }}
                 user={userData}
                 as="h3"
-                className="relative -left-3 -top-3 text-3xl mb-5"
+                className="lg:relative mx-auto lg:mx-0 -left-3 -top-3 text-3xl mb-5"
                 style={{ width: "fit-content" }}
                 setFinished={setFinished}
               >
@@ -246,7 +246,7 @@ export default function Workflow({ photographyWorkflowData, userData }: any) {
                 }}
                 user={userData}
                 as="p"
-                className="relative -left-3 -top-3"
+                className="lg:relative mx-auto lg:mx-0 -left-3 -top-3"
                 style={{ width: "fit-content" }}
                 setFinished={setFinished}
               >

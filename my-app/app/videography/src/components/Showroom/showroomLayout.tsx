@@ -22,14 +22,15 @@ export function ShowRoomLayout(user: any) {
   useEffect(() => {
     const loadVideos = async () => {
       const urls = await fetchShowroomVideoUrls();
+      console.log("This are the urls" + JSON.stringify(urls))
       setDataUrls(urls);
     };
     loadVideos();
   }, []);
 
   return (
-    <div className="w-full columns-3 sm:columns-4 space-y-3">
-      {dataUrls.map((video: any) => (
+    <div className="w-full columns-1 sm:columns-2 md:columns-3 lg:columns-4 space-y-3">
+      {dataUrls?.map((video: any) => (
         <ShowroomVideoCard
           key={video.name}
           video={video}

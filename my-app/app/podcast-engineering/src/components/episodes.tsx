@@ -119,7 +119,7 @@ export default function Episodes({
         {episodes?.map((episode, index) => (
           <li
             key={index}
-            className="flex flex-row justify-between p-10 border-y border-white relative group"
+            className="flex flex-col md:flex-row justify-between pt-15 md:pt-10 p-10 gap-8 lg:gap-0 border-y border-white relative group"
           >
             {episode.content.image && (
               <Image
@@ -132,7 +132,7 @@ export default function Episodes({
                 unoptimized
               />
             )}
-            <div className="w-[60%] flex flex-col justify-between">
+            <div className="w-full md:w-[60%] flex flex-col gap-5 lg:gap-0 justify-between">
               <p>
                 Episode {episode.content.episodeNumber} \ {episode.content.date}
               </p>

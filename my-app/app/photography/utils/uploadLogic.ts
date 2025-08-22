@@ -1,4 +1,7 @@
+"use server";
+
 import { createClient } from "@/utils/supabase/client";
+import { ImageReduce } from "../../../utils/supabase/ImageReduce";
 
 // Constants
 const BUCKET = "photography";
@@ -7,8 +10,8 @@ const PATH_PREFIX = "projects";
 interface ProjectForm {
   id?: string;
   image: File | null;
-  text: string
-  alt: string
+  text: string;
+  alt: string;
 }
 
 export const deleteImage = async (imageUrl: string) => {
@@ -17,9 +20,7 @@ export const deleteImage = async (imageUrl: string) => {
   const decodedFilename = decodeURIComponent(encodedFilename);
   const imagePath = `${PATH_PREFIX}/${decodedFilename}`;
 
-  const { error } = await supabase.storage
-    .from(BUCKET)
-    .remove([imagePath]);
+  const { error } = await supabase.storage.from(BUCKET).remove([imagePath]);
 
   if (error) console.warn("Image delete error:", error.message);
 };
@@ -29,35 +30,47 @@ export const uploadImage = async (image: File) => {
 
   const path = `${PATH_PREFIX}/${image.name}`;
 
-  const { error } = await supabase.storage
-    .from(BUCKET)
-    .upload(path, image, {
-      cacheControl: "3600",
-      upsert: false,
+  // console.log("About to start image reduce")
+  const data = await ImageReduce(image);
+  // console.log("Data from Image reduce: " + data)
+
+  if (data) {
+    const { error } = await supabase.storage.from(BUCKET).upload(path, data, {
+      // cacheControl: "3600",
+      upsert: true,
     });
+    // .upload(path, image, {
+    //   cacheControl: "3600",
+    //   upsert: false,
+    // });
 
-  if (error) throw error;
+    if (error) throw error;
 
-  const { data: publicUrlData } = supabase.storage
-    .from(BUCKET)
-    .getPublicUrl(path);
+    const { data: publicUrlData } = supabase.storage
+      .from(BUCKET)
+      .getPublicUrl(path);
 
-  return publicUrlData.publicUrl;
+    return publicUrlData.publicUrl;
+  }
 };
 
-export const uploadData = async (id: any, imageUrl: any, newProject: ProjectForm) => {
-    const supabase = createClient();
+export const uploadData = async (
+  id: any,
+  imageUrl: any,
+  newProject: ProjectForm
+) => {
+  const supabase = createClient();
 
-    const { error: updateError } = await supabase
-        .from("photographyProjects") // your table name
-        .update({
-          content: {  
-            image: imageUrl,
-            text: newProject.text,
-            alt: newProject.alt
-          },
-        })
-        .eq("id", id);
+  const { error: updateError } = await supabase
+    .from("photographyProjects") // your table name
+    .update({
+      content: {
+        image: imageUrl,
+        text: newProject.text,
+        alt: newProject.alt,
+      },
+    })
+    .eq("id", id);
 
-      if (updateError) return updateError;
-}
+  if (updateError) return updateError;
+};

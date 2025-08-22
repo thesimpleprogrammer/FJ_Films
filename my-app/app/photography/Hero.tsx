@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import photoBg from "../../public/bgPhoto.png";
+import photoBg from "../../public/bgPhoto1.png";
 import { useUpdateContent } from "./utils/updateContent";
 import { useState } from "react";
 import ReusableEditableText from "../src/components/ReuseableEditableText";
@@ -17,7 +17,7 @@ export default function Hero({ photographyHeroData, userData }: any) {
 
   return (
     <div className="w-full bg-white" id="Home">
-      <div className="relative w-full flex flex-row px-20 py-50">
+      <div className="relative w-full flex flex-row px-20 py-50 text-center md:text-left">
         <Image
           src={photoBg}
           alt="Man taking a Photograph"
@@ -26,12 +26,12 @@ export default function Hero({ photographyHeroData, userData }: any) {
           fill
         />
 
-        <div className="w-[50%] text-white z-20">
+        <div className="w-fit mx-auto md:w-[50%] md:mx-0 text-white z-20">
           {/* <div className="flex flex-col">
             <h1 className="text-7xl">FJ Films</h1>
             <h3 className="text-2xl">Photography</h3>
           </div> */}
-          <div className="py-3 text-2xl text-slate-900 font-bold">
+          <div className="py-3 text-2xl text-slate-400 font-bold">
             {/* <h2 className="">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda odit amet dolor quos.
             </h2> */}
@@ -45,7 +45,7 @@ export default function Hero({ photographyHeroData, userData }: any) {
                   }}
                   user={userData}
                   as="h2"
-                  className="relative -left-3 -top-3"
+                  className="md:relative -left-3 -top-3"
                   style={{ width: "fit-content" }}
                   setFinished={setFinished}
                 >
@@ -66,14 +66,14 @@ export default function Hero({ photographyHeroData, userData }: any) {
                   }}
                   user={userData}
                   as="p"
-                  className="relative -left-3 -top-3"
+                  className="md:relative -left-3 -top-3"
                   style={{ width: "fit-content" }}
                   setFinished={setFinished}
                 >
                   {getContent("photography_about_text2")}
                 </ReusableEditableText>
           </div>
-            <a href="" className="px-5 py-3 border border-white hover:bg-white hover:text-black transition-colors">
+            <a href="" className="w-fit mx-auto lg:mx-0 px-5 py-3 border border-white hover:bg-white hover:text-black transition-colors">
               Let&apos;s Get In Touch  
             </a>
         </div>

@@ -33,8 +33,8 @@ export default function Completed({ section4Data, userData }: any) {
         {getContent("digitalMarketing_section4_h1")}
         </ReusableEditableText>
 
-      <div className="flex flex-row ">
-        <div className="w-1/3 p-10">
+      <div className="flex flex-col lg:flex-row ">
+        <div className="w-full lg:w-1/3 p-10">
           {/* <h3 className="mb-7">
             We help brands grow through smart digital marketing — from ads and
             SEO to content and strategy.
@@ -60,7 +60,7 @@ export default function Completed({ section4Data, userData }: any) {
           </a>
         </div>
 
-        <div className="w-1/3 flex flex-col border-l border-gray-500">
+        <div className="w-full lg:w-1/3 flex flex-col border-l border-gray-500">
           <div className="p-10 border-b border-gray-500">
             {/* <p className="text-xl mb-20">
               Social Media Growth – E-Commerce Brand
@@ -128,8 +128,8 @@ export default function Completed({ section4Data, userData }: any) {
           </div>
         </div>
 
-        <div className="w-1/3 flex flex-col border-l border-gray-500">
-          <div className="p-10 border-b border-gray-500">
+        <div className="w-full lg:w-1/3 flex flex-col border-l border-gray-500">
+          <div className="p-10 border-y lg:border-t-0 border-gray-500">
             {/* <p className="text-xl mb-20">SEO Overhaul – SaaS Company</p> */}
             <ReusableEditableText
               value={getContent("digitalMarketing_section4_title3")}

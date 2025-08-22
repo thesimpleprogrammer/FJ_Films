@@ -76,9 +76,9 @@ export default function AboutExtras({ section2ExtraData, userData }: any) {
   ];
 
   return (
-    <div className="flex flex-row justify-center px-20 py-10 gap-32">
+    <div className="flex flex-col lg:flex-row justify-center px-20 py-10 gap-20 lg:gap-32">
       {contents.map((content, index) => (
-        <div key={index} className="flex flex-row justify-between py-9 border-t border-gray-800 gap-10 text-white">
+        <div key={index} className="flex flex-row justify-between py-9 border-t border-gray-800 text-white">
           {/* <p className="text-white">{content.description}</p> */}
           <ReusableEditableText
           value={getContent(content.element)}

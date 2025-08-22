@@ -94,10 +94,10 @@ export default function Services({ section3Data, userData }: any) {
           key={service.id}
           className={`flex flex-row items-center w-full p-12 border-t ${
             service.id == services.length && "border-b"
-          } border-gray-300 gap-12`}
+          } border-gray-300 gap-12 flex-wrap lg:flex-nowrap`}
         >
-          <div className="w-[10%] text-gray-700 text-xl">{"0" + service.id}</div>
-          <div className="w-[40%] flex flex-row items-center gap-5">
+          <div className="basis-[100%] md:basis[50%] lg:basis-[10%] text-gray-700 text-xl">{"0" + service.id}</div>
+          <div className="basis-[100%] md:basis[50%] lg:basis-[40%] flex flex-row items-center gap-5">
             <div className="">{service.svg}</div>
             {/* <h2 className="font-bold text-2xl text-gray-900">{service.name}</h2> */}
             <ReusableEditableText
@@ -124,7 +124,7 @@ export default function Services({ section3Data, userData }: any) {
                 }}
                 user={userData.user}
                 as="p"
-                className={`w-[50%] text-gray-500 ${userData.user && `whiteBg`}`}
+                className={`basis-[100%] lg:basis-[50%] text-gray-500 ${userData.user && `whiteBg`}`}
                 style={{ width: "" }}
                 setFinished={setFinished}
             >
