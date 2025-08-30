@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 env:
-  IMAGE: blacc/fj-films-backend:${{github.sha}}         # <-- change if your Docker Hub repo is different
+  IMAGE: blacc/fj-films-backend         # <-- change if your Docker Hub repo is different
   EC2_NAME_TAG: fj-films-backend         # <-- EC2 "Name" tag used to find the instance
 
 jobs:
@@ -52,20 +52,28 @@ jobs:
         run: |
           set -e
           if [[ "${{ github.event_name }}" == "push" ]]; then
-            # STAGING
+            # === STAGING ===
             TAG=staging
-            docker build -t $IMAGE:$TAG .
+            # Immutable tag (staging-${sha})
+            docker build -t $IMAGE:$TAG-${{ github.sha }} .
+            docker push $IMAGE:$TAG-${{ github.sha }}
+            # Moving tag (staging -> latest build)
+            docker tag $IMAGE:$TAG-${{ github.sha }} $IMAGE:$TAG
             docker push $IMAGE:$TAG
           else
-            # PRODUCTION (release)
+            # === PRODUCTION (release) ===
             RELTAG="${{ github.event.release.tag_name }}"
-            # Build with immutable tag
-            docker build -t $IMAGE:$RELTAG .
+            # Immutable tag (release-${sha})
+            docker build -t $IMAGE:$RELTAG-${{ github.sha }} .
+            docker push $IMAGE:$RELTAG-${{ github.sha }}
+            # Clean release tag (v1.2.3)
+            docker tag $IMAGE:$RELTAG-${{ github.sha }} $IMAGE:$RELTAG
             docker push $IMAGE:$RELTAG
-            # Also push/update :latest for runtime convenience
-            docker tag $IMAGE:$RELTAG $IMAGE:latest
+            # Update :latest
+            docker tag $IMAGE:$RELTAG-${{ github.sha }} $IMAGE:latest
             docker push $IMAGE:latest
           fi
+
 
   deploy:
     needs: build_and_push
