@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 env:
-  IMAGE: blacc/fj-films-backend          # <-- change if your Docker Hub repo is different
+  IMAGE: blacc/fj-films-backend:${{github.sha}}         # <-- change if your Docker Hub repo is different
   EC2_NAME_TAG: fj-films-backend         # <-- EC2 "Name" tag used to find the instance
 
 jobs:
