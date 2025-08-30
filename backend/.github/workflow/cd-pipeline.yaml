@@ -1,0 +1,131 @@
+name: Deploy (Staging & Production) to EC2 via OIDC
+
+on:
+  push:
+    branches: [ "staging" ]
+  release:
+    types: [ published ]
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write   # OIDC
+  contents: read
+
+env:
+  IMAGE: blacc/fj-films-backend          # <-- change if your Docker Hub repo is different
+  EC2_NAME_TAG: fj-films-backend         # <-- EC2 "Name" tag used to find the instance
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Setup, test, and build project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3 
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test application
+        run: npm test
+
+  build_and_push:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}  # or ACCESS_TOKEN if that's what you use
+
+      - name: Build & Push (staging on push, prod on release)
+        run: |
+          set -e
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            # STAGING
+            TAG=staging
+            docker build -t $IMAGE:$TAG .
+            docker push $IMAGE:$TAG
+          else
+            # PRODUCTION (release)
+            RELTAG="${{ github.event.release.tag_name }}"
+            # Build with immutable tag
+            docker build -t $IMAGE:$RELTAG .
+            docker push $IMAGE:$RELTAG
+            # Also push/update :latest for runtime convenience
+            docker tag $IMAGE:$RELTAG $IMAGE:latest
+            docker push $IMAGE:latest
+          fi
+
+  deploy:
+    needs: build_and_push
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          # IMPORTANT: this must be a ROLE ARN, not the OIDC provider ARN
+          role-to-assume: arn:aws:iam::338052313607:role/EC2-Admin-FJ-Films  # <-- replace
+          aws-region: eu-north-1  # <-- your region
+
+      - name: Resolve EC2 instance by Name tag
+        id: ec2
+        run: |
+          IID=$(aws ec2 describe-instances \
+            --filters "Name=tag:Name,Values=${EC2_NAME_TAG}" "Name=instance-state-name,Values=running" \
+            --query "Reservations[].Instances[].InstanceId" --output text)
+          if [[ -z "$IID" || "$IID" == "None" ]]; then
+            echo "No running instance found with Name tag '${EC2_NAME_TAG}'"
+            exit 1
+          fi
+          echo "instance_id=$IID" >> $GITHUB_OUTPUT
+
+      - name: Set deploy vars (container name/port/tag)
+        id: vars
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            echo "TAG=staging" >> $GITHUB_OUTPUT
+            echo "NAME=fj-films-backend-staging" >> $GITHUB_OUTPUT
+            echo "PORT=8080" >> $GITHUB_OUTPUT
+          else
+            echo "TAG=latest" >> $GITHUB_OUTPUT       # runs prod with :latest
+            echo "NAME=fj-films-backend-prod" >> $GITHUB_OUTPUT
+            echo "PORT=80" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deploy via SSM (pull, stop, replace, run)
+        run: |
+          IMAGE="${IMAGE}"
+          TAG="${{ steps.vars.outputs.TAG }}"
+          NAME="${{ steps.vars.outputs.NAME }}"
+          PORT="${{ steps.vars.outputs.PORT }}"
+          IID="${{ steps.ec2.outputs.instance_id }}"
+
+           # Run SSM command and capture CommandId
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids "$IID" \
+            --document-name "AWS-RunShellScript" \
+            --comment "Deploy $NAME ($IMAGE:$TAG)" \
+            --query "Command.CommandId" \
+            --output text \
+            --parameters "commands=[
+              \"docker pull ${IMAGE}:${TAG}\",
+              \"docker stop ${NAME} || true\",
+              \"docker rm ${NAME} || true\",
+              \"docker run -d --restart unless-stopped -p ${PORT}:5000 --name ${NAME} ${IMAGE}:${TAG}\"
+            ]")
+
+          echo "command_id=$COMMAND_ID" >> $GITHUB_OUTPUT
+
+      - name: Fetch deployment logs (optional)
+        run: |
+          aws ssm list-command-invocations \
+            --command-id "${{ steps.deploy.outputs.command_id }}" \
+            --details

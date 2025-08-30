@@ -207,7 +207,7 @@ export default function Projects({
               </div>
             ))}
           </div>
-          <a href="#" className="underline underline-offset-2 text-lg py-5">
+          <a href="https://fjfilmsstudio.passgallery.com/client" className="underline underline-offset-2 text-lg py-5">
             View More
           </a>
         </div>

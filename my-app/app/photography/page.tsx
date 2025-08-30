@@ -11,6 +11,7 @@ import TalkToUsSection from "../src/components/letsTalk";
 import HeroContainer from "./HeroContainer";
 import Testimonials from "../src/components/Testimonials";
 import NavbarContainer from "./NavbarContainer";
+import CheckOut from "../src/components/checkOut";
 
 export default function Photography() {
   return (
@@ -23,17 +24,18 @@ export default function Photography() {
       <ProjectsContainer />
       <Testimonials />
       <PricingPlans />
+      {/* <CheckOut /> */}
       <TalkToUsSection
         contacts={{
-          email: "support@mysite.com",
-          phone: "+2348012345678",
-          whatsapp: "https://wa.me/2348012345678",
+          email: "femi@thefjfilms.com",
+          phone: "+13018511352",
+          whatsapp: "http://wa.me/13018511352",
           calendly: "https://calendly.com/mysite/demo",
           twitterDM: "https://x.com/messages/compose?recipient_id=123456",
-          instagram: "https://instagram.com/mysite",
+          instagram: "https://instagram.com/fjfilmz",
           telegram: "https://t.me/mysite",
           discord: "https://discord.gg/abc123",
-          liveChat: "/chat",
+          liveChat: "+13018511352",
           location: "https://maps.google.com/?q=My%20Studio",
           website: "https://mysite.com/help",
         }}
