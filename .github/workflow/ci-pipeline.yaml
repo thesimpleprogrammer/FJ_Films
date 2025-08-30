@@ -4,6 +4,9 @@ on:
     branches:
       - staging
       - main
+    paths:
+      - 'backend/**'
+      - '.github/**'
 jobs:
   test:
     runs-on: ubuntu-latest

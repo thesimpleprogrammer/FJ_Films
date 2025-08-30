@@ -3,6 +3,9 @@ name: Deploy (Staging & Production) to EC2 via OIDC
 on:
   push:
     branches: [ "staging" ]
+    paths:
+      - 'backend/**'
+      - '.github/**'
   release:
     types: [ published ]
   workflow_dispatch: {}
