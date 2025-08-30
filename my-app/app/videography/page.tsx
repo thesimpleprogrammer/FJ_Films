@@ -16,7 +16,7 @@ export default async function Home() {
 
   const { data: user_page } = await supabase.auth.getUser();
 
-  const url = await loadSectionUrl("section2_1");  
+  const url = await loadSectionUrl("section2_1");
   const url2 = await loadSectionUrl("section2_2");
   const url3 = await loadSectionUrl("section2_3");
   const url4 = await loadSectionUrl("section2_4");
@@ -82,20 +82,20 @@ export default async function Home() {
       <Testimonials />
       <PricingPlans />
       <TalkToUsSection
-              contacts={{
-                email: "support@mysite.com",
-                phone: "+2348012345678",
-                whatsapp: "https://wa.me/2348012345678",
-                calendly: "https://calendly.com/mysite/demo",
-                twitterDM: "https://x.com/messages/compose?recipient_id=123456",
-                instagram: "https://instagram.com/mysite",
-                telegram: "https://t.me/mysite",
-                discord: "https://discord.gg/abc123",
-                liveChat: "/chat",
-                location: "https://maps.google.com/?q=My%20Studio",
-                website: "https://mysite.com/help",
-              }}
-            />
+        contacts={{
+          email: "femi@thefjfilms.com",
+          phone: "+13018511352",
+          whatsapp: "http://wa.me/13018511352",
+          calendly: "https://calendly.com/mysite/demo",
+          twitterDM: "https://x.com/messages/compose?recipient_id=123456",
+          instagram: "https://instagram.com/fjfilmz",
+          telegram: "https://t.me/mysite",
+          discord: "https://discord.gg/abc123",
+          liveChat: "+13018511352",
+          location: "https://maps.google.com/?q=My%20Studio",
+          website: "https://mysite.com/help",
+        }}
+      />
       <ContactUs />
       {/* <SignOutButton user={user_page?.user} /> */}
     </div>

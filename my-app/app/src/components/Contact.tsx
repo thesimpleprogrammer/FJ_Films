@@ -194,15 +194,14 @@ export default function ContactUs() {
           <div>
             <h3 className="text-[#f4d03f]">OPENING DAYS:</h3>
             <ul className="pl-4">
-              <li>Monday : 8am to 8 pm</li>
-              <li>Tuesday - Saturday : 7am to 8 pm</li>
-              <li>Sunday : 8am to 1 pm</li>
+              <li>Monday - Saturday : 8am to 8pm</li>
+              <li>Sunday : 3pm to 9pm</li>
             </ul>
           </div>
-          <div>
+          {/* <div>
             <h3 className="text-[#f4d03f]">VACATIONS:</h3>
             <p className="pl-4">All Official Holidays</p>
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-col w-full md:w-[40%] lg:w-1/4 pl-5 py-5 gap-5">
           <h1 className="font-semibold text-xl">Contact Information</h1>
@@ -220,7 +219,7 @@ export default function ContactUs() {
                   fill="#FFFFFF"
                 />
               </svg>
-              <p className="">203 Fake St. Mountain View San Francisco, California, USA</p>
+              <p className="">7400 Wood Meadow way, Lanham, MD 20706</p>
             </div>
             <div className="flex items-center justify-center lg:justify-normal gap-4 hover:text-[#f4d03f] hover:cursor-pointer">
               <svg
@@ -235,9 +234,9 @@ export default function ContactUs() {
                   fill="#FFFFFF"
                 />
               </svg>
-              <p>+1 3237677069</p>
+              <p>+13016605267</p>
             </div>
-            <div className="flex items-center justify-center lg:justify-normal gap-4 hover:text-[#f4d03f] hover:cursor-pointer">
+            <a href="mailto:femi@thefjfilms.com" className="flex items-center justify-center lg:justify-normal gap-4 hover:text-[#f4d03f] hover:cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 512 512"
@@ -250,8 +249,8 @@ export default function ContactUs() {
                   fill="#FFFFFF"
                 />
               </svg>
-              <p>info@yourdomain.com</p>
-            </div>
+              <p>femi@thefjfilms.com</p>
+            </a>
           </div>
         </div>
       </div>
