@@ -23,6 +23,8 @@ app.get("/", (req, res) => {
   res.status(200).send("Hello from the web server 🚀");
 });
 
+console.log("We're in the backend");
+
 app.post("/resize", upload.single("video"), async (req, res) => {
   if (!req.file) return res.status(400).send("No file uploaded.");
   console.log("We're in the backend");
