@@ -27,9 +27,11 @@ jobs:
         uses: actions/checkout@v3 
 
       - name: Install dependencies
+        working-directory: ./backend
         run: npm ci
 
       - name: Test application
+        working-directory: ./backend
         run: npm test
 
   build_and_push:
@@ -46,6 +48,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}  # or ACCESS_TOKEN if that's what you use
 
       - name: Build & Push (staging on push, prod on release)
+        working-directory: ./backend
         run: |
           set -e
           if [[ "${{ github.event_name }}" == "push" ]]; then
