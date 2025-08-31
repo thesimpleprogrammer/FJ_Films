@@ -115,6 +115,7 @@ jobs:
           fi
 
       - name: Deploy via SSM (pull, stop, replace, run)
+        id: deploy
         run: |
           IMAGE="${IMAGE}"
           TAG="${{ steps.vars.outputs.TAG }}"
