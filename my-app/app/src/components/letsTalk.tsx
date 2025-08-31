@@ -30,7 +30,7 @@ const DEFAULT_CONTACTS: ContactLinks = {
   instagram: "https://instagram.com/yourhandle",
   telegram: "https://t.me/yourhandle",
   discord: "https://discord.gg/yourinvite",
-  liveChat: "/chat",
+  liveChat: "+2348012345678",
   location: "https://maps.google.com?q=Your%20Studio",
   website: "https://yourdomain.com/help",
 };
@@ -144,7 +144,7 @@ export default function TalkToUsSection({ contacts = DEFAULT_CONTACTS }: { conta
         )}
         {contacts.liveChat && (
           <a
-            href={contacts.liveChat}
+            href={`sms:+${contacts.liveChat}`}
             className="flex items-center justify-center gap-2 rounded-2xl border border-cyan-200/60 bg-cyan-50 px-4 py-3 text-sm font-semibold text-cyan-900 transition hover:bg-cyan-600 dark:border-cyan-900/60 dark:bg-cyan-950 dark:text-cyan-100"
           >
             <MessageSquare className="h-4 w-4" /> Live chat

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // server.ts
 import express from "express";
 import multer from "multer";
@@ -7,9 +8,8 @@ import ffprobeInstaller from "@ffprobe-installer/ffprobe";
 import fs from "fs";
 import path from "path";
 import cors from "cors";
-// import { createClient } from "@supabase/supabase-js";
 
-const app = express();
+export const app = express();
 const upload = multer({ dest: "uploads/" });
 
 app.use(cors());
@@ -18,11 +18,12 @@ app.use(cors());
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 ffmpeg.setFfprobePath(ffprobeInstaller.path);
 
-// Supabase client (optional)
-// const supabase = createClient(
-//   process.env.SUPABASE_URL!,
-//   process.env.SUPABASE_KEY!
-// );
+// ✅ Add this root route for testing
+app.get("/", (req, res) => {
+  res.status(200).send("Hello from the web server 🚀");
+});
+
+console.log("We're in the backend");
 
 app.post("/resize", upload.single("video"), async (req, res) => {
   if (!req.file) return res.status(400).send("No file uploaded.");
@@ -38,16 +39,7 @@ app.post("/resize", upload.single("video"), async (req, res) => {
 
   try {
     // Run ffmpeg
-    await new Promise((resolve, reject) => {
-      //   ffmpeg(inputPath)
-      //     .size("720x?")
-      //     .output(outputPath)
-      //     .on("progress", (progress) => {
-      //       console.log(`Processing: ${progress.percent?.toFixed(2)}% done`);
-      //     })
-      //     .on("end", () => resolve())
-      //     .on("error", (err) => reject(err))
-      //     .run();
+    // await new Promise((resolve, reject) => {
       ffmpeg.ffprobe(inputPath, (err, metadata) => {
         if (err) throw err;
         const duration = metadata.format.duration; // in seconds
@@ -69,13 +61,7 @@ app.post("/resize", upload.single("video"), async (req, res) => {
           .on("end", () => {
             console.log("FFmpeg finished writing file");
 
-            // send response AFTER file is ready
-            // res.setHeader("Content-Type", "video/mp4");
-            // const readStream = fs.createReadStream(outputPath);
-            // readStream.pipe(res);
             const buffer = fs.readFileSync(outputPath);
-
-            // console.log("This is the buffer: " + buffer)
 
             res.set("Content-Type", "video/mp4");
             res.set("Content-Length", buffer.length);
@@ -88,13 +74,21 @@ app.post("/resize", upload.single("video"), async (req, res) => {
           .on("error", (err) => console.error(err))
           .run();
       });
-    });
+    // });
   } catch (err) {
     console.error(err);
     res.status(500).send("Error processing video");
   }
 });
 
-app.listen(5000, () => {
-  console.log("🚀 Server running on http://localhost:5000");
-});
+// app.listen(5000, () => {
+//   console.log("🚀 Server running on http://localhost:5000");
+// });
+if (process.env.NODE_ENV !== "test") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

@@ -23,7 +23,7 @@ export default async function HomeContent() {
       <div className="w-[40%] mx-auto">
         <div className="text-white text-center text-md mb-5">
           <h1 className="text-3xl mb-3">FJ Films</h1>
-          <h3>LOREM IPSUM DOLOR SIT AMET</h3>
+          <h3>SERVICES YOU CAN TRUST NOW AND ALWAYS</h3>
         </div>
         <div className="w-fit mx-auto flex flex-row gap-5 py-4 fill-white mb-3">
           <a href="#" className="w-7 hover:fill-gray-400 transition-colors">
