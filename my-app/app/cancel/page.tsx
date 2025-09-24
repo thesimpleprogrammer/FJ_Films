@@ -1,4 +1,6 @@
 // app/cancel/page.tsx
+import Link from "next/link";
+
 export default function Cancel() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
@@ -7,12 +9,12 @@ export default function Cancel() {
         <p className="text-gray-600 mb-6">
           The payment was canceled. Please try again later.
         </p>
-        <a
+        <Link
           href="/"
           className="inline-block rounded-xl bg-red-600 px-6 py-2 text-white font-medium shadow hover:bg-red-700 transition"
         >
           Return Home
-        </a>
+        </Link>
       </div>
     </div>
   );
