@@ -74,7 +74,7 @@ export default function About({ photographyAboutData, userData }: any) {
               href=""
               className=" w-fit px-5 py-3 border border-black hover:bg-black hover:text-white transition-colors duration-300"
             >
-              A little More About Me
+              Let's Get In Touch
             </a>
           </div>
           <div className="w-full lg:w-1/3 h-[500px] relative">
