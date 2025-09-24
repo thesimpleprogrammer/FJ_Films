@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 interface SuccessPageProps {
   searchParams: { session_id?: string }
 }
@@ -20,12 +22,12 @@ export default function Success({ searchParams }: SuccessPageProps) {
           Your purchase was successful. We truly appreciate your support!
         </p>
         {sessionId && <p className="mb-6 text-gray-600">Session ID: {sessionId}</p>}
-        <a
+        <Link
           href="/"
           className="inline-block rounded-xl bg-indigo-600 px-6 py-2 text-white font-medium shadow hover:bg-indigo-700 transition"
         >
           Go Back Home
-        </a>
+        </Link>
       </div>
     </div>
   )

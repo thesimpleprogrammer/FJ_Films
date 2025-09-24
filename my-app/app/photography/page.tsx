@@ -11,7 +11,7 @@ import TalkToUsSection from "../src/components/letsTalk";
 import HeroContainer from "./HeroContainer";
 import Testimonials from "../src/components/Testimonials";
 import NavbarContainer from "./NavbarContainer";
-import CheckOut from "../src/components/checkOut";
+// import CheckOut from "../src/components/checkOut";
 
 export default function Photography() {
   return (

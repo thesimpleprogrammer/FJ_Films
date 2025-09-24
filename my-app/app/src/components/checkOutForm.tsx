@@ -1,4 +1,4 @@
-import { EmbeddedCheckout, useCheckout } from "@stripe/react-stripe-js";
+import { EmbeddedCheckout } from "@stripe/react-stripe-js";
 // import { FormEvent } from "react";
 
 const CheckoutForm = () => {
