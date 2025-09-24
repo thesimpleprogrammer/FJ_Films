@@ -1,7 +1,7 @@
 import Link from "next/link"
 
-type SuccessPageProps = {
-  searchParams: { session_id?: string }
+interface SuccessPageProps {
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export default function Success({ searchParams }: SuccessPageProps) {
