@@ -147,7 +147,7 @@ export default function Projects({
           </div>
           <div className="w-full flex flex-row flex-wrap h-fit relative mb-5">
             {projects?.map((project, index) => (
-              <div className="relative w-full sm:w-1/2 lg:w-1/4 group" key={index}>
+              <div className="relative w-full sm:w-1/2 lg:w-1/4 group h-60" key={index}>
                 <button
                   className="w-full h-full hover:cursor-pointer relative"
                   onClick={() =>
@@ -163,8 +163,9 @@ export default function Projects({
                       key={index}
                       src={project.content.image}
                       alt={project.content.alt}
-                      width={1024}
-                      height={768}
+                      // width={1024}
+                      // height={768}
+                      fill
                       objectFit="cover"
                       className="w-full h-full transition-opacity duration-500 opacity-0 animate-pulse"
                       placeholder="blur"
