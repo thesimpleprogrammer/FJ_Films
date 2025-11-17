@@ -6,7 +6,7 @@ import HomeContent from "./src/components/HomeContent"
 export default async function Home () {
 
   return (
-    <div className="relative">
+    <div className="relative w-full overflow-x-hidden">
       <Hero />
       <HomeContent />
     </div>
