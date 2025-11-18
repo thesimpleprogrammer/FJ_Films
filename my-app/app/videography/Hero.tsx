@@ -102,7 +102,7 @@ export default function Hero({
         <div className="absolute bg-blue-950 z-60 opacity-50 top-0 left-0 w-full h-full" />
 
         <div className="h-full w-full text-center flex justify-center items-center text-white z-60 py-40"> {/*  absolute top-1/2 transform -translate-y-1/2 left-0  */}
-          <div className="w-full px-[15%] flex flex-col justify-center h-full">
+          <div className="w-full px-8 lg:px-[15%] flex flex-col justify-center h-full">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}

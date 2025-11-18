@@ -15,7 +15,7 @@ import NavbarContainer from "./NavbarContainer";
 
 export default function Photography() {
   return (
-    <>
+    <div className="w-full overflow-x-hidden">
       {/* <Navbar /> */}
       <NavbarContainer />
       <HeroContainer />
@@ -41,6 +41,6 @@ export default function Photography() {
         }}
       />
       <ContactUs />
-    </>
+    </div>
   );
 }

@@ -10,8 +10,8 @@ type Props = {
 };
 
 const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
-  <div className={`relative w-full lg:w-1/2 ${user && "group"} bg-yellow-600`}>
-    <div className="absolute top-0 left-0 w-full h-full transition-opacity duration-300 bg-black opacity-0 group-hover:opacity-50 flex flex-row justify-center items-center" />
+  <div className={`relative w-full flex flex-row items-center lg:w-1/2 ${user && "group"}`}>
+    <div className="absolute top-0 left-0 w-full h-full transition-opacity duration-300 bg-black opacity-0 group-hover:opacity-50 flex flex-row justify-center items-center z-50" />
     {user && (
       <form>
         <label
@@ -20,7 +20,7 @@ const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
             finished
               ? "hover:bg-transparent hover:text-white"
               : "hover:bg-white hover:text-black"
-          } transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100`}
+          } transform -translate-x-1/2 inline-block cursor-pointer px-5 py-3 w-full h-full lg:w-fit lg:h-fit border text-xl transition-colors duration-300 border-white rounded-md opacity-0 group-hover:opacity-100 z-60`}
           role="button"
         >
           Upload
@@ -38,7 +38,7 @@ const UploadImageBlock = ({ id, url, finished, onUpload, user }: Props) => (
       // priority
       src={url}
       alt=""
-      className="w-full h-full z-30"
+      className="w-full z-30"
       width={1024}
       height={768}
       // fill

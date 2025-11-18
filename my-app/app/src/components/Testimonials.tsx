@@ -11,12 +11,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-const Slider = dynamic(() => import("react-slick"), {
-  ssr: false,
-});
+// const Slider = dynamic(() => import("react-slick"), {
+//   ssr: false,
+// });
+import Slider from "@ant-design/react-slick";
 
 export default function Testimonials() {
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
 
   const people = [
     {
@@ -86,20 +87,19 @@ export default function Testimonials() {
     ],
   };
 
-  useEffect(() => {
-    setMounted(true);
+  // useEffect(() => {
+  //   setMounted(true);
 
-    setTimeout(() => {
-    window.dispatchEvent(new Event("resize"));
-  }, 100);
-  }, []);
+  //   setTimeout(() => {
+  //   window.dispatchEvent(new Event("resize"));
+  // }, 100);
+  // }, []);
 
   return (
     <div className="w-full pt-16 pb-24 px-8 lg:px-32 text-center lg:text-left flex flex-col gap-3 text-[#535353]">
       <div className="font-semibold text-white">TESTIMONIES</div>
       <h1 className="text-3xl mb-16 text-white">Happy Clients & Feedbacks</h1>
       <div className="">
-        {mounted && (
           <Slider {...settings}>
             {people.map((person, index) => (
               <div
@@ -140,7 +140,6 @@ export default function Testimonials() {
               </div>
             ))}
           </Slider>
-        )}
       </div>
     </div>
   );

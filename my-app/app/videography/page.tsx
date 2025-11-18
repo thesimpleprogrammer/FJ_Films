@@ -59,7 +59,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden">
       {/* <ToastContainer /> */}
       {/* <Navbar /> */}
       <NavbarContainer />

@@ -17,7 +17,7 @@ export default function Hero({ photographyHeroData, userData }: any) {
 
   return (
     <div className="w-full bg-white" id="Home">
-      <div className="relative w-full flex flex-row px-20 py-50 text-center md:text-left">
+      <div className="relative w-full flex flex-row px-7 md:px-20 py-50 text-center lg:text-left">
         <Image
           src={photoBg}
           alt="Man taking a Photograph"
@@ -26,12 +26,12 @@ export default function Hero({ photographyHeroData, userData }: any) {
           fill
         />
 
-        <div className="w-fit mx-auto md:w-[50%] md:mx-0 text-white z-20">
+        <div className="w-fit mx-auto lg:w-[50%] lg:mx-0 text-white z-20">
           {/* <div className="flex flex-col">
             <h1 className="text-7xl">FJ Films</h1>
             <h3 className="text-2xl">Photography</h3>
           </div> */}
-          <div className="py-3 text-2xl text-slate-300 font-bold">
+          <div className="py-3 text-2xl text-slate-300 font-bold w-fit mx-auto">
             {/* <h2 className="">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda odit amet dolor quos.
             </h2> */}
@@ -52,7 +52,7 @@ export default function Hero({ photographyHeroData, userData }: any) {
                   {getContent("photography_hero_text1")}
                 </ReusableEditableText>
           </div>
-          <div className="mb-8">
+          <div className="mb-8 w-fit mx-auto">
             {/* <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eius, corrupti illo vitae aut necessitatibus consectetur, nemo minima quod facilis ducimus error. Pariatur, facere explicabo iure ducimus aliquid tempore totam!
             </p> */}
@@ -73,7 +73,7 @@ export default function Hero({ photographyHeroData, userData }: any) {
                   {getContent("photography_about_text2")}
                 </ReusableEditableText>
           </div>
-            <a href="" className="w-fit mx-auto lg:mx-0 px-5 py-3 border border-white hover:bg-white hover:text-black transition-colors">
+            <a href="" className="w-fit lg:mx-0 px-5 py-3 border border-white hover:bg-white hover:text-black transition-colors">
               Let&apos;s Get In Touch  
             </a>
         </div>

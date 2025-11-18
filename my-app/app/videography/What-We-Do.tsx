@@ -33,8 +33,13 @@ export default function WhatWeDo({
 }: supabaseData) {
   const [element, setElement] = useState("");
   const [changed, setChanged] = useState(false);
+  const [identifier, setIdentifier] = useState("");
   const [first, setFirst] = useState(false);
   const [second, setSecond] = useState(false);
+  const [third, setThird] = useState(false);
+  const [fourth, setFourth] = useState(false);
+  const [fifth, setFifth] = useState(false);
+  const [sixth, setSixth] = useState(false);
   const [finished, setFinished] = useState(false);
   const [data, setData] = useState(videography);
   const [selected, setSelected] = useState(false);
@@ -193,10 +198,21 @@ export default function WhatWeDo({
       await setChanged(!changed);
       setFirst(false);
       setSecond(false);
+      setThird(false);
+      setFourth(false);
+      setFifth(false);
+      setSixth(false);
+      setIdentifier("");
       setElement("");
     }
   };
 
+  const test = (id: any, bool: any) => {
+    console.log("This is the element: " + element)
+    console.log("This is the id: " + id)
+    console.log("This is the true/false: " + bool)
+  }
+ 
   return (
     <span
       ref={refs.videography_section2_div1_color}
@@ -220,11 +236,11 @@ export default function WhatWeDo({
         />
       )}
 
-      <h1 className="text-5xl text-white px-16 py-20 underline underline-offset-[20px]">
+      <h1 className="text-5xl text-white px-16 py-20 underline underline-offset-8">
         Services
       </h1>
-      <div className="flex flex-col px-16">
-        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
+      <div className="flex flex-col px-8 lg:px-16">
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row text-white h-fit relative">
           {/* <div className="lg:w-1/2"> */}
             <UploadImageBlock
             id="upload1"
@@ -237,22 +253,24 @@ export default function WhatWeDo({
           />
           {/* </div> */}
 
-          <div className="w-full lg:w-1/2 p-10 h-fit relative pb-0 lg:pb-10">
+          <div className="w-full lg:w-1/2 lg:p-10 h-fit relative pb-0 lg:pb-10">
+            {/* //Hereeeeeeeeeeee  */}
+            
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
               className={`w-full h-full transition-opacity ${
-                element !== "" && first
+                element !== "" && first && identifier === "first"
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
               } bg-black absolute top-0 left-0`}
-            />
+            /> 
 
             {element === "videography_section2_h1" && user_hero.user ? (
-              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:w-fit lg:mx-0 z-50 flex flex-row relative lg:mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_h1}
-                  className="text-4xl outline-none"
+                  className="text-3xl lg:text-4xl outline-none"
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
@@ -265,11 +283,12 @@ export default function WhatWeDo({
               <h1
                 onClick={() => {
                   if (user_hero.user) {
-                    setFirst(!first);
+                    setFirst(true);
                     onClick("videography_section2_h1");
+                    setIdentifier("first");
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[8px] mb-20 text-4xl p-3 ${
+                className={`w-full lg:w-fit lg:mx-0 lg:underline underline-offset-[8px] lg:mb-20 text-3xl lg:text-4xl p-3 ${
                   user_hero.user &&
                   `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${
@@ -305,8 +324,9 @@ export default function WhatWeDo({
               <p
                 onClick={() => {
                   if (user_hero.user) {
-                    setFirst(!first);
+                    setFirst(true);
                     onClick("videography_section2_paragraph");
+                    setIdentifier("first");
                   }
                 }}
                 className={`w-fit p-3 mb-12 ${
@@ -329,23 +349,23 @@ export default function WhatWeDo({
             </button>
           </div>
         </div>
-        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
-          <div className="w-full lg:w-1/2 p-10 pt-0 lg:pt-10 h-full relative">
+        <div className="w-full lg:flex lg:flex-row items-center border-t border-white py-20 text-white relative">
+          <div className="w-full lg:w-1/2 pt-0 lg:p-10 mb-10 lg:mb-0 lg:pt-10 h-full relative">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
               className={`w-full h-full transition-opacity ${
-                element !== "" && second
+                element !== "" && second && identifier === "second"
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
               } bg-black absolute top-0 left-0`}
             />
 
             {element === "videography_section2_2_h1" && user_hero.user ? (
-              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative lg:mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_2_h1}
-                  className="text-4xl outline-none"
+                  className="text-3xl lg:text-4xl outline-none"
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
@@ -358,11 +378,12 @@ export default function WhatWeDo({
               <h1
                 onClick={() => {
                   if (user_hero.user) {
-                    setSecond(!second);
+                    setSecond(true);
                     onClick("videography_section2_2_h1");
+                    setIdentifier("second");
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 lg:underline underline-offset-8 lg:mb-20 text-3xl lg:text-4xl p-3 ${
                   user_hero.user &&
                   `hover:border hover:no-underline hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${element === "videography_section1_h1" ? "z-50" : "z-30"}`}
@@ -396,8 +417,9 @@ export default function WhatWeDo({
               <p
                 onClick={() => {
                   if (user_hero.user) {
-                    setSecond(!second);
+                    setSecond(true);
                     onClick("videography_section2_2_paragraph");
+                    setIdentifier("second");
                   }
                 }}
                 className={`w-fit p-3 mb-12 ${
@@ -420,7 +442,8 @@ export default function WhatWeDo({
               Contact Us
             </a>
           </div>
-          <UploadImageBlock
+          
+            <UploadImageBlock
             id="upload2"
             url={urlInfo2}
             finished={finished}
@@ -443,22 +466,24 @@ export default function WhatWeDo({
             user={user_hero.user}
           />
 
-          <div className="w-full lg:w-1/2 p-10 pb-0 lg:pb-10 h-full relative">
+          <div className="w-full lg:w-1/2 lg:p-10 pb-0 lg:pb-10 h-fit relative">
+            {/* //Hereeeeeeeeeeee  */}
+            
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
               className={`w-full h-full transition-opacity ${
-                element !== "" && first
+                element !== "" && third && identifier === "third"
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
               } bg-black absolute top-0 left-0`}
-            />
+            /> 
 
             {element === "videography_section2_3_h1" && user_hero.user ? (
-              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:w-fit lg:mx-0 z-50 flex flex-row relative lg:mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_3_h1}
-                  className="text-4xl outline-none"
+                  className="text-3xl lg:text-4xl outline-none"
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
@@ -471,11 +496,13 @@ export default function WhatWeDo({
               <h1
                 onClick={() => {
                   if (user_hero.user) {
-                    setFirst(!first);
+                    setThird(true);
                     onClick("videography_section2_3_h1");
+                    setIdentifier("third");
+                    test(identifier, third);
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-full lg:w-fit lg:mx-0 lg:underline underline-offset-[8px] lg:mb-20 text-3xl lg:text-4xl p-3 ${
                   user_hero.user &&
                   `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${
@@ -513,8 +540,9 @@ export default function WhatWeDo({
               <p
                 onClick={() => {
                   if (user_hero.user) {
-                    setFirst(!first);
+                    setThird(true);
                     onClick("videography_section2_3_paragraph");
+                    setIdentifier("third");
                   }
                 }}
                 className={`w-fit p-3 mb-12 ${
@@ -538,23 +566,23 @@ export default function WhatWeDo({
             </a>
           </div>
         </div>
-        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row text-white items-center h-fit relative">
-          <div className="w-full lg:w-1/2 p-10 pt-0 lg:pt-10 h-full relative">
+        <div className="w-full lg:flex lg:flex-row items-center border-t border-white py-20 text-white relative">
+          <div className="w-full lg:w-1/2 pt-0 lg:p-10 mb-10 lg:mb-0 lg:pt-10 h-full relative">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
               className={`w-full h-full transition-opacity ${
-                element !== "" && second
+                element !== "" && fourth && identifier === "fourth"
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
               } bg-black absolute top-0 left-0`}
             />
 
             {element === "videography_section2_4_h1" && user_hero.user ? (
-              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative lg:mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_4_h1}
-                  className="text-4xl outline-none"
+                  className="text-3xl lg:text-4xl outline-none"
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
@@ -567,11 +595,12 @@ export default function WhatWeDo({
               <h1
                 onClick={() => {
                   if (user_hero.user) {
-                    setSecond(!second);
+                    setFourth(true);
                     onClick("videography_section2_4_h1");
+                    setIdentifier("fourth");
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 lg:underline underline-offset-8 lg:mb-20 text-3xl lg:text-4xl p-3 ${
                   user_hero.user &&
                   `hover:border hover:no-underline hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${element === "videography_section1_h1" ? "z-50" : "z-30"}`}
@@ -605,8 +634,9 @@ export default function WhatWeDo({
               <p
                 onClick={() => {
                   if (user_hero.user) {
-                    setSecond(!second);
+                    setFourth(true);
                     onClick("videography_section2_4_paragraph");
+                    setIdentifier("fourth");
                   }
                 }}
                 className={`w-fit p-3 mb-12 ${
@@ -639,7 +669,7 @@ export default function WhatWeDo({
             user={user_hero.user}
           />
         </div>
-        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
+        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row text-white items-center h-fit relative">
           {/* <div className="lg:w-1/2"> */}
             <UploadImageBlock
             id="upload5"
@@ -652,22 +682,24 @@ export default function WhatWeDo({
           />
           {/* </div> */}
 
-          <div className="w-full lg:w-1/2 p-10 h-fit relative pb-0 lg:pb-10">
+          <div className="w-full lg:w-1/2 lg:p-10 pb-0 lg:pb-10 h-fit relative">
+            {/* Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee  */}
+            
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
               className={`w-full h-full transition-opacity ${
-                element !== "" && first
+                element !== "" && fifth && identifier === "fifth"
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
               } bg-black absolute top-0 left-0`}
-            />
+            /> 
 
             {element === "videography_section2_5_h1" && user_hero.user ? (
-              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:w-fit lg:mx-0 z-50 flex flex-row relative lg:mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_5_h1}
-                  className="text-4xl outline-none"
+                  className="text-3xl lg:text-4xl outline-none"
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
@@ -680,11 +712,12 @@ export default function WhatWeDo({
               <h1
                 onClick={() => {
                   if (user_hero.user) {
-                    setFirst(!first);
+                    setFifth(true);
                     onClick("videography_section2_5_h1");
+                    setIdentifier("fifth");
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[8px] mb-20 text-4xl p-3 ${
+                className={`w-full lg:w-fit lg:mx-0 lg:underline underline-offset-[8px] lg:mb-20 text-3xl lg:text-4xl p-3 ${
                   user_hero.user &&
                   `hover:no-underline hover:border hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${
@@ -720,8 +753,9 @@ export default function WhatWeDo({
               <p
                 onClick={() => {
                   if (user_hero.user) {
-                    setFirst(!first);
+                    setFifth(true);
                     onClick("videography_section2_5_paragraph");
+                    setIdentifier("fifth");
                   }
                 }}
                 className={`w-fit p-3 mb-12 ${
@@ -744,23 +778,23 @@ export default function WhatWeDo({
             </button>
           </div>
         </div>
-        <div className="w-full flex flex-col border-t border-white py-20 lg:flex-row items-center text-white h-fit relative">
-          <div className="w-full lg:w-1/2 p-10 pt-0 lg:pt-10 h-full relative">
+        <div className="w-full lg:flex lg:flex-row items-center border-t border-white py-20 text-white relative">
+          <div className="w-full lg:w-1/2 pt-0 lg:p-10 mb-10 lg:mb-0 lg:pt-10 h-full relative">
             <div
               onClick={onBg}
               onKeyDown={handleKeyDown}
               className={`w-full h-full transition-opacity ${
-                element !== "" && second
+                element !== "" && sixth && identifier === "sixth"
                   ? `opacity-50 z-40 pointer-events-auto`
                   : `opacity-0 z-20 pointer-events-none`
               } bg-black absolute top-0 left-0`}
             />
 
             {element === "videography_section2_6_h1" && user_hero.user ? (
-              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative mb-20 border border-white rounded-md p-3">
+              <div className="w-fit mx-auto lg:mx-0 z-50 flex flex-row relative lg:mb-20 border border-white rounded-md p-3">
                 <span
                   ref={refs.videography_section2_6_h1}
-                  className="text-4xl outline-none"
+                  className="text-3xl lg:text-4xl outline-none"
                   role="textbox"
                   contentEditable
                   suppressContentEditableWarning
@@ -773,11 +807,12 @@ export default function WhatWeDo({
               <h1
                 onClick={() => {
                   if (user_hero.user) {
-                    setSecond(!second);
+                    setSixth(true);
                     onClick("videography_section2_6_h1");
+                    setIdentifier("sixth");
                   }
                 }}
-                className={`w-fit mx-auto lg:mx-0 underline underline-offset-[20px] mb-20 text-4xl p-3 ${
+                className={`w-fit mx-auto lg:mx-0 lg:underline underline-offset-8 lg:mb-20 text-3xl lg:text-4xl p-3 ${
                   user_hero.user &&
                   `hover:border hover:no-underline hover:border-white hover:rounded-md hover:cursor-pointer`
                 } ${element === "videography_section1_h1" ? "z-50" : "z-30"}`}
@@ -811,8 +846,9 @@ export default function WhatWeDo({
               <p
                 onClick={() => {
                   if (user_hero.user) {
-                    setSecond(!second);
+                    setSixth(true);
                     onClick("videography_section2_6_paragraph");
+                    setIdentifier("sixth");
                   }
                 }}
                 className={`w-fit p-3 mb-12 ${
