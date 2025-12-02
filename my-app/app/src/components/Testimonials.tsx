@@ -25,28 +25,28 @@ export default function Testimonials() {
       picture: person1,
       position: "CEO",
       content:
-        "Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus.",
+        "Working with you was honestly a smooth and refreshing experience. The level of dedication, clarity, and consistency you bring is rare. I didn't just get results—I felt supported all the way through.",
     },
     {
       name: "Marie Roberts",
       picture: person2,
       position: "Financial Manager",
       content:
-        "Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus. Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus.",
+        "I came in with uncertainty and left with confidence. The way you handled everything showed professionalism, patience, and real attention to detail. I'm genuinely impressed.",
     },
     {
       name: "Joy Sander",
       picture: person3,
       position: "Operations Manager",
       content:
-        "Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus.",
+        "What stood out the most for me was the passion. You don't just do things halfway—you put your heart into it. The outcome exceeded what I expected.",
     },
     {
       name: "Dave Jeffery",
       picture: person4,
       position: "Marketing Executive",
       content:
-        "Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus. Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus. Nunc fringilla est at elit varius, vitae molestie leo porttitor. Nulla facilisi. Donec augue purus.",
+        "I've worked with many people before, but this experience was different. Communication was smooth, delivery was solid, and the overall process felt easy and stress-free.",
     },
     // {name: "", picture: "", position: "", content: ""},
   ];
