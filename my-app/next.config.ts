@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
       protocol: 'https',
         hostname: 'xnpkkelfdsosehvkgfjr.supabase.co',
         port: '', // leave blank unless you're using a non-standard port
+        pathname: '/storage/v1/object/public/avatars/**',
+    },{
+      protocol: 'https',
+        hostname: 'xnpkkelfdsosehvkgfjr.supabase.co',
+        port: '', // leave blank unless you're using a non-standard port
         pathname: '/storage/v1/object/public/videography/**',
     },
     {

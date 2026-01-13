@@ -8,7 +8,8 @@ import ReachOut from "./reachOut";
 import ContactUs from "../src/components/Contact";
 import PricingPlans from "../src/components/Pricing";
 import NavbarContainer from "./NavbarContainer";
-import Testimonials from "../src/components/Testimonials";
+import TestimonialsContainer from "../src/components/TestimonialsContainer";
+// import TestimonialsConta from "../src/components/Testimonials";
 
 export default function Page() {
   return (
@@ -20,7 +21,7 @@ export default function Page() {
       <AboutExtrasContainer />
       <ServicesContainer />
       <CompletedContainer />
-      <Testimonials />
+      <TestimonialsContainer />
       <PricingPlans />
       <ReachOut />
       <ContactUs />

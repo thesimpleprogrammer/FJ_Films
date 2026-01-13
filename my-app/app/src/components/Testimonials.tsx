@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import person1 from "../../../public/person1.jpg";
-import person2 from "../../../public/person2.jpg";
-import person3 from "../../../public/person3.jpg";
-import person4 from "../../../public/person4.jpg";
+// import person1 from "../../../public/person1.jpg";
+// import person2 from "../../../public/person2.jpg";
+// import person3 from "../../../public/person3.jpg";
+// import person4 from "../../../public/person4.jpg";
 import React from "react";
 // import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -15,41 +15,42 @@ import "slick-carousel/slick/slick-theme.css";
 //   ssr: false,
 // });
 import Slider from "@ant-design/react-slick";
+import nullDp from "@/public/nullDp.png"
+// import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
-export default function Testimonials() {
+export default function Testimonials({reviews}: any) {
   // const [mounted, setMounted] = useState(false);
-
-  const people = [
-    {
-      name: "Tom E. Myers",
-      picture: person1,
-      position: "CEO",
-      content:
-        "Working with you was honestly a smooth and refreshing experience. The level of dedication, clarity, and consistency you bring is rare. I didn't just get results—I felt supported all the way through.",
-    },
-    {
-      name: "Marie Roberts",
-      picture: person2,
-      position: "Financial Manager",
-      content:
-        "I came in with uncertainty and left with confidence. The way you handled everything showed professionalism, patience, and real attention to detail. I'm genuinely impressed.",
-    },
-    {
-      name: "Joy Sander",
-      picture: person3,
-      position: "Operations Manager",
-      content:
-        "What stood out the most for me was the passion. You don't just do things halfway—you put your heart into it. The outcome exceeded what I expected.",
-    },
-    {
-      name: "Dave Jeffery",
-      picture: person4,
-      position: "Marketing Executive",
-      content:
-        "I've worked with many people before, but this experience was different. Communication was smooth, delivery was solid, and the overall process felt easy and stress-free.",
-    },
-    // {name: "", picture: "", position: "", content: ""},
-  ];
+  //  [
+  //   {
+  //     name: "Tom E. Myers",
+  //     picture: person1,
+  //     position: "CEO",
+  //     content:
+  //       "Working with you was honestly a smooth and refreshing experience. The level of dedication, clarity, and consistency you bring is rare. I didn't just get results—I felt supported all the way through.",
+  //   },
+  //   {
+  //     name: "Marie Roberts",
+  //     picture: person2,
+  //     position: "Financial Manager",
+  //     content:
+  //       "I came in with uncertainty and left with confidence. The way you handled everything showed professionalism, patience, and real attention to detail. I'm genuinely impressed.",
+  //   },
+  //   {
+  //     name: "Joy Sander",
+  //     picture: person3,
+  //     position: "Operations Manager",
+  //     content:
+  //       "What stood out the most for me was the passion. You don't just do things halfway—you put your heart into it. The outcome exceeded what I expected.",
+  //   },
+  //   {
+  //     name: "Dave Jeffery",
+  //     picture: person4,
+  //     position: "Marketing Executive",
+  //     content:
+  //       "I've worked with many people before, but this experience was different. Communication was smooth, delivery was solid, and the overall process felt easy and stress-free.",
+  //   },
+  //   // {name: "", picture: "", position: "", content: ""},
+  // ];
 
   const settings = {
     dots: true,
@@ -101,7 +102,7 @@ export default function Testimonials() {
       <h1 className="text-3xl mb-16 text-white">Happy Clients & Feedbacks</h1>
       <div className="">
           <Slider {...settings}>
-            {people.map((person, index) => (
+            {reviews && reviews.map((person: any, index: React.Key | null | undefined) => (
               <div
                 key={index}
                 className="relative flex flex-col w-full py-8 px-10 rounded-md bg-white text-left"
@@ -119,12 +120,12 @@ export default function Testimonials() {
                     />
                   </svg>
                 </div>
-                <p className="w-full mb-5">{person.content}</p>
+                <p className="w-full mb-5">{person?.message}</p>
                 <div className="flex justify-between items-center w-full">
                   <div className="relative rounded-full w-12 h-12 overflow-clip">
                     <Image
                       className="absolute top-0 left-0 w-full h-full"
-                      src={person.picture}
+                      src={person?.avatar_url ?? nullDp}
                       // width={1000}
                       // height={1000}
                       layout="fill"
@@ -134,7 +135,7 @@ export default function Testimonials() {
                   </div>
                   <div className="text-center">
                     <h1 className="text-black text-2xl">{person.name}</h1>
-                    <h3>{person.position}</h3>
+                    {/* <h3>{person.position}</h3> */}
                   </div>
                 </div>
               </div>

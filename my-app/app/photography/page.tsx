@@ -9,7 +9,8 @@ import AboutContainer from "./AboutContainer";
 import WorkflowContainer from "./WorkflowContainer";
 import TalkToUsSection from "../src/components/letsTalk";
 import HeroContainer from "./HeroContainer";
-import Testimonials from "../src/components/Testimonials";
+// import Testimonials from "../src/components/Testimonials";
+import TestimonialsContainer from "../src/components/TestimonialsContainer";
 import NavbarContainer from "./NavbarContainer";
 // import CheckOut from "../src/components/checkOut";
 
@@ -22,7 +23,7 @@ export default function Photography() {
       <AboutContainer />
       <WorkflowContainer />
       <ProjectsContainer />
-      <Testimonials />
+      <TestimonialsContainer />
       <PricingPlans />
       {/* <CheckOut /> */}
       <TalkToUsSection

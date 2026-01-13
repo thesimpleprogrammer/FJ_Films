@@ -8,7 +8,8 @@ import ContactUs from "../src/components/Contact";
 import PricingPlans from "../src/components/Pricing";
 // import Navbar from "./Navbar";
 import TalkToUsSection from "../src/components/letsTalk";
-import Testimonials from "../src/components/Testimonials";
+// import Testimonials from "../src/components/Testimonials";
+import TestimonialsContainer from "../src/components/TestimonialsContainer";
 import NavbarContainer from "./NavbarContainer";
 
 export default async function Home() {
@@ -79,7 +80,7 @@ export default async function Home() {
         url4={url4}
       />
       <Showroom />
-      <Testimonials />
+      <TestimonialsContainer />
       <PricingPlans />
       <TalkToUsSection
         contacts={{
