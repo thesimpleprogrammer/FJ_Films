@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Suspense } from "react";
 
 type Package = {
   tier: string;
@@ -205,6 +206,7 @@ export default function Packages() {
   }
 
   return (
+    <Suspense fallback={<div>Loading Packages...</div>}>
     <div
       className="py-20 px-16 md:px-20 border-y border-gray-400"
       id="Packages"
@@ -279,5 +281,6 @@ export default function Packages() {
         </div>
       </div>
     </div>
+    </Suspense>
   );
 }
