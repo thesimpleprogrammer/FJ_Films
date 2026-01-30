@@ -28,7 +28,7 @@ import EventsScheduleContainer from "./src/components/eventsScheduleContainer";
 import Contact from "./src/components/contact";
 import Footer from "./src/components/footer";
 import AboutContainer from "./src/components/aboutContainer";
-import PricingPlans from "../src/components/Pricing";
+// import PricingPlans from "../src/components/Pricing";
 import Testimonials from "./src/components/Testimonials";
 import NavbarContainer from "./src/components/NavbarContainer";
 // Sample data - swap with API calls to CMS
@@ -45,7 +45,7 @@ export default function BroadcastIntegration () {
       {/* <PressDownloads /> */}
       <AboutContainer />
       <Testimonials />
-      <PricingPlans />
+      {/* <PricingPlans /> */}
       <Contact />
       <Footer />
     </div>

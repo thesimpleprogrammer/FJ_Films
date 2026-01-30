@@ -6,7 +6,7 @@ import ServicesContainer from "./ServicesContainer";
 import CompletedContainer from "./CompletedContainer";
 import ReachOut from "./reachOut";
 import ContactUs from "../src/components/Contact";
-import PricingPlans from "../src/components/Pricing";
+// import PricingPlans from "../src/components/Pricing";
 import NavbarContainer from "./NavbarContainer";
 import TestimonialsContainer from "../src/components/TestimonialsContainer";
 // import TestimonialsConta from "../src/components/Testimonials";
@@ -22,7 +22,7 @@ export default function Page() {
       <ServicesContainer />
       <CompletedContainer />
       <TestimonialsContainer />
-      <PricingPlans />
+      {/* <PricingPlans /> */}
       <ReachOut />
       <ContactUs />
     </div>

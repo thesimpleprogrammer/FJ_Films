@@ -3,7 +3,7 @@
 // import Workflow from "./Workflow"
 import ProjectsContainer from "./ProjectsContainer";
 import ContactUs from "../src/components/Contact";
-import PricingPlans from "../src/components/Pricing";
+// import PricingPlans from "../src/components/Pricing";
 // import Navbar from "./Navbar";
 import AboutContainer from "./AboutContainer";
 import WorkflowContainer from "./WorkflowContainer";
@@ -12,6 +12,7 @@ import HeroContainer from "./HeroContainer";
 // import Testimonials from "../src/components/Testimonials";
 import TestimonialsContainer from "../src/components/TestimonialsContainer";
 import NavbarContainer from "./NavbarContainer";
+import Packages from "../src/components/Packages";
 // import CheckOut from "../src/components/checkOut";
 
 export default function Photography() {
@@ -24,7 +25,8 @@ export default function Photography() {
       <WorkflowContainer />
       <ProjectsContainer />
       <TestimonialsContainer />
-      <PricingPlans />
+      <Packages />
+      {/* <PricingPlans /> */}
       {/* <CheckOut /> */}
       <TalkToUsSection
         contacts={{

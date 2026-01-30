@@ -9,7 +9,7 @@ export default async function NavbarContainer() {
   const links = [
     { name: "Home", url: "#Home" },
     { name: "Episodes", url: "#Episodes" },
-    { name: "Pricing", url: "#Pricing" },
+    { name: "Packages", url: "#Packages" },
     { name: "Contact", url: "#Contact" },
   ];
   return <Navbar user_page={user_page} links={links} />;

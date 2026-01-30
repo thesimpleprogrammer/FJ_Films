@@ -12,7 +12,7 @@ export default async function NavbarContainer() {
     { name: "About", url: "#About" },
     { name: "Services", url: "#Services" },
     { name: "Projects", url: "#Projects" },
-    { name: "Pricing", url: "#Pricing" },
+    { name: "Packages", url: "#Packages" },
     { name: "Contact", url: "#Contact-Us" },
   ];
   return <Navbar user_page={user_page} links={links} />;

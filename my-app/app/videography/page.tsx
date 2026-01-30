@@ -5,7 +5,7 @@ import { createClient } from "../../utils/supabase/server";
 import { loadSectionUrl } from "../../utils/supabase/loadSectionUrl";
 import Showroom from "./Showroom";
 import ContactUs from "../src/components/Contact";
-import PricingPlans from "../src/components/Pricing";
+// import PricingPlans from "../src/components/Pricing";
 // import Navbar from "./Navbar";
 import TalkToUsSection from "../src/components/letsTalk";
 // import Testimonials from "../src/components/Testimonials";
@@ -81,7 +81,7 @@ export default async function Home() {
       />
       <Showroom />
       <TestimonialsContainer />
-      <PricingPlans />
+      {/* <PricingPlans /> */}
       <TalkToUsSection
         contacts={{
           email: "femi@thefjfilms.com",

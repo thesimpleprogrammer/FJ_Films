@@ -10,7 +10,7 @@ export default async function NavbarContainer () {
     { name: "About", url: "#About" },
     { name: "Workflow", url: "#Workflow" },
     { name: "Projects", url: "#Projects" },
-    { name: "Pricing", url: "#Pricing" },
+    { name: "Packages", url: "#Packages" },
     { name: "Contact", url: "#Contact-Us" },
   ];
 
