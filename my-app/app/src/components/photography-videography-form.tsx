@@ -176,6 +176,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 export default function BookingForm() {
   const router = useRouter();
@@ -262,6 +263,7 @@ export default function BookingForm() {
   };
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
     <section className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-20">
       <form
         onSubmit={handleSubmit}
@@ -379,6 +381,7 @@ export default function BookingForm() {
         </button>
       </form>
     </section>
+    </Suspense>
   );
 }
 
