@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function BookingConfirmation() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
@@ -15,12 +17,12 @@ export default function BookingConfirmation() {
           If it’s urgent, feel free to reach us directly.
         </p>
 
-        <a
+        <Link
           href="/"
           className="inline-block mt-6 px-6 py-3 bg-black text-white rounded-lg"
         >
           Back to Home
-        </a>
+        </Link>
       </div>
     </div>
   );

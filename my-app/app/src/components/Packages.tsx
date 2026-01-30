@@ -49,151 +49,151 @@ export default function Packages() {
     },
   ];
 
-  const extras = [
-    {
-      id: "highlight_trailer",
-      title: "Theatrical Movie Trailer",
-      description: "Highlight video for web sharing with friends and family",
-      pricing: {
-        type: "flat",
-        amount: 500,
-        currency: "USD",
-      },
-    },
-    {
-      id: "rock_the_dress",
-      title: "Rock the Dress / Rehearsal Dinner",
-      description: "Up to 3 hours, one location",
-      pricing: {
-        type: "flat",
-        amount: 1000,
-        currency: "USD",
-      },
-    },
-    {
-      id: "bluray_delivery",
-      title: "Blu-ray Disc Production",
-      description: "Production delivered on Blu-ray disc",
-      pricing: {
-        type: "tiered",
-        amount: 500,
-        additionalUnitAmount: 50,
-        unit: "disc",
-        currency: "USD",
-      },
-    },
-    {
-      id: "raw_footage_hd",
-      title: "Raw Footage in HD",
-      description: "Delivered on external hard drive or Blu-ray discs",
-      pricing: {
-        type: "flat",
-        amount: 600,
-        currency: "USD",
-      },
-    },
-    {
-      id: "additional_dvd",
-      title: "Additional DVD",
-      description: "Custom-designed DVD",
-      pricing: {
-        type: "flat",
-        amount: 400,
-        currency: "USD",
-      },
-    },
-    {
-      id: "overtime",
-      title: "Overtime",
-      description: "Per hour, includes post-production and editing",
-      pricing: {
-        type: "hourly",
-        amount: 400,
-        currency: "USD",
-      },
-    },
-    {
-      id: "additional_cinematographer",
-      title: "Additional Cinematographer",
-      description: "Recommended for larger events or more guests",
-      pricing: {
-        type: "flat",
-        amount: 500,
-        currency: "USD",
-      },
-    },
-    {
-      id: "aerial_drone",
-      title: "Aerial Drone",
-      description: "HD camera for epic location footage",
-      pricing: {
-        type: "flat",
-        amount: 500,
-        currency: "USD",
-      },
-    },
-    {
-      id: "camera_crane",
-      title: "Camera Crane",
-      description: "Includes one operator",
-      pricing: {
-        type: "flat",
-        amount: 1000,
-        currency: "USD",
-      },
-    },
-    {
-      id: "full_ceremony_edit",
-      title: "Full Ceremony Edit",
-      description: "Online delivery, 60 minutes plus",
-      pricing: {
-        type: "flat",
-        amount: 500,
-        currency: "USD",
-      },
-    },
-    {
-      id: "online_dvd_menu",
-      title: "Online DVD Menu",
-      description: "Feature film or trailer for web sharing",
-      pricing: {
-        type: "flat",
-        amount: 500,
-        currency: "USD",
-      },
-    },
-    {
-      id: "usb_delivery",
-      title: "USB Delivery",
-      description: "Custom-designed case",
-      pricing: {
-        type: "flat",
-        amount: 700,
-        currency: "USD",
-      },
-    },
-    {
-      id: "international_travel",
-      title: "International Travel Fee",
-      description: null,
-      pricing: {
-        type: "flat",
-        amount: 2000,
-        currency: "USD",
-      },
-    },
-    {
-      id: "domestic_travel",
-      title: "Domestic Travel Fee",
-      description: "Select states only",
-      pricing: {
-        type: "conditional",
-        amount: null,
-        currency: "USD",
-        note: "May apply",
-      },
-    },
-  ];
+  // const extras = [
+  //   {
+  //     id: "highlight_trailer",
+  //     title: "Theatrical Movie Trailer",
+  //     description: "Highlight video for web sharing with friends and family",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 500,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "rock_the_dress",
+  //     title: "Rock the Dress / Rehearsal Dinner",
+  //     description: "Up to 3 hours, one location",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 1000,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "bluray_delivery",
+  //     title: "Blu-ray Disc Production",
+  //     description: "Production delivered on Blu-ray disc",
+  //     pricing: {
+  //       type: "tiered",
+  //       amount: 500,
+  //       additionalUnitAmount: 50,
+  //       unit: "disc",
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "raw_footage_hd",
+  //     title: "Raw Footage in HD",
+  //     description: "Delivered on external hard drive or Blu-ray discs",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 600,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "additional_dvd",
+  //     title: "Additional DVD",
+  //     description: "Custom-designed DVD",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 400,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "overtime",
+  //     title: "Overtime",
+  //     description: "Per hour, includes post-production and editing",
+  //     pricing: {
+  //       type: "hourly",
+  //       amount: 400,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "additional_cinematographer",
+  //     title: "Additional Cinematographer",
+  //     description: "Recommended for larger events or more guests",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 500,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "aerial_drone",
+  //     title: "Aerial Drone",
+  //     description: "HD camera for epic location footage",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 500,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "camera_crane",
+  //     title: "Camera Crane",
+  //     description: "Includes one operator",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 1000,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "full_ceremony_edit",
+  //     title: "Full Ceremony Edit",
+  //     description: "Online delivery, 60 minutes plus",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 500,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "online_dvd_menu",
+  //     title: "Online DVD Menu",
+  //     description: "Feature film or trailer for web sharing",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 500,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "usb_delivery",
+  //     title: "USB Delivery",
+  //     description: "Custom-designed case",
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 700,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "international_travel",
+  //     title: "International Travel Fee",
+  //     description: null,
+  //     pricing: {
+  //       type: "flat",
+  //       amount: 2000,
+  //       currency: "USD",
+  //     },
+  //   },
+  //   {
+  //     id: "domestic_travel",
+  //     title: "Domestic Travel Fee",
+  //     description: "Select states only",
+  //     pricing: {
+  //       type: "conditional",
+  //       amount: null,
+  //       currency: "USD",
+  //       note: "May apply",
+  //     },
+  //   },
+  // ];
 
   function darkenHex(hex: string, amount = 0.15) {
     const num = parseInt(hex.replace("#", ""), 16);
