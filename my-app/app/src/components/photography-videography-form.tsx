@@ -177,6 +177,7 @@
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+// import iCir
 
 export default function BookingForm() {
   const router = useRouter();
@@ -275,7 +276,7 @@ export default function BookingForm() {
             Book a Consultation
           </h2>
           <p className="text-sm text-white/60">
-            Tell us about your event and we’ll get back within 24 hours.
+            Tell us about your event and we’ll be in contact shortly.
           </p>
         </div>
 
@@ -319,7 +320,7 @@ export default function BookingForm() {
           >
             <option>Phone Call</option>
             <option>Video Call</option>
-            <option>In-Person Meeting</option>
+            {/* <option>In-Person Meeting</option> */}
           </Select>
 
           <Select

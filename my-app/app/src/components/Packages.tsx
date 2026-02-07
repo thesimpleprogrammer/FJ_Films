@@ -239,10 +239,10 @@ export default function Packages() {
                 <span className="font-bold">Delivery: {_package.delivery}</span>{" "}
                 |
               </div>
-              <p>
+              {/* <p>
                 <span className="font-bold">{_package.timeframe}</span>{" "}
                 Deliverable Timeframe
-              </p>
+              </p> */}
             </div>
             <div className="w-fit self-end">
               <a
