@@ -59,7 +59,7 @@ export async function POST(req: Request) {
     console.log("Here too");
     
     const { data, error } = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: "newclient@notification.thefjfilms.com",
       to: receiverEmail,
       replyTo: email,
       subject: `New Booking Request - ${leadTag}`,
