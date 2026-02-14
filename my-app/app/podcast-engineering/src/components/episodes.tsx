@@ -138,12 +138,12 @@ export default function Episodes({
               </p>
               <h2 className="text-5xl">{episode.content.title}</h2>
               <div className="flex flex-row gap-3">
-                <a href={episode.content.linkAudio}>
+                <a href={episode.content.linkAudio} target="_blank">
                   <button className="border border-white hover:bg-white hover:text-black px-4 py-2 transition-colors duration-300 hover:cursor-pointer">
                     Listen
                   </button>
                 </a>
-                <a href={episode.content.linkVideo}>
+                <a href={episode.content.linkVideo} target="_blank">
                   <button className="border border-white hover:bg-white hover:text-black px-4 py-2 transition-colors duration-300 hover:cursor-pointer">
                     Watch
                   </button>
