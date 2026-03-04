@@ -23,13 +23,13 @@ To deploy: host on Vercel / Netlify / Cloudflare Pages. Use a headless CMS (Sani
 // import NavBar from "./src/components/navbar"; 
 import HeroContainer from "./src/components/heroContainer";
 import Projects from "./src/components/projects";
-import EventsScheduleContainer from "./src/components/eventsScheduleContainer";
+// import EventsScheduleContainer from "./src/components/eventsScheduleContainer";
 // import PressDownloads from "./src/components/pressDownloads";
 import Contact from "./src/components/contact";
 import Footer from "./src/components/footer";
-import AboutContainer from "./src/components/aboutContainer";
+// import AboutContainer from "./src/components/aboutContainer";
 // import PricingPlans from "../src/components/Pricing";
-import Testimonials from "./src/components/Testimonials";
+// import Testimonials from "./src/components/Testimonials";
 import NavbarContainer from "./src/components/NavbarContainer";
 import Clients from "../digital-marketing/clients";
 // Sample data - swap with API calls to CMS

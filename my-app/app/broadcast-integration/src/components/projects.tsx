@@ -2,7 +2,7 @@
 
 import { SAMPLE_SERVICES } from "../../utils/services";
 import { useState } from "react";
-import ProjectModal from "./projectModal";
+// import ProjectModal from "./projectModal";
 
 // type OpenProject = {
 //     openProject(p: any): void
@@ -35,13 +35,14 @@ export default function Projects() {
   });
 
   function openProject(p: any) {
+    console.log(selected)
     setSelected(p);
     document.body.style.overflow = "hidden";
   }
-  function closeProject() {
-    setSelected(null);
-    document.body.style.overflow = "auto";
-  }
+  // function closeProject() {
+  //   setSelected(null);
+  //   document.body.style.overflow = "auto";
+  // }
 
   return (
     <>

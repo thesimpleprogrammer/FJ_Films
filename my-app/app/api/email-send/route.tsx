@@ -115,16 +115,16 @@ export async function POST(req: Request) {
         const {
           name,
           email,
-          phone,
+          // phone,
           packageType,
           selectedPackage,
-          customDetails,
-          budget,
+          // customDetails,
+          // budget,
           eventType,
-          eventDate,
+          // eventDate,
           consultationMethod,
-          notes,
-          business,
+          // notes,
+          // business,
         } = body;
 
         if (!name || !email || !eventType || !consultationMethod) {
