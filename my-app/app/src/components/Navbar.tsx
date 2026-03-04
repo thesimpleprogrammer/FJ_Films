@@ -101,7 +101,7 @@ import SubNavbar from "./SubNavbar";
 
 export default function Navbar({ user_page, links, title }: any) {
   return (
-    <header className="fixed top-0 left-0 w-full z-150">
+    <header className="fixed top-0 left-0 w-full z-120">
       <MainNavbar />
       <SubNavbar user_page={user_page} links={links} title={title} />
     </header>
