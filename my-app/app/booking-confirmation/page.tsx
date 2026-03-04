@@ -5,7 +5,7 @@ export default function BookingConfirmation() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-xl text-center space-y-6">
         <h1 className="text-3xl font-semibold text-white">
-          Consultation Booked 🎉
+          Sent Successfully 🎉
         </h1>
 
         <p className="text-white">
@@ -13,9 +13,9 @@ export default function BookingConfirmation() {
           contact you within <strong>24 hours</strong>.
         </p>
 
-        <p className="text-white">
+        {/* <p className="text-white">
           If it’s urgent, feel free to reach us directly.
-        </p>
+        </p> */}
 
         <Link
           href="/"

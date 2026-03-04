@@ -47,7 +47,7 @@ export default function Projects() {
     <>
     <section id="projects" className="max-w-6xl mx-auto px-6 py-12">
       <h2 className="text-2xl font-bold">Services</h2>
-      <p className="text-gray-600 mt-2">
+      <p className="text-gray-300 mt-2">
         Click a service to open media and technical notes.
       </p>
 
@@ -70,7 +70,7 @@ export default function Projects() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold">{p.title}</h3>
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-sm text-black mt-1">
                   {p.year} • {p.type.replace(/-/g, " ")}
                 </p>
               </div>
@@ -79,7 +79,7 @@ export default function Projects() {
         ))}
       </div>
     </section>
-    <ProjectModal selected={selected} closeProject={closeProject} />
+    {/* <ProjectModal selected={selected} closeProject={closeProject} /> */}
     </>
   );
 }

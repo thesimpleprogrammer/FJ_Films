@@ -11,6 +11,6 @@ export default async function NavbarContainer() {
     { name: "Press", url: "#press" },
     { name: "Contact", url: "#contact" },
   ];
-  return <Navbar user_page={user_page} links={links} />;
+  return <Navbar user_page={user_page} links={links} title={"Broadcast Integeration"} />;
 }
 

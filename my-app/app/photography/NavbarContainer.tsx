@@ -14,5 +14,5 @@ export default async function NavbarContainer () {
     { name: "Contact", url: "#Contact-Us" },
   ];
 
-    return <Navbar user_page={user_page} links={links} />
+    return <Navbar user_page={user_page} links={links} title={"Photography"} />
 }

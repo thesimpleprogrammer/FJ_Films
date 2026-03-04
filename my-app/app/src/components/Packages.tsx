@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Suspense } from "react";
 
-type Package = {
+export type Package = {
   tier: string;
   videographers: number;
   photographers: number;
@@ -13,8 +13,7 @@ type Package = {
   link: string;
 };
 
-export default function Packages() {
-  const packages = [
+export const packages = [
     {
       tier: "BRONZE",
       videographers: 1,
@@ -49,6 +48,99 @@ export default function Packages() {
       color: "#FFD700",
     },
   ];
+
+export default function Packages() {
+
+  function darkenHex(hex: string, amount = 0.15) {
+    const num = parseInt(hex.replace("#", ""), 16);
+    const r = Math.max(0, Math.floor((num >> 16) * (1 - amount)));
+    const g = Math.max(0, Math.floor(((num >> 8) & 0xff) * (1 - amount)));
+    const b = Math.max(0, Math.floor((num & 0xff) * (1 - amount)));
+
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
+  return (
+    <Suspense fallback={<div>Loading Packages...</div>}>
+    <div
+      className="py-20 px-16 md:px-20 border-y border-gray-400"
+      id="Packages"
+    >
+      <div className="w-full flex flex-col gap-5">
+        <h1 className="text-3xl text-white">Packages</h1>
+        {packages.map((_package: Package, index) => (
+          <div
+            key={index}
+            className={`flex justify-between border-t-16 bg-white p-5 w-full ${
+              _package.tier === `BRONZE` && `border-[${_package.color}]`
+            } ${_package.tier === `SILVER` && `border-[${_package.color}]`} ${
+              _package.tier === `GOLD` && `border-[${_package.color}]`
+            }`}
+            style={{ borderTopColor: _package.color }}
+          >
+            <div className="w-fit flex flex-col gap-3">
+              <h1 className="text-xl font-bold">{_package.tier}</h1>
+              <div>
+                <span className="font-bold">{_package.photographers}</span>{" "}
+                Photographer{_package.photographers > 1 && "s"} |{" "}
+                <span className="font-bold">{_package.videographers}</span>{" "}
+                Videographer{_package.videographers > 1 && "s"} |{" "}
+                <span className="font-bold">
+                  {_package.coverage[0]} {" & "} {_package.coverage[1]}
+                </span>{" "}
+                | {_package.access} |
+              </div>
+              <div>
+                <span className="font-bold">Delivery: {_package.delivery}</span>{" "}
+                |
+              </div>
+              {/* <p>
+                <span className="font-bold">{_package.timeframe}</span>{" "}
+                Deliverable Timeframe
+              </p> */}
+            </div>
+            <div className="w-fit self-end">
+              <a
+                href={`/package-form?package=${_package.tier}`}
+                className={`flex items-center gap-5 px-4 py-2 bg-[var(--pkg-color)]
+                hover:bg-[var(--pkg-color-hover)] text-white group`}
+                style={
+                  {
+                    "--pkg-color": _package.color,
+                    "--pkg-color-hover": darkenHex(_package.color, 0.2), // darker via alpha
+                  } as React.CSSProperties
+                }
+              >
+                BOOK CONSULTATION FOR MORE INFO.
+                <ArrowRight
+                  size={20}
+                  className="group-hover:transform group-hover:translate-x-3 transition-transform duration-300"
+                />
+              </a>
+            </div>
+          </div>
+        ))}
+        <div className="flex text-white w-full mt-10">
+            {/* <h1 className="text-xl font-bold">FOR CUSTOM PACKAGES</h1> */}
+            <a
+                href={`/package-form?package=custom`}
+                className={`flex items-center gap-5 px-4 py-2 bg-gray-800
+                hover:bg-gray-900 text-white group`}
+              >
+                FOR CUSTOM PACKAGES
+                <ArrowRight
+                  size={20}
+                  className="group-hover:transform group-hover:translate-x-3 transition-transform duration-300"
+                />
+              </a>
+        </div>
+      </div>
+    </div>
+    </Suspense>
+  );
+}
+
+
 
   // const extras = [
   //   {
@@ -195,92 +287,3 @@ export default function Packages() {
   //     },
   //   },
   // ];
-
-  function darkenHex(hex: string, amount = 0.15) {
-    const num = parseInt(hex.replace("#", ""), 16);
-    const r = Math.max(0, Math.floor((num >> 16) * (1 - amount)));
-    const g = Math.max(0, Math.floor(((num >> 8) & 0xff) * (1 - amount)));
-    const b = Math.max(0, Math.floor((num & 0xff) * (1 - amount)));
-
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-
-  return (
-    <Suspense fallback={<div>Loading Packages...</div>}>
-    <div
-      className="py-20 px-16 md:px-20 border-y border-gray-400"
-      id="Packages"
-    >
-      <div className="w-full flex flex-col gap-5">
-        <h1 className="text-3xl text-white">Packages</h1>
-        {packages.map((_package: Package, index) => (
-          <div
-            key={index}
-            className={`flex justify-between border-t-16 bg-white p-5 w-full ${
-              _package.tier === `BRONZE` && `border-[${_package.color}]`
-            } ${_package.tier === `SILVER` && `border-[${_package.color}]`} ${
-              _package.tier === `GOLD` && `border-[${_package.color}]`
-            }`}
-            style={{ borderTopColor: _package.color }}
-          >
-            <div className="w-fit flex flex-col gap-3">
-              <h1 className="text-xl font-bold">{_package.tier}</h1>
-              <div>
-                <span className="font-bold">{_package.photographers}</span>{" "}
-                Photographer{_package.photographers > 1 && "s"} |{" "}
-                <span className="font-bold">{_package.videographers}</span>{" "}
-                Videographer{_package.videographers > 1 && "s"} |{" "}
-                <span className="font-bold">
-                  {_package.coverage[0]} {" & "} {_package.coverage[1]}
-                </span>{" "}
-                | {_package.access} |
-              </div>
-              <div>
-                <span className="font-bold">Delivery: {_package.delivery}</span>{" "}
-                |
-              </div>
-              {/* <p>
-                <span className="font-bold">{_package.timeframe}</span>{" "}
-                Deliverable Timeframe
-              </p> */}
-            </div>
-            <div className="w-fit self-end">
-              <a
-                href={`/photography/package-form?package=${_package.tier}`}
-                className={`flex items-center gap-5 px-4 py-2 bg-[var(--pkg-color)]
-                hover:bg-[var(--pkg-color-hover)] text-white group`}
-                style={
-                  {
-                    "--pkg-color": _package.color,
-                    "--pkg-color-hover": darkenHex(_package.color, 0.2), // darker via alpha
-                  } as React.CSSProperties
-                }
-              >
-                BOOK CONSULTATION FOR MORE INFO.
-                <ArrowRight
-                  size={20}
-                  className="group-hover:transform group-hover:translate-x-3 transition-transform duration-300"
-                />
-              </a>
-            </div>
-          </div>
-        ))}
-        <div className="flex text-white w-full mt-10">
-            {/* <h1 className="text-xl font-bold">FOR CUSTOM PACKAGES</h1> */}
-            <a
-                href={`/photography/package-form?package=custom`}
-                className={`flex items-center gap-5 px-4 py-2 bg-gray-800
-                hover:bg-gray-900 text-white group`}
-              >
-                FOR CUSTOM PACKAGES
-                <ArrowRight
-                  size={20}
-                  className="group-hover:transform group-hover:translate-x-3 transition-transform duration-300"
-                />
-              </a>
-        </div>
-      </div>
-    </div>
-    </Suspense>
-  );
-}

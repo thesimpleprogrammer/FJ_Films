@@ -12,6 +12,6 @@ export default async function NavbarContainer() {
     { name: "Packages", url: "#Packages" },
     { name: "Contact", url: "#Contact" },
   ];
-  return <Navbar user_page={user_page} links={links} />;
+  return <Navbar user_page={user_page} links={links} title={"Podcast Engineering"} />;
 }
 

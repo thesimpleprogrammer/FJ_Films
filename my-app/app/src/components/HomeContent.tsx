@@ -1,58 +1,74 @@
-import { createClient } from '../../../utils/supabase/server'
+import { createClient } from "../../../utils/supabase/server";
 
 export default async function HomeContent() {
   // consectetur adipisicing elit. Temporibus esse suscipit fuga non nobis, sint magni officiis in consectetur iure cum cumque delectus deserunt, nisi tenetur impedit? Et, velit minima.
-  
-  const supabase = await createClient()
-    
-  const { data } = await supabase.auth.getUser()
+
+  const supabase = await createClient();
+
+  const { data } = await supabase.auth.getUser();
   // const { data, error } = await supabase.auth.getUser()
 
   const contents = [
-    {item: "Photography"},
-    {item: "Videography"},
-    {item: "Digital Marketing"},
-    {item: "Podcast Engineering"},
-    {item: "Broadcast Integration"},
+    { item: "Photography" },
+    { item: "Videography" },
+    { item: "Digital Marketing" },
+    { item: "Podcast Engineering" },
+    { item: "Broadcast Integration" },
     // {item: "Let's connect 😊"},
-  ]
-  
+  ];
+
   return (
     <div className="w-full pt-28 pb-10 text-white text-center md:text-right">
-        {data?.user && <h1 className='text-white p-5'>Welcome {data.user.email}</h1>}
+      {data?.user && (
+        <h1 className="text-white p-5">Welcome {data.user.email}</h1>
+      )}
       <div className="w-[40%] mx-auto">
         <div className="text-white text-center text-md mb-5">
           <h1 className="text-3xl mb-3">FJ Films</h1>
           <h3>SERVICES YOU CAN TRUST NOW AND ALWAYS</h3>
         </div>
-        <div className="w-fit mx-auto flex flex-row gap-5 py-4 fill-white mb-3">
-          <a href="#" className="w-7 hover:fill-gray-400 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-            <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z" />
-          </svg>
+        <div className="w-fit mx-auto flex flex-row gap-5 py-4 mb-3">
+          <a
+            href="https://x.com/messages/compose?recipient_id=123456"
+            className="w-9  transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="hover:fill-gray-400 fill-white">
+              <path d="M160 96C124.7 96 96 124.7 96 160L96 480C96 515.3 124.7 544 160 544L480 544C515.3 544 544 515.3 544 480L544 160C544 124.7 515.3 96 480 96L160 96zM457.1 180L353.3 298.6L475.4 460L379.8 460L305 362.1L219.3 460L171.8 460L282.8 333.1L165.7 180L263.7 180L331.4 269.5L409.6 180L457.1 180zM419.3 431.6L249.4 206.9L221.1 206.9L392.9 431.6L419.3 431.6z" />
+            </svg>
           </a>
-          <a href="#" className="w-7 hover:fill-gray-400 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-          </svg>
+          <a
+            href="https://instagram.com/fjfilmz"
+            className="w-9 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="hover:fill-gray-400 fill-white">
+              <path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z" />
+            </svg>
           </a>
-          <a href="#" className="w-7 hover:fill-gray-400 transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
-          </svg>
+          <a
+            href="http://wa.me/13018511352"
+            className="w-9 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" className="hover:fill-gray-400 fill-white">
+              <path d="M476.9 161.1C435 119.1 379.2 96 319.9 96C197.5 96 97.9 195.6 97.9 318C97.9 357.1 108.1 395.3 127.5 429L96 544L213.7 513.1C246.1 530.8 282.6 540.1 319.8 540.1L319.9 540.1C442.2 540.1 544 440.5 544 318.1C544 258.8 518.8 203.1 476.9 161.1zM319.9 502.7C286.7 502.7 254.2 493.8 225.9 477L219.2 473L149.4 491.3L168 423.2L163.6 416.2C145.1 386.8 135.4 352.9 135.4 318C135.4 216.3 218.2 133.5 320 133.5C369.3 133.5 415.6 152.7 450.4 187.6C485.2 222.5 506.6 268.8 506.5 318.1C506.5 419.9 421.6 502.7 319.9 502.7zM421.1 364.5C415.6 361.7 388.3 348.3 383.2 346.5C378.1 344.6 374.4 343.7 370.7 349.3C367 354.9 356.4 367.3 353.1 371.1C349.9 374.8 346.6 375.3 341.1 372.5C308.5 356.2 287.1 343.4 265.6 306.5C259.9 296.7 271.3 297.4 281.9 276.2C283.7 272.5 282.8 269.3 281.4 266.5C280 263.7 268.9 236.4 264.3 225.3C259.8 214.5 255.2 216 251.8 215.8C248.6 215.6 244.9 215.6 241.2 215.6C237.5 215.6 231.5 217 226.4 222.5C221.3 228.1 207 241.5 207 268.8C207 296.1 226.9 322.5 229.6 326.2C232.4 329.9 268.7 385.9 324.4 410C359.6 425.2 373.4 426.5 391 423.9C401.7 422.3 423.8 410.5 428.4 397.5C433 384.5 433 373.4 431.6 371.1C430.3 368.6 426.6 367.2 421.1 364.5z" />
+            </svg>
           </a>
         </div>
         <div className="w-fit mx-auto flex flex-col">
-            {
-                contents.map((content, index) => (
-                    <a key={index} href={`/` + content.item.toLowerCase().split(" ").join("-")} className="w-full hover:text-black hover:bg-white transition-colors duration-300 border-[1px] border-white px-4 py-2 my-4 text-white text-center">
-                        {content.item}
-                    </a>
-                ))
-            }
+          {contents.map((content, index) => (
+            <a
+              key={index}
+              href={`/` + content.item.toLowerCase().split(" ").join("-")}
+              className="w-full hover:text-black hover:bg-white transition-colors duration-300 border-[1px] border-white px-4 py-2 my-4 text-white text-center"
+            >
+              {content.item}
+            </a>
+          ))}
         </div>
       </div>
-      <a href="/login" className="text-white border border-white w-[25px] h-[25px] text-sm flex flex-col text-center justify-center mx-auto mt-20">
+      <a
+        href="/login"
+        className="text-white border border-white w-[16px] h-[16px] font-bold text-[10px] flex flex-col text-center justify-center mx-auto mt-20"
+      >
         FJ
       </a>
     </div>

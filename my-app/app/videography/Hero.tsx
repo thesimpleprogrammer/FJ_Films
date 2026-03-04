@@ -93,7 +93,7 @@ export default function Hero({
   return (
     <div className="w-full h-fit overflow-clip relative" id="Home">
       <div className="w-full relative flex flex-row h-full">
-        <div className="absolute top-0 left-0 w-full h-full bg-rose-600">
+        <div className="absolute top-0 left-0 w-full h-full bg-blue-900">
           <video className="w-full h-full object-cover" autoPlay muted loop playsInline>
             <source src="video1.mp4" type="video/mp4" />
             Your browser does not support the video tag.

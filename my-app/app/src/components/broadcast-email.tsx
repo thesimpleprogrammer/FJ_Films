@@ -3,38 +3,20 @@ import * as React from "react";
 interface EmailTemplateProps {
   name: string;
   email: string;
-  phone: string;
-  packageType: string;
-  selectedPackage: string;
-  customDetails: string;
-  budget: string;
-  eventType: string;
-  eventDate: string;
-  consultationMethod: string;
-  notes: string;
-  leadTag: string;
+  message: string;
 }
 
-export function EmailComponent({
+export function BroadcastEmail({
   name,
   email,
-  phone,
-  packageType,
-  selectedPackage,
-  customDetails,
-  budget,
-  eventType,
-  eventDate,
-  consultationMethod,
-  notes,
-  leadTag,
+  message,
 }: EmailTemplateProps) {
   return (
     <div>
-      <h2>New Consultation Booking</h2>
-      <p>
+      <h2>New Broadcast Integration Booking</h2>
+      {/* <p>
         <strong>Lead Type:</strong> {leadTag}
-      </p>
+      </p> */}
       <p>
         <strong>Name:</strong> {name}
       </p>
@@ -42,9 +24,9 @@ export function EmailComponent({
         <strong>Email:</strong> {email}
       </p>
       <p>
-        <strong>Phone:</strong> {phone || "N/A"}
+        <strong>Message:</strong> {message || "N/A"}
       </p>
-      <p>
+      {/* <p>
         <strong>Event Type:</strong> {eventType}
       </p>
       <p>
@@ -71,7 +53,7 @@ export function EmailComponent({
       <p>
         <strong>Additional Notes:</strong>
       </p>
-      <p>{notes || "None"}</p>
+      <p>{notes || "None"}</p> */}
     </div>
   );
 }

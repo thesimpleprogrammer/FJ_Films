@@ -31,20 +31,22 @@ import AboutContainer from "./src/components/aboutContainer";
 // import PricingPlans from "../src/components/Pricing";
 import Testimonials from "./src/components/Testimonials";
 import NavbarContainer from "./src/components/NavbarContainer";
+import Clients from "../digital-marketing/clients";
 // Sample data - swap with API calls to CMS
 
 export default function BroadcastIntegration () {
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 antialiased"> 
+    <div className="min-h-screen text-white antialiased"> 
       {/* <NavBar /> */}
       <NavbarContainer />
       <HeroContainer />
       <Projects />
-      <EventsScheduleContainer />
+      {/* <EventsScheduleContainer /> */}
       {/* <PressDownloads /> */}
-      <AboutContainer />
-      <Testimonials />
+      {/* <AboutContainer /> */}
+      <Clients />
+      {/* <Testimonials /> */}
       {/* <PricingPlans /> */}
       <Contact />
       <Footer />

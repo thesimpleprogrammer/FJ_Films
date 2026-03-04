@@ -17,7 +17,7 @@ export default function Hero() {
                 <h1 className="underline underline-offset-1 text-white"><i>The</i></h1>
                 <h1 className="underline underline-offset-1 text-white">Worlds <i>Best</i></h1>
                 <h1 className="underline underline-offset-1 text-white">Podcast</h1>
-                <h1 className="underline underline-offset-1 text-white"><i>with</i> Femi</h1>
+                <h1 className="underline underline-offset-1 text-white"><i>with</i> FJ Films</h1>
             </div>
         </div>
     )

@@ -11,6 +11,8 @@ import TalkToUsSection from "../src/components/letsTalk";
 // import Testimonials from "../src/components/Testimonials";
 import TestimonialsContainer from "../src/components/TestimonialsContainer";
 import NavbarContainer from "./NavbarContainer";
+import Packages from "../src/components/Packages";
+import CollaborationCTA from "../src/components/collaborationCTA";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -80,7 +82,13 @@ export default async function Home() {
         url4={url4}
       />
       <Showroom />
+      <Packages />
       <TestimonialsContainer />
+      <CollaborationCTA
+        title="Open to Video Collaborations"
+        description="Directors, artists, agencies, and production teams — let’s bring ideas to life through motion."
+        ctaText="Start a Video Project"
+      />
       {/* <PricingPlans /> */}
       <TalkToUsSection
         contacts={{

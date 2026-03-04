@@ -66,14 +66,14 @@ export default function ProjectModal({ selected, closeProject }: ProjectModal) {
                 </div>
               )}
 
-              <div className="mt-4 text-sm text-gray-600">
+              {/* <div className="mt-4 text-sm text-gray-600">
                 <strong>Technical notes:</strong>
                 <ul className="list-disc ml-5 mt-2">
                   <li>Projector: 10,000 lm recommended for façade works.</li>
                   <li>Audio: 4-channel spatialised playback, WAV preferred.</li>
                   <li>Power & rigging: see rider download in press section.</li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

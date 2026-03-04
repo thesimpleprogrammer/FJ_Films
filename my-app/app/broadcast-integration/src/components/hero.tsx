@@ -71,13 +71,13 @@ export default function Hero({ user, multimediaHeroData }: {user: User | null, m
         }}
         user={user}
         as="h1"
-        className={`text-4xl md:text-5xl font-extrabold leading-tight ${user && `whiteBg`}`}
+        className={`text-4xl md:text-5xl font-extrabold leading-tight}`}
         style={{ width: "fit-content" }}
         setFinished={setFinished}
         >
         {getContent("multimedia_hero_text1")}
         </ReusableEditableText>
-          {/* <p className="mt-4 text-lg text-gray-700">
+          {/* <p className="mt-4 text-lg text-gray-300">
             I create immersive experiences blending sound, projection and
             interactive sculpture. Based in Maryland USA — available for
             exhibitions and site-specific commissions.
@@ -89,7 +89,7 @@ export default function Hero({ user, multimediaHeroData }: {user: User | null, m
         }}
         user={user}
         as="p"
-        className={`mt-4 text-lg text-gray-700 ${user && `whiteBg`}`}
+        className={`mt-4 text-lg text-gray-300`}
         style={{ width: "fit-content" }}
         setFinished={setFinished}
         >

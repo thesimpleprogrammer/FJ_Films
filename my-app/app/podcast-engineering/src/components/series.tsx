@@ -34,7 +34,7 @@ interface EpisodeForm {
   image: File | null;
 }
 
-export default function Episodes({
+export default function Series({
   episodesData,
   userData,
 }: {
@@ -114,7 +114,7 @@ export default function Episodes({
 
   return (
     <div className="text-white py-32 px-20" id="Episodes">
-      <h1 className="text-6xl pb-20">Podcast Episodes</h1>
+      <h1 className="text-6xl pb-20">Series</h1>
       <ul>
         {episodes?.map((episode, index) => (
           <li

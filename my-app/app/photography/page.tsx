@@ -13,11 +13,14 @@ import HeroContainer from "./HeroContainer";
 import TestimonialsContainer from "../src/components/TestimonialsContainer";
 import NavbarContainer from "./NavbarContainer";
 import Packages from "../src/components/Packages";
+import CollaborationCTA from "../src/components/collaborationCTA";
+// import ParentNavbar from "../src/components/ParentNavbar";
 // import CheckOut from "../src/components/checkOut";
 
 export default function Photography() {
   return (
     <div className="w-full overflow-x-hidden">
+      {/* <ParentNavbar /> */}
       {/* <Navbar /> */}
       <NavbarContainer />
       <HeroContainer />
@@ -26,6 +29,11 @@ export default function Photography() {
       <ProjectsContainer />
       <TestimonialsContainer />
       <Packages />
+      <CollaborationCTA
+        title="Let’s Create Together"
+        description="Photographers, stylists, brands, and creatives — if you’re building a visual story and need a strong collaborator, reach out."
+        ctaText="Collaborate on a Shoot"
+      />
       {/* <PricingPlans /> */}
       {/* <CheckOut /> */}
       <TalkToUsSection

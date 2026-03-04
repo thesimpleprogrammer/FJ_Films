@@ -7,7 +7,7 @@ export default function Navbar({ user_page, links }: any) {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <div className="text-black absolute top-0 left-0 w-full z-80 px-10 sm:px-15 md:px-20 py-10">
+    <div className="text-white absolute top-0 left-0 w-full z-80 px-10 sm:px-15 md:px-20 py-10">
           <div className="relative flex flex-row justify-between items-center w-full">
             <a
               href="#"
@@ -16,7 +16,7 @@ export default function Navbar({ user_page, links }: any) {
               FJ • Broadcast Integration
             </a>
             <>
-              <div className={`hidden text-black transform top-0 translate-y-0 lg:flex flex-row justify-between items-center w-[40%]`}>
+              <div className={`hidden text-white transform top-0 translate-y-0 lg:flex flex-row justify-between items-center w-[40%]`}>
                 {links.map((link:any, index:any) => (
                   <a
                     key={index}
@@ -50,8 +50,8 @@ export default function Navbar({ user_page, links }: any) {
               </div>
               </div>
               <div className="lg:flex hidden flex-row gap-3 items-center">
-                <a href="#">
-                  <button className="border border-black hover:bg-black hover:text-white px-4 py-2 transition-colors duration-300 hover:cursor-pointer">
+                <a href="mailto:femi@thefjfilms.com">
+                  <button className="border border-white hover:bg-white hover:text-black px-4 py-2 transition-colors duration-300 hover:cursor-pointer">
                     Talk to Us
                   </button>
                 </a>

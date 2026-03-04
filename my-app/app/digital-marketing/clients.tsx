@@ -25,9 +25,9 @@ import image2 from "../../public/image2.png";
 import image3 from "../../public/image3.png";
 import image4 from "../../public/image4.png";
 import image5 from "../../public/image5.png";
-import image6 from "../../public/image6.png";
-import image7 from "../../public/image7.png";
-import image8 from "../../public/image8.png";
+// import image6 from "../../public/image6.png";
+// import image7 from "../../public/image7.png";
+// import image8 from "../../public/image8.png";
 // import logo from "../../../public/logo.png";
 
 export default function Clients() {
@@ -42,9 +42,9 @@ export default function Clients() {
     { image: image3, alt: "" },
     { image: image4, alt: "" },
     { image: image5, alt: "" },
-    { image: image6, alt: "" },
-    { image: image7, alt: "" },
-    { image: image8, alt: "" },
+    // { image: image6, alt: "" },
+    // { image: image7, alt: "" },
+    // { image: image8, alt: "" },
   ];
 
 //   const imagesB: ImageType[] = [
@@ -61,9 +61,9 @@ export default function Clients() {
       </div> */}
 
       <h1 className="text-[2rem] text-[#BEBEBE] font-bold mt-5 mb-16">
-        Trusted by 500+ global companies
+        Trusted by Global Companies & Institutions
       </h1>
-      <div className="relative w-[364.1%] group h-[75px]">
+      <div className="relative w-[227.6%] group h-[100px]">
         <div className="flex w-[100%] h-full loop-scroll-animation">
           <div className="flex flex-row h-full gap-16 mr-16">
           {imagesA.map((image, index) => (
@@ -72,6 +72,7 @@ export default function Clients() {
               src={image.image}
               alt={image.alt}
               className=""
+              objectFit="cover"
             />
           ))}
           </div>
@@ -82,14 +83,15 @@ export default function Clients() {
               src={image.image}
               alt={image.alt}
               className=""
+              objectFit="cover"
             />
           ))}
         </div>
         </div>
       </div>
-      <div className="h-[75px] w-52 absolute bottom-0 left-0 z-10 bg-gradient-to-r from-[#141414] from-50% to-transparent" />
+      <div className="h-[100px] w-52 absolute bottom-0 left-0 z-10 bg-gradient-to-r from-[#141414] from-50% to-transparent" />
 
-        <div className="h-[75px] w-52 absolute bottom-0 right-0 z-10 bg-gradient-to-l from-[#141414] from-50% to-transparent" />
+        <div className="h-[100px] w-52 absolute bottom-0 right-0 z-10 bg-gradient-to-l from-[#141414] from-50% to-transparent" />
     </div>
   );
 }

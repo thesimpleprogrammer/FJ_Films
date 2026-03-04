@@ -2,7 +2,7 @@ export default function ReachOut() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center gap-5 h-fit text-white py-20 px-15 lg:px-32 bg-blue-800">
       <h1 className="text-4xl font-bold mb-4 w-full lg:w-[50%]">
-        Let&&apos;s talk about how we can transform your business!
+        Let&apos;s talk about how we can transform your business!
       </h1>
       <div className="flex flex-row items-center w-full lg:w-[50%] lg:justify-end">
         <div className="w-20 h-20 flex flex-row justify-center items-center bg-gray-900 opacity-50 rounded-full">
@@ -23,10 +23,10 @@ export default function ReachOut() {
           </div>
           <div className="flex flex-col justify-center ml-4 gap-2">
             <h6 className="text-lg">
-                Interested in working?
+                Click here to inquire for more info
             </h6>
-            <a href="mailto:hello@domain.com" className="text-3xl hover:underline">
-                hello@domain.com
+            <a href="mailto:femi@thefjfilms.com" className="text-3xl hover:underline">
+                femi@thefjfilms.com
             </a>
           </div>
         </div>

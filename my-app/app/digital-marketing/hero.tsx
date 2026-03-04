@@ -29,7 +29,7 @@ export default function Hero({ heroData, userData }: any) {
         />
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10" />
         <div className="flex flex-col items-center md:items-start w-[70%] z-20 pt-30 pb-20 text-center md:text-left">
-          <div className="bg-opacity-50 text-white z-20 mb-7">
+          <div className="bg-opacity-50 text-white z-20 mb-7 mt-20">
             <ReusableEditableText
               value={getContent("digitalMarketing_hero_h1_1")}
               onSave={async (newValue) => {
